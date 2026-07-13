@@ -1,0 +1,918 @@
+<!DOCTYPE html>
+<html lang="te">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>పిరదౌసి — కావ్యపఠనం</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Ramabhadra&family=Noto+Sans+Telugu:wght@400;500;600;700&family=Noto+Serif+Telugu:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --ink:#1c2430;
+    --ink-soft:#3a4557;
+    --paper:#f3ead2;
+    --paper-shadow:#e3d6ae;
+    --binding:#232b3d;
+    --binding-deep:#171d2b;
+    --gold:#c9a227;
+    --gold-soft:#e3c65f;
+    --maroon:#8a2d3b;
+    --teal:#2f6f62;
+    --line:#cdbd8e;
+    --paper-text:#2a2015;
+    --paper-text-soft:#5c4f38;
+    --radius:14px;
+    --serif: 'Noto Serif Telugu', 'Ramabhadra', serif;
+    --sans: 'Noto Sans Telugu', sans-serif;
+  }
+  *{box-sizing:border-box;}
+  html,body{height:100%;}
+  body{
+    margin:0;
+    font-family:var(--sans);
+    background:
+      radial-gradient(1200px 700px at 50% -10%, #2b3550 0%, var(--binding) 45%, var(--binding-deep) 100%);
+    color:var(--paper-text);
+    min-height:100vh;
+    display:flex;
+    flex-direction:column;
+    overflow:hidden;
+  }
+
+  /* ---------- Top bar ---------- */
+  .topbar{
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    padding:14px 18px;
+    gap:12px;
+    flex-shrink:0;
+    color:var(--paper);
+  }
+  .title-block{display:flex;flex-direction:column;line-height:1.15;}
+  .title-block .kav{
+    font-family:var(--serif);
+    font-size:20px;
+    font-weight:700;
+    letter-spacing:.02em;
+    color:var(--gold-soft);
+  }
+  .title-block .sub{
+    font-size:11px;
+    color:#b9c2d6;
+    letter-spacing:.08em;
+    margin-top:2px;
+  }
+
+  .version-toggle{
+    display:flex;
+    background:rgba(255,255,255,.06);
+    border:1px solid rgba(255,255,255,.14);
+    border-radius:999px;
+    padding:3px;
+    gap:2px;
+  }
+  .version-toggle button{
+    border:none;
+    background:transparent;
+    color:#c7cfe0;
+    font-family:var(--sans);
+    font-size:13px;
+    font-weight:600;
+    padding:7px 14px;
+    border-radius:999px;
+    cursor:pointer;
+    transition:background .2s, color .2s;
+  }
+  .version-toggle button.active{
+    background:linear-gradient(180deg, var(--gold-soft), var(--gold));
+    color:#241a04;
+  }
+
+  /* ---------- Progress ---------- */
+  .progress-row{
+    padding:0 18px 8px;
+    flex-shrink:0;
+  }
+  .progress-meta{
+    display:flex;
+    justify-content:space-between;
+    font-size:11px;
+    color:#a9b2c6;
+    margin-bottom:6px;
+    letter-spacing:.03em;
+  }
+  .progress-track{
+    height:3px;
+    background:rgba(255,255,255,.12);
+    border-radius:3px;
+    overflow:hidden;
+  }
+  .progress-fill{
+    height:100%;
+    background:linear-gradient(90deg, var(--gold), var(--gold-soft));
+    width:0%;
+    transition:width .25s ease;
+  }
+
+  /* ---------- Card stage ---------- */
+  .stage{
+    flex:1;
+    position:relative;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    padding:6px 10px 18px;
+    min-height:0;
+  }
+  .nav-btn{
+    position:absolute;
+    top:50%;
+    transform:translateY(-50%);
+    width:44px;
+    height:44px;
+    border-radius:50%;
+    border:1px solid rgba(255,255,255,.18);
+    background:rgba(255,255,255,.06);
+    color:var(--gold-soft);
+    font-size:20px;
+    cursor:pointer;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    z-index:5;
+    transition:background .2s, opacity .2s;
+  }
+  .nav-btn:hover{background:rgba(255,255,255,.14);}
+  .nav-btn:disabled{opacity:.25; cursor:default;}
+  .nav-prev{left:6px;}
+  .nav-next{right:6px;}
+  @media (min-width:640px){
+    .nav-prev{left:18px;}
+    .nav-next{right:18px;}
+  }
+
+  .card-wrap{
+    width:100%;
+    max-width:620px;
+    height:100%;
+    max-height:100%;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    touch-action:pan-y;
+  }
+
+  .card{
+    position:relative;
+    width:100%;
+    max-height:100%;
+    background:var(--paper);
+    border-radius:var(--radius);
+    box-shadow:0 18px 40px rgba(0,0,0,.45), 0 2px 0 rgba(255,255,255,.04) inset;
+    display:flex;
+    flex-direction:column;
+    overflow:hidden;
+    background-image:
+      linear-gradient(var(--paper-shadow) 1px, transparent 1px);
+    background-size: 100% 34px;
+  }
+
+  /* bookmark ribbon - the signature element */
+  .ribbon{
+    position:absolute;
+    top:0;
+    right:22px;
+    width:34px;
+    z-index:6;
+    cursor:pointer;
+    filter:drop-shadow(0 4px 5px rgba(0,0,0,.35));
+    transition:transform .18s ease;
+  }
+  .ribbon:hover{transform:translateY(2px);}
+  .ribbon svg{display:block;width:100%;}
+  .ribbon .rtag{
+    fill:#8a1f2c;
+  }
+  .ribbon.active .rtag{fill:var(--gold);}
+  .ribbon-hint{
+    position:absolute;
+    top:44px;
+    right:14px;
+    font-size:10px;
+    background:var(--binding);
+    color:var(--gold-soft);
+    padding:3px 7px;
+    border-radius:4px;
+    opacity:0;
+    pointer-events:none;
+    transition:opacity .2s;
+    white-space:nowrap;
+    z-index:7;
+  }
+  .ribbon-hint.show{opacity:1;}
+
+  .card-header{
+    padding:20px 26px 10px;
+    display:flex;
+    align-items:flex-start;
+    justify-content:space-between;
+    gap:10px;
+    border-bottom:1px dashed var(--line);
+  }
+  .badge-group{display:flex;flex-direction:column;gap:4px;}
+  .asvasam-label{
+    font-family:var(--sans);
+    font-size:11px;
+    font-weight:700;
+    letter-spacing:.09em;
+    text-transform:uppercase;
+    color:var(--paper-text-soft);
+  }
+  .poem-no-label{
+    font-family:var(--serif);
+    font-size:15px;
+    font-weight:700;
+    color:var(--maroon);
+  }
+  .lang-pill{
+    font-size:10px;
+    font-weight:700;
+    letter-spacing:.06em;
+    padding:3px 9px;
+    border-radius:999px;
+    color:#fff;
+    align-self:flex-start;
+  }
+  .lang-pill.tel{background:var(--maroon);}
+  .lang-pill.sans{background:var(--teal);}
+
+  .card-body{
+    flex:1;
+    overflow-y:auto;
+    padding:14px 26px 10px;
+  }
+  .intro-note{
+    font-size:12px;
+    font-style:italic;
+    color:var(--paper-text-soft);
+    margin-bottom:10px;
+    white-space:pre-wrap;
+    border-left:2px solid var(--line);
+    padding-left:10px;
+  }
+  .poem-text{
+    font-family:var(--serif);
+    font-size:19px;
+    line-height:1.85;
+    white-space:pre-wrap;
+    color:var(--paper-text);
+  }
+  .verse-no-tag{
+    display:inline-block;
+    margin-top:8px;
+    font-size:12px;
+    color:var(--paper-text-soft);
+  }
+
+  .section{
+    margin-top:16px;
+  }
+  .section-toggle{
+    display:flex;
+    align-items:center;
+    gap:6px;
+    font-size:12px;
+    font-weight:700;
+    letter-spacing:.04em;
+    color:var(--maroon);
+    cursor:pointer;
+    user-select:none;
+    background:none;
+    border:none;
+    padding:0;
+    font-family:var(--sans);
+  }
+  .section-toggle .chevron{
+    transition:transform .2s;
+    font-size:10px;
+  }
+  .section-toggle.open .chevron{transform:rotate(90deg);}
+  .section-content{
+    display:none;
+    margin-top:8px;
+    font-size:14.5px;
+    line-height:1.7;
+    color:var(--paper-text-soft);
+    white-space:pre-wrap;
+  }
+  .section-content.open{display:block;}
+
+  .replies-list{
+    margin-top:8px;
+    display:flex;
+    flex-direction:column;
+    gap:10px;
+  }
+  .reply{
+    background:rgba(138,45,59,.06);
+    border-left:3px solid var(--maroon);
+    border-radius:0 8px 8px 0;
+    padding:8px 12px;
+  }
+  .reply .reply-sender{
+    font-size:11.5px;
+    font-weight:700;
+    color:var(--maroon);
+  }
+  .reply .reply-text{
+    font-size:13.5px;
+    line-height:1.55;
+    white-space:pre-wrap;
+    margin-top:2px;
+  }
+  .reply .reply-ref{
+    font-size:10.5px;
+    color:var(--paper-text-soft);
+    margin-bottom:3px;
+    font-style:italic;
+  }
+
+  .card-footer{
+    padding:10px 26px 18px;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    font-size:11px;
+    color:var(--paper-text-soft);
+    border-top:1px dashed var(--line);
+  }
+  .footer-sender{font-weight:700;}
+
+  /* ---------- Resume banner ---------- */
+  .resume-banner{
+    position:fixed;
+    left:50%;
+    bottom:18px;
+    transform:translateX(-50%);
+    background:var(--binding);
+    border:1px solid var(--gold);
+    color:#f1e7d0;
+    padding:10px 16px;
+    border-radius:10px;
+    display:flex;
+    align-items:center;
+    gap:12px;
+    font-size:13px;
+    z-index:20;
+    box-shadow:0 10px 30px rgba(0,0,0,.5);
+    max-width:90vw;
+  }
+  .resume-banner button{
+    border:none;
+    background:var(--gold);
+    color:#241a04;
+    font-weight:700;
+    font-size:12px;
+    padding:6px 12px;
+    border-radius:6px;
+    cursor:pointer;
+    white-space:nowrap;
+  }
+  .resume-banner .dismiss{
+    background:transparent;
+    color:#a9b2c6;
+    font-weight:400;
+  }
+
+  ::-webkit-scrollbar{width:6px;}
+  ::-webkit-scrollbar-thumb{background:var(--line); border-radius:3px;}
+</style>
+</head>
+<body>
+
+<div class="topbar">
+  <div class="title-block">
+    <span class="kav">పిరదౌసి</span>
+    <span class="sub">జాషువా కావ్యపఠనం</span>
+  </div>
+  <div class="version-toggle" id="versionToggle">
+    <button data-version="telugu" class="active">తెలుగు</button>
+    <button data-version="sanskrit">సంస్కృతం</button>
+  </div>
+</div>
+
+<div class="progress-row">
+  <div class="progress-meta">
+    <span id="progressLabel">పుట 1 / 1</span>
+    <span id="asvasamLabel">—</span>
+  </div>
+  <div class="progress-track"><div class="progress-fill" id="progressFill"></div></div>
+</div>
+
+<div class="stage">
+  <button class="nav-btn nav-prev" id="prevBtn" aria-label="previous">‹</button>
+  <div class="card-wrap" id="cardWrap">
+    <div class="card" id="card">
+      <!-- rendered by JS -->
+    </div>
+  </div>
+  <button class="nav-btn nav-next" id="nextBtn" aria-label="next">›</button>
+</div>
+
+<div id="resumeBanner" class="resume-banner" style="display:none;">
+  <span id="resumeText"></span>
+  <button id="resumeGoBtn">కొనసాగించు</button>
+  <button class="dismiss" id="resumeDismissBtn">వద్దు</button>
+</div>
+
+<script src="firdowsi.js"></script>
+<script>
+(function(){
+  "use strict";
+
+  /* =========================================================
+     1. PARSE RAW DATA INTO ROW OBJECTS
+     ========================================================= */
+  const COLS = ["date","time","sender","asvasam","poemNo","message","messageNo","refNo","refSender","topic1","meaning","bhavam"];
+  const rawRows = firdowsi.slice(1).map(r => {
+    const o = {};
+    COLS.forEach((c,i)=> o[c] = r[i]);
+    return o;
+  });
+
+  function normTopic(t){
+    return (t||"").replace(/\s+/g," ").trim();
+  }
+  const TOPIC_TELUGU = "22. ఫిరదౌసి";
+  const TOPIC_SANSKRIT = "27. ఫిరదౌసి సంస్కృతం";
+
+  function fmtDate(dateIso, timeIso){
+    try{
+      const d = new Date(dateIso);
+      const t = new Date(timeIso);
+      const dd = d.toLocaleDateString("te-IN", {day:"numeric", month:"short", year:"numeric", timeZone:"UTC"});
+      let hh = t.getUTCHours(), mm = t.getUTCMinutes();
+      const ampm = hh >= 12 ? "PM" : "AM";
+      hh = hh % 12; if(hh===0) hh = 12;
+      const mmStr = mm.toString().padStart(2,"0");
+      return dd + " · " + hh + ":" + mmStr + " " + ampm;
+    }catch(e){ return ""; }
+  }
+
+  const ASVASAM_WORDS = ["అవతారిక","ప్రథమాశ్వాసము","ద్వితీయాశ్వాసము","తృతీయాశ్వాసము","చతుర్థాశ్వాసము"];
+
+  /* =========================================================
+     2. TELUGU DECK
+     ========================================================= */
+  function buildTeluguDeck(){
+    const rows = rawRows.filter(r => normTopic(r.topic1) === TOPIC_TELUGU)
+                         .sort((a,b)=> a.messageNo - b.messageNo);
+
+    const poemRows = rows.filter(r => r.poemNo !== "");
+    const discussionRows = rows.filter(r => r.poemNo === "");
+
+    const byMsgNo = new Map(rows.map(r => [r.messageNo, r]));
+
+    const cards = poemRows.map(r => ({
+      id: "t-" + r.messageNo,
+      messageNo: r.messageNo,
+      asvasam: r.asvasam,
+      poemNo: r.poemNo,
+      lang: "tel",
+      text: r.message,
+      meaning: r.meaning,
+      bhavam: r.bhavam,
+      sender: r.sender,
+      date: r.date, time: r.time,
+      replies: []
+    }));
+    const cardByMsgNo = new Map(cards.map(c => [c.messageNo, c]));
+    const poemMsgNosSorted = poemRows.map(r => r.messageNo).sort((a,b)=>a-b);
+
+    function nearestPrecedingPoem(msgNo){
+      let best = null;
+      for(const m of poemMsgNosSorted){
+        if(m <= msgNo) best = m; else break;
+      }
+      return best !== null ? best : poemMsgNosSorted[0];
+    }
+
+    function resolveTarget(row){
+      let cur = row;
+      const seen = new Set();
+      while(cur.refNo !== "" && !seen.has(cur.messageNo)){
+        seen.add(cur.messageNo);
+        const target = byMsgNo.get(cur.refNo);
+        if(!target) break;
+        if(target.poemNo !== "") return target.messageNo;
+        cur = target;
+      }
+      return null;
+    }
+
+    discussionRows.forEach(r => {
+      let targetMsgNo = resolveTarget(r);
+      if(targetMsgNo === null) targetMsgNo = nearestPrecedingPoem(r.messageNo);
+      const card = cardByMsgNo.get(targetMsgNo);
+      if(card) card.replies.push(r);
+    });
+
+    cards.forEach(c => c.replies.sort((a,b)=> a.messageNo - b.messageNo));
+    return cards;
+  }
+
+  /* =========================================================
+     3. SANSKRIT DECK
+     ========================================================= */
+  function buildSanskritDeck(){
+    const rows = rawRows.filter(r => normTopic(r.topic1) === TOPIC_SANSKRIT)
+                         .sort((a,b)=> a.messageNo - b.messageNo);
+
+    const spanRe = /<span class='(tel|sans)'>([\s\S]*?)<\/span>/g;
+    const verseCards = [];
+    const lastCardIdxForMsgNo = new Map();
+    const discussionRows = [];
+    let currentAsvasam = "";
+
+    rows.forEach(r => {
+      if(r.message.indexOf("<span") === -1){
+        discussionRows.push(r);
+        return;
+      }
+      const preamble = r.message.split("<span")[0].trim();
+      if(preamble){
+        for(const w of ASVASAM_WORDS){
+          if(preamble.indexOf(w) !== -1){ currentAsvasam = w; break; }
+        }
+      }
+      let m, idx = 0;
+      const localIdxStart = verseCards.length;
+      while((m = spanRe.exec(r.message)) !== null){
+        const lang = m[1];
+        let text = m[2].trim();
+        let verseNo = null;
+        const vm = text.match(/[॥।|\s]*["'\u201d\u2019]*\s*(\d+)\s*[॥।|\s]*["'\u201d\u2019]*\s*$/);
+        if(vm){
+          verseNo = vm[1];
+          text = text.slice(0, vm.index).trim();
+        }
+        verseCards.push({
+          id: "s-" + r.messageNo + "-" + idx,
+          messageNo: r.messageNo,
+          asvasam: currentAsvasam,
+          poemNo: verseNo,
+          lang: lang,
+          text: text,
+          meaning: "",
+          bhavam: "",
+          introNote: idx === 0 ? preamble : "",
+          sender: r.sender,
+          date: r.date, time: r.time,
+          replies: []
+        });
+        idx++;
+      }
+      spanRe.lastIndex = 0;
+      if(verseCards.length > localIdxStart){
+        lastCardIdxForMsgNo.set(r.messageNo, verseCards.length - 1);
+      }
+    });
+
+    const allByMsgNo = new Map(rows.map(r => [r.messageNo, r]));
+    const verseMsgNosSorted = [...lastCardIdxForMsgNo.keys()].sort((a,b)=>a-b);
+
+    function nearestPrecedingVerseIdx(msgNo){
+      let best = null;
+      for(const m of verseMsgNosSorted){
+        if(m <= msgNo) best = m; else break;
+      }
+      const key = best !== null ? best : verseMsgNosSorted[0];
+      return lastCardIdxForMsgNo.get(key);
+    }
+
+    function resolveTargetIdx(row){
+      let cur = row;
+      const seen = new Set();
+      while(cur.refNo !== "" && !seen.has(cur.messageNo)){
+        seen.add(cur.messageNo);
+        if(lastCardIdxForMsgNo.has(cur.refNo)) return lastCardIdxForMsgNo.get(cur.refNo);
+        const target = allByMsgNo.get(cur.refNo);
+        if(!target) break;
+        cur = target;
+      }
+      return null;
+    }
+
+    discussionRows.forEach(r => {
+      let idx = resolveTargetIdx(r);
+      if(idx === null) idx = nearestPrecedingVerseIdx(r.messageNo);
+      if(idx !== undefined && idx !== null) verseCards[idx].replies.push(r);
+    });
+
+    verseCards.forEach(c => c.replies.sort((a,b)=> a.messageNo - b.messageNo));
+    return verseCards;
+  }
+
+  const DECKS = {
+    telugu: buildTeluguDeck(),
+    sanskrit: buildSanskritDeck()
+  };
+
+  /* =========================================================
+     4. STATE + BOOKMARKS
+     ========================================================= */
+  const BOOKMARK_KEYS = { telugu: "firdowsi-telugu", sanskrit: "firdowsi-sanskrit" };
+  let state = { version: "telugu", index: 0 };
+
+  function getDeck(){ return DECKS[state.version]; }
+
+  function loadBookmark(version){
+    try{
+      const raw = localStorage.getItem(BOOKMARK_KEYS[version]);
+      if(!raw) return null;
+      return JSON.parse(raw);
+    }catch(e){ return null; }
+  }
+  function saveBookmark(version, index){
+    try{
+      const deck = DECKS[version];
+      const card = deck[index];
+      localStorage.setItem(BOOKMARK_KEYS[version], JSON.stringify({
+        id: card.id, index: index, savedAt: Date.now()
+      }));
+    }catch(e){ /* storage unavailable */ }
+  }
+
+  /* =========================================================
+     5. RENDER
+     ========================================================= */
+  const cardEl = document.getElementById("card");
+  const progressLabel = document.getElementById("progressLabel");
+  const asvasamLabel = document.getElementById("asvasamLabel");
+  const progressFill = document.getElementById("progressFill");
+  const prevBtn = document.getElementById("prevBtn");
+  const nextBtn = document.getElementById("nextBtn");
+
+  function poemLabel(card){
+    if(card.lang === "sans") return "అనువాదం" + (card.poemNo ? " · శ్లో. " + card.poemNo : "");
+    return "మూలం" + (card.poemNo ? " · పద్యం " + card.poemNo : "");
+  }
+
+  function render(){
+    const deck = getDeck();
+    const card = deck[state.index];
+    if(!card) return;
+
+    const bookmark = loadBookmark(state.version);
+    const isBookmarked = bookmark && bookmark.id === card.id;
+
+    progressLabel.textContent = "పుట " + (state.index+1) + " / " + deck.length;
+    asvasamLabel.textContent = card.asvasam ? card.asvasam.trim() : "—";
+    progressFill.style.width = (((state.index+1)/deck.length)*100) + "%";
+    prevBtn.disabled = state.index === 0;
+    nextBtn.disabled = state.index === deck.length - 1;
+
+    const wrapper = document.createElement("div");
+
+    // ribbon
+    const ribbon = document.createElement("div");
+    ribbon.className = "ribbon" + (isBookmarked ? " active" : "");
+    ribbon.title = "ఇక్కడ బుక్‌మార్క్ చేయి";
+    ribbon.innerHTML = '<svg viewBox="0 0 34 60" xmlns="http://www.w3.org/2000/svg">'
+      + '<path class="rtag" d="M0 0 H34 V52 L17 40 L0 52 Z"/></svg>';
+    ribbon.addEventListener("click", () => {
+      saveBookmark(state.version, state.index);
+      render();
+      showHint("ఈ పుట బుక్‌మార్క్ చేయబడింది");
+    });
+    wrapper.appendChild(ribbon);
+
+    // header
+    const header = document.createElement("div");
+    header.className = "card-header";
+    const badgeGroup = document.createElement("div");
+    badgeGroup.className = "badge-group";
+    const asv = document.createElement("div");
+    asv.className = "asvasam-label";
+    asv.textContent = card.asvasam ? card.asvasam.trim() : "చర్చ";
+    badgeGroup.appendChild(asv);
+    const pno = document.createElement("div");
+    pno.className = "poem-no-label";
+    pno.textContent = card.poemNo ? ("పద్యం " + card.poemNo) : "";
+    badgeGroup.appendChild(pno);
+    header.appendChild(badgeGroup);
+
+    if(state.version === "sanskrit"){
+      const pill = document.createElement("div");
+      pill.className = "lang-pill " + card.lang;
+      pill.textContent = poemLabel(card);
+      header.appendChild(pill);
+    }
+    wrapper.appendChild(header);
+
+    // body
+    const body = document.createElement("div");
+    body.className = "card-body";
+
+    if(card.introNote){
+      const note = document.createElement("div");
+      note.className = "intro-note";
+      note.textContent = card.introNote;
+      body.appendChild(note);
+    }
+
+    const poemText = document.createElement("div");
+    poemText.className = "poem-text";
+    poemText.textContent = card.text;
+    body.appendChild(poemText);
+
+    if(card.meaning){
+      body.appendChild(makeSection("పద్యార్థం", card.meaning));
+    }
+    if(card.bhavam){
+      body.appendChild(makeSection("భావం", card.bhavam));
+    }
+    if(card.replies.length){
+      body.appendChild(makeReplies(card.replies));
+    }
+
+    wrapper.appendChild(body);
+
+    // footer
+    const footer = document.createElement("div");
+    footer.className = "card-footer";
+    const senderSpan = document.createElement("span");
+    senderSpan.className = "footer-sender";
+    senderSpan.textContent = card.sender || "";
+    const dateSpan = document.createElement("span");
+    dateSpan.textContent = fmtDate(card.date, card.time);
+    footer.appendChild(senderSpan);
+    footer.appendChild(dateSpan);
+    wrapper.appendChild(footer);
+
+    cardEl.innerHTML = "";
+    cardEl.appendChild(wrapper);
+    cardEl.scrollTop = 0;
+    const bodyEl = cardEl.querySelector(".card-body");
+    if(bodyEl) bodyEl.scrollTop = 0;
+  }
+
+  function makeSection(title, content){
+    const section = document.createElement("div");
+    section.className = "section";
+    const toggle = document.createElement("button");
+    toggle.className = "section-toggle";
+    toggle.innerHTML = '<span class="chevron">▸</span><span>' + title + "</span>";
+    const contentEl = document.createElement("div");
+    contentEl.className = "section-content";
+    contentEl.textContent = content;
+    toggle.addEventListener("click", () => {
+      toggle.classList.toggle("open");
+      contentEl.classList.toggle("open");
+    });
+    section.appendChild(toggle);
+    section.appendChild(contentEl);
+    return section;
+  }
+
+  function makeReplies(replies){
+    const section = document.createElement("div");
+    section.className = "section";
+    const toggle = document.createElement("button");
+    toggle.className = "section-toggle";
+    toggle.innerHTML = '<span class="chevron">▸</span><span>చర్చ (' + replies.length + ")</span>";
+    const list = document.createElement("div");
+    list.className = "replies-list section-content";
+    replies.forEach(r => {
+      const item = document.createElement("div");
+      item.className = "reply";
+      if(r.refNo !== "" && r.refSender){
+        const refLine = document.createElement("div");
+        refLine.className = "reply-ref";
+        refLine.textContent = "↩ " + r.refSender + " వ్యాఖ్యకు స్పందన";
+        item.appendChild(refLine);
+      }
+      const senderEl = document.createElement("div");
+      senderEl.className = "reply-sender";
+      senderEl.textContent = r.sender || "";
+      const textEl = document.createElement("div");
+      textEl.className = "reply-text";
+      textEl.textContent = r.message;
+      item.appendChild(senderEl);
+      item.appendChild(textEl);
+      list.appendChild(item);
+    });
+    toggle.addEventListener("click", () => {
+      toggle.classList.toggle("open");
+      list.classList.toggle("open");
+    });
+    section.appendChild(toggle);
+    section.appendChild(list);
+    return section;
+  }
+
+  let hintTimer = null;
+  function showHint(msg){
+    let hint = document.querySelector(".ribbon-hint");
+    if(!hint){
+      hint = document.createElement("div");
+      hint.className = "ribbon-hint";
+      document.getElementById("cardWrap").appendChild(hint);
+    }
+    hint.textContent = msg;
+    hint.classList.add("show");
+    clearTimeout(hintTimer);
+    hintTimer = setTimeout(() => hint.classList.remove("show"), 1600);
+  }
+
+  /* =========================================================
+     6. NAVIGATION
+     ========================================================= */
+  function goTo(index){
+    const deck = getDeck();
+    if(index < 0 || index >= deck.length) return;
+    state.index = index;
+    render();
+    saveBookmark(state.version, state.index);
+  }
+  function next(){ goTo(state.index + 1); }
+  function prev(){ goTo(state.index - 1); }
+
+  prevBtn.addEventListener("click", prev);
+  nextBtn.addEventListener("click", next);
+  document.addEventListener("keydown", (e) => {
+    if(e.key === "ArrowRight") next();
+    if(e.key === "ArrowLeft") prev();
+  });
+
+  // swipe
+  const cardWrap = document.getElementById("cardWrap");
+  let touchStartX = null, touchStartY = null;
+  cardWrap.addEventListener("touchstart", (e) => {
+    touchStartX = e.touches[0].clientX;
+    touchStartY = e.touches[0].clientY;
+  }, {passive:true});
+  cardWrap.addEventListener("touchend", (e) => {
+    if(touchStartX === null) return;
+    const dx = e.changedTouches[0].clientX - touchStartX;
+    const dy = e.changedTouches[0].clientY - touchStartY;
+    if(Math.abs(dx) > 60 && Math.abs(dx) > Math.abs(dy)*1.5){
+      if(dx < 0) next(); else prev();
+    }
+    touchStartX = null; touchStartY = null;
+  }, {passive:true});
+
+  /* =========================================================
+     7. VERSION SWITCH
+     ========================================================= */
+  const versionToggle = document.getElementById("versionToggle");
+  versionToggle.addEventListener("click", (e) => {
+    const btn = e.target.closest("button[data-version]");
+    if(!btn) return;
+    const v = btn.dataset.version;
+    if(v === state.version) return;
+    [...versionToggle.children].forEach(b => b.classList.toggle("active", b === btn));
+    state.version = v;
+    const bm = loadBookmark(v);
+    state.index = bm ? Math.min(bm.index, DECKS[v].length-1) : 0;
+    hideResumeBanner();
+    render();
+    maybeOfferResume();
+  });
+
+  /* =========================================================
+     8. RESUME BANNER
+     ========================================================= */
+  const resumeBanner = document.getElementById("resumeBanner");
+  const resumeText = document.getElementById("resumeText");
+  document.getElementById("resumeGoBtn").addEventListener("click", () => {
+    const bm = loadBookmark(state.version);
+    if(bm) goTo(Math.min(bm.index, getDeck().length-1));
+    hideResumeBanner();
+  });
+  document.getElementById("resumeDismissBtn").addEventListener("click", hideResumeBanner);
+
+  function hideResumeBanner(){ resumeBanner.style.display = "none"; }
+
+  function maybeOfferResume(){
+    const bm = loadBookmark(state.version);
+    if(bm && bm.index !== state.index){
+      resumeText.textContent = "గత పఠనం పుట " + (bm.index+1) + " వద్ద ఆగింది";
+      resumeBanner.style.display = "flex";
+    }
+  }
+
+  /* =========================================================
+     9. INIT
+     ========================================================= */
+  const startBookmark = loadBookmark("telugu");
+  if(startBookmark) state.index = 0; // land on first, offer resume banner
+  render();
+  maybeOfferResume();
+
+})();
+</script>
+</body>
+</html>
