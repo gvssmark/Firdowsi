@@ -26,30 +26,27 @@
     --sans: 'Noto Sans Telugu', sans-serif;
   }
   *{box-sizing:border-box;}
-  html{background:var(--binding-deep);}
+  html,body{height:100%;}
   body{
     margin:0;
     font-family:var(--sans);
     background:
       radial-gradient(1200px 700px at 50% -10%, #2b3550 0%, var(--binding) 45%, var(--binding-deep) 100%);
-    background-attachment:fixed;
     color:var(--paper-text);
-    min-height:100vh;
+    display:flex;
+    flex-direction:column;
+    overflow:hidden;
   }
 
-  /* ---------- Top bar (sticky) ---------- */
+  /* ---------- Top bar ---------- */
   .topbar{
-    position:sticky;
-    top:0;
-    z-index:30;
+    flex:0 0 auto;
     display:flex;
     align-items:center;
     justify-content:space-between;
     padding:14px 18px;
     gap:12px;
     color:var(--paper);
-    background:linear-gradient(180deg, rgba(23,29,43,.97), rgba(23,29,43,.88));
-    backdrop-filter:blur(6px);
   }
   .title-block{display:flex;flex-direction:column;line-height:1.15;}
   .title-block .kav{
@@ -93,11 +90,8 @@
 
   /* ---------- Progress ---------- */
   .progress-row{
-    position:sticky;
-    top:57px;
-    z-index:29;
-    padding:0 18px 10px;
-    background:linear-gradient(180deg, rgba(23,29,43,.88), rgba(23,29,43,0));
+    flex:0 0 auto;
+    padding:0 18px 12px;
   }
   .progress-meta{
     display:flex;
@@ -120,40 +114,14 @@
     transition:width .25s ease;
   }
 
-  /* ---------- Card stage ---------- */
+  /* ---------- Stage (fills remaining space, scrolls internally) ---------- */
   .stage{
-    position:relative;
-    padding:14px 12px 90px;
-    min-height:calc(100vh - 110px);
+    flex:1 1 auto;
+    min-height:0;
+    overflow-y:auto;
+    padding:6px 12px 20px;
     display:flex;
     justify-content:center;
-  }
-  .nav-btn{
-    position:fixed;
-    top:50%;
-    transform:translateY(-50%);
-    width:44px;
-    height:44px;
-    border-radius:50%;
-    border:1px solid rgba(255,255,255,.18);
-    background:rgba(35,43,61,.85);
-    color:var(--gold-soft);
-    font-size:20px;
-    cursor:pointer;
-    display:flex;
-    align-items:center;
-    justify-content:center;
-    z-index:25;
-    transition:background .2s, opacity .2s;
-    backdrop-filter:blur(4px);
-  }
-  .nav-btn:hover{background:rgba(255,255,255,.14);}
-  .nav-btn:disabled{opacity:.2; cursor:default;}
-  .nav-prev{left:8px;}
-  .nav-next{right:8px;}
-  @media (min-width:640px){
-    .nav-prev{left:calc(50% - 340px);}
-    .nav-next{right:calc(50% - 340px);}
   }
 
   .card-wrap{
@@ -169,47 +137,13 @@
     box-shadow:0 18px 40px rgba(0,0,0,.45), 0 2px 0 rgba(255,255,255,.04) inset;
     display:flex;
     flex-direction:column;
-    overflow:visible;
     background-image:
       linear-gradient(var(--paper-shadow) 1px, transparent 1px);
     background-size: 100% 34px;
   }
 
-  /* bookmark ribbon - the signature element */
-  .ribbon{
-    position:absolute;
-    top:0;
-    right:22px;
-    width:34px;
-    z-index:6;
-    cursor:pointer;
-    filter:drop-shadow(0 4px 5px rgba(0,0,0,.35));
-    transition:transform .18s ease;
-  }
-  .ribbon:hover{transform:translateY(2px);}
-  .ribbon svg{display:block;width:100%;}
-  .ribbon .rtag{fill:#8a1f2c;}
-  .ribbon.active .rtag{fill:var(--gold);}
-  .ribbon-hint{
-    position:fixed;
-    top:70px;
-    left:50%;
-    transform:translateX(-50%);
-    font-size:12px;
-    background:var(--binding);
-    color:var(--gold-soft);
-    padding:6px 12px;
-    border-radius:6px;
-    opacity:0;
-    pointer-events:none;
-    transition:opacity .2s;
-    white-space:nowrap;
-    z-index:40;
-  }
-  .ribbon-hint.show{opacity:1;}
-
   .card-header{
-    padding:20px 26px 10px;
+    padding:18px 26px 10px;
     display:flex;
     align-items:flex-start;
     justify-content:space-between;
@@ -231,36 +165,35 @@
     font-weight:700;
     color:var(--maroon);
   }
-  .lang-pill{
-    font-size:10px;
-    font-weight:700;
-    letter-spacing:.06em;
-    padding:3px 9px;
-    border-radius:999px;
-    color:#fff;
-    align-self:flex-start;
-  }
-  .lang-pill.tel{background:var(--maroon);}
-  .lang-pill.sans{background:var(--teal);}
 
   .card-body{
     padding:14px 26px 10px;
   }
-  .intro-note{
-    font-size:12px;
-    font-style:italic;
-    color:var(--paper-text-soft);
-    margin-bottom:10px;
-    white-space:pre-wrap;
-    border-left:2px solid var(--line);
-    padding-left:10px;
+  .block-label{
+    font-size:10.5px;
+    font-weight:700;
+    letter-spacing:.08em;
+    text-transform:uppercase;
+    margin-bottom:4px;
   }
+  .block-label.tel{color:var(--maroon);}
+  .block-label.sans{color:var(--teal);}
   .poem-text{
     font-family:var(--serif);
-    font-size:19px;
-    line-height:1.85;
+    font-size:18px;
+    line-height:1.8;
     white-space:pre-wrap;
     color:var(--paper-text);
+  }
+  .sanskrit-block{
+    margin-top:18px;
+    padding-top:16px;
+    border-top:1px dashed var(--line);
+  }
+  .sanskrit-pending{
+    font-size:13px;
+    font-style:italic;
+    color:var(--paper-text-soft);
   }
 
   .section{margin-top:16px;}
@@ -341,11 +274,61 @@
   }
   .footer-sender{font-weight:700;}
 
+  /* ---------- Bottom nav bar ---------- */
+  .footer-nav{
+    flex:0 0 auto;
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    gap:10px;
+    padding:12px 16px calc(12px + env(safe-area-inset-bottom));
+    background:linear-gradient(0deg, rgba(23,29,43,1), rgba(23,29,43,.9));
+    border-top:1px solid rgba(255,255,255,.08);
+  }
+  .nav-btn-footer{
+    flex:1 1 0;
+    max-width:130px;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    gap:6px;
+    padding:11px 10px;
+    border-radius:10px;
+    border:1px solid rgba(255,255,255,.16);
+    background:rgba(255,255,255,.06);
+    color:var(--gold-soft);
+    font-family:var(--sans);
+    font-size:14px;
+    font-weight:600;
+    cursor:pointer;
+    transition:background .2s, opacity .2s;
+  }
+  .nav-btn-footer:hover{background:rgba(255,255,255,.14);}
+  .nav-btn-footer:disabled{opacity:.25; cursor:default;}
+  .clear-bookmark-btn{
+    flex:0 0 auto;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    padding:9px 12px;
+    border-radius:10px;
+    border:1px solid rgba(255,255,255,.1);
+    background:transparent;
+    color:#8f9ab0;
+    font-family:var(--sans);
+    font-size:11px;
+    cursor:pointer;
+    text-align:center;
+    line-height:1.25;
+  }
+  .clear-bookmark-btn:hover{color:#c7cfe0; border-color:rgba(255,255,255,.22);}
+  .clear-bookmark-btn:disabled{opacity:.3; cursor:default;}
+
   /* ---------- Resume banner ---------- */
   .resume-banner{
     position:fixed;
     left:50%;
-    bottom:18px;
+    bottom:78px;
     transform:translateX(-50%);
     background:var(--binding);
     border:1px solid var(--gold);
@@ -377,6 +360,24 @@
     font-weight:400;
   }
 
+  .toast{
+    position:fixed;
+    top:14px;
+    left:50%;
+    transform:translateX(-50%);
+    font-size:12px;
+    background:var(--binding);
+    color:var(--gold-soft);
+    padding:7px 14px;
+    border-radius:8px;
+    opacity:0;
+    pointer-events:none;
+    transition:opacity .2s;
+    z-index:40;
+    box-shadow:0 8px 22px rgba(0,0,0,.4);
+  }
+  .toast.show{opacity:1;}
+
   ::-webkit-scrollbar{width:6px;}
   ::-webkit-scrollbar-thumb{background:var(--line); border-radius:3px;}
 </style>
@@ -402,14 +403,18 @@
   <div class="progress-track"><div class="progress-fill" id="progressFill"></div></div>
 </div>
 
-<div class="stage">
-  <button class="nav-btn nav-prev" id="prevBtn" aria-label="previous">‹</button>
+<div class="stage" id="stage">
   <div class="card-wrap" id="cardWrap">
     <div class="card" id="card">
       <!-- rendered by JS -->
     </div>
   </div>
-  <button class="nav-btn nav-next" id="nextBtn" aria-label="next">›</button>
+</div>
+
+<div class="footer-nav">
+  <button class="nav-btn-footer" id="prevBtn" aria-label="previous">‹ వెనుక</button>
+  <button class="clear-bookmark-btn" id="clearBookmarkBtn">బుక్‌మార్క్<br>తొలగించు</button>
+  <button class="nav-btn-footer" id="nextBtn" aria-label="next">తరువాత ›</button>
 </div>
 
 <div id="resumeBanner" class="resume-banner" style="display:none;">
@@ -418,7 +423,10 @@
   <button class="dismiss" id="resumeDismissBtn">వద్దు</button>
 </div>
 
+<div class="toast" id="toast"></div>
+
 <script src="firdowsi.js"></script>
+<script src="telugu2sanskrit.js"></script>
 <script>
 (function(){
   "use strict";
@@ -456,51 +464,39 @@
     }catch(e){ return ""; }
   }
 
-  const ASVASAM_WORDS = ["అవతారిక","ప్రథమాశ్వాసము","ద్వితీయాశ్వాసము","తృతీయాశ్వాసము","చతుర్థాశ్వాసము"];
+  function stripTrailingNumber(text){
+    const t = (text || "").trim();
+    if(!t) return {text:t, num:null};
+    const m = t.match(/[॥।|\s]*["'\u201d\u2019]*\s*(\d+)\s*[॥।|\s]*["'\u201d\u2019]*\s*$/);
+    if(!m) return {text:t, num:null};
+    return {text: t.slice(0, m.index).trim(), num: m[1]};
+  }
 
   /* =========================================================
      Generic reply-tree helper
-     Rules:
      - a row with refNo attaches directly under the row whose
        messageNo === refNo (single direct lookup, no chain-walking)
      - a row with no refNo (or an unresolved refNo) attaches to the
-       end of its own day: the last "anchor" (card-producing) row
-       on the same date, or the last anchor on the most recent
-       earlier date if that day has no anchor of its own.
+       end of its own day: the last anchor row on the same date,
+       or the last anchor on the most recent earlier date.
      ========================================================= */
   function buildReplyIndex(rows, isAnchor, anchorAttachKey){
-    // rows: all rows for this topic, in messageNo order
-    // isAnchor(row): true if row itself becomes a top-level card
-    // anchorAttachKey(row): the key children should attach under for this anchor row
-    //   (for telugu this is just row.messageNo; for sanskrit it's supplied by caller
-    //    after verse-splitting, so this fn is used slightly differently there)
     const byMsgNo = new Map(rows.map(r => [r.messageNo, r]));
     const anchors = rows.filter(isAnchor).sort((a,b)=> a.messageNo - b.messageNo);
-    const anchorsByDay = new Map(); // dayKey -> last anchor row (by messageNo) so far
-    const sortedAnchorDays = [];
-    anchors.forEach(a => {
-      const dk = dayKey(a.date);
-      if(!anchorsByDay.has(dk)) sortedAnchorDays.push(dk);
-      anchorsByDay.set(dk, a); // keep overwriting -> ends on last anchor of that day
-    });
-    // running "last anchor seen so far" per day, resolved chronologically
     function lastAnchorAtOrBefore(dk){
       let best = null;
       for(const a of anchors){
-        const adk = dayKey(a.date);
-        if(adk <= dk) best = a; else break;
+        if(dayKey(a.date) <= dk) best = a; else break;
       }
       return best;
     }
-
-    const childrenOf = new Map(); // messageNo -> [row,...] (direct children only)
+    const childrenOf = new Map();
     function addChild(parentMsgNo, row){
       if(!childrenOf.has(parentMsgNo)) childrenOf.set(parentMsgNo, []);
       childrenOf.get(parentMsgNo).push(row);
     }
-
     rows.forEach(r => {
-      if(isAnchor(r)) return; // anchors aren't "attached", they're roots
+      if(isAnchor(r)) return;
       let parentMsgNo = null;
       if(r.refNo !== "" && byMsgNo.has(r.refNo)){
         parentMsgNo = r.refNo;
@@ -510,7 +506,6 @@
       }
       if(parentMsgNo !== null) addChild(parentMsgNo, r);
     });
-
     childrenOf.forEach(list => list.sort((a,b)=> a.messageNo - b.messageNo));
     return childrenOf;
   }
@@ -542,8 +537,8 @@
         messageNo: r.messageNo,
         asvasam: r.asvasam,
         poemNo: r.poemNo,
-        lang: "tel",
-        text: r.message,
+        telugu: r.message,
+        sanskrit: null,
         meaning: r.meaning,
         bhavam: r.bhavam,
         sender: r.sender,
@@ -556,63 +551,63 @@
 
   /* =========================================================
      3. SANSKRIT DECK
+     Card content comes from telugu2sanskrit.js (one row = one
+     combined card: Telugu block on top, Sanskrit block below).
+     Poem No is read directly from the number embedded at the end
+     of the Telugu verse text (now matched to the mulagrandha
+     numbering, restarting per Asvasam - same convention as the
+     Telugu deck).
+     firdowsi.js's own "27. ఫిరదౌసి సంస్కృతం" rows are used only as
+     the discussion/reply layer: rows that still carry the old
+     <span> verse markup act as pass-through anchors (their
+     messageNo is what telugu2sanskrit.js's "Corresponds to" points
+     at); every other row is a real discussion comment, threaded
+     the same way as the Telugu deck and attached to the LAST
+     telugu2sanskrit.js card in its "Corresponds to" group.
      ========================================================= */
   function buildSanskritDeck(){
-    const rows = rawRows.filter(r => normTopic(r.topic1) === TOPIC_SANSKRIT)
-                         .sort((a,b)=> a.messageNo - b.messageNo);
+    const fRows = rawRows.filter(r => normTopic(r.topic1) === TOPIC_SANSKRIT)
+                          .sort((a,b)=> a.messageNo - b.messageNo);
+    const isSpanAnchor = r => r.message.indexOf("<span") !== -1;
+    const childrenOf = buildReplyIndex(fRows, isSpanAnchor, r => r.messageNo);
+    const msgNoToFRow = new Map(fRows.map(r => [r.messageNo, r]));
 
-    const spanRe = /<span class='(tel|sans)'>([\s\S]*?)<\/span>/g;
-    const verseCards = [];
-    const lastCardIdxForMsgNo = new Map();
-    let currentAsvasam = "";
+    const t2sRows = telugu2sanskrit.slice(1).map(r => ({
+      asvasam: r[0], telugu: r[2], sanskrit: r[3], corresponds: r[4]
+    }));
 
-    const isAnchor = r => r.message.indexOf("<span") !== -1;
-    const childrenOf = buildReplyIndex(rows, isAnchor, r => r.messageNo);
-
-    rows.filter(isAnchor).forEach(r => {
-      const preamble = r.message.split("<span")[0].trim();
-      if(preamble){
-        for(const w of ASVASAM_WORDS){
-          if(preamble.indexOf(w) !== -1){ currentAsvasam = w; break; }
-        }
-      }
-      let m, idx = 0;
-      const localStart = verseCards.length;
-      while((m = spanRe.exec(r.message)) !== null){
-        const lang = m[1];
-        let text = m[2].trim();
-        let verseNo = null;
-        const vm = text.match(/[॥।|\s]*["'\u201d\u2019]*\s*(\d+)\s*[॥।|\s]*["'\u201d\u2019]*\s*$/);
-        if(vm){
-          verseNo = vm[1];
-          text = text.slice(0, vm.index).trim();
-        }
-        verseCards.push({
-          id: "s-" + r.messageNo + "-" + idx,
-          messageNo: r.messageNo,
-          asvasam: currentAsvasam,
-          poemNo: verseNo,
-          lang: lang,
-          text: text,
-          meaning: "",
-          bhavam: "",
-          introNote: idx === 0 ? preamble : "",
-          sender: r.sender,
-          date: r.date, time: r.time,
-          replies: []
-        });
-        idx++;
-      }
-      spanRe.lastIndex = 0;
-      if(verseCards.length > localStart){
-        lastCardIdxForMsgNo.set(r.messageNo, verseCards.length - 1);
-        const flat = [];
-        renderReplyTree(childrenOf, r.messageNo, 0, flat);
-        verseCards[verseCards.length - 1].replies = flat;
-      }
+    let lastAsv = "";
+    t2sRows.forEach(r => {
+      if(r.asvasam === "") r.asvasam = lastAsv; else lastAsv = r.asvasam;
     });
 
-    return verseCards;
+    const groupLastIdx = new Map();
+    t2sRows.forEach((r,i) => { groupLastIdx.set(r.corresponds, i); });
+
+    return t2sRows.map((r,i) => {
+      const isLastOfGroup = groupLastIdx.get(r.corresponds) === i;
+      let replies = [];
+      if(isLastOfGroup){
+        renderReplyTree(childrenOf, r.corresponds, 0, replies);
+      }
+      const anchorRow = msgNoToFRow.get(r.corresponds);
+      const tel = stripTrailingNumber(r.telugu);
+      const san = stripTrailingNumber(r.sanskrit);
+      return {
+        id: "s-" + r.corresponds + "-" + i,
+        messageNo: r.corresponds,
+        asvasam: r.asvasam,
+        poemNo: tel.num,
+        telugu: tel.text,
+        sanskrit: san.text,
+        meaning: "",
+        bhavam: "",
+        sender: anchorRow ? anchorRow.sender : "",
+        date: anchorRow ? anchorRow.date : null,
+        time: anchorRow ? anchorRow.time : null,
+        replies: replies
+      };
+    });
   }
 
   const DECKS = {
@@ -644,21 +639,21 @@
       }));
     }catch(e){ /* storage unavailable */ }
   }
+  function clearBookmark(version){
+    try{ localStorage.removeItem(BOOKMARK_KEYS[version]); }catch(e){}
+  }
 
   /* =========================================================
      5. RENDER
      ========================================================= */
   const cardEl = document.getElementById("card");
+  const stageEl = document.getElementById("stage");
   const progressLabel = document.getElementById("progressLabel");
   const asvasamLabel = document.getElementById("asvasamLabel");
   const progressFill = document.getElementById("progressFill");
   const prevBtn = document.getElementById("prevBtn");
   const nextBtn = document.getElementById("nextBtn");
-
-  function poemLabel(card){
-    if(card.lang === "sans") return "అనువాదం" + (card.poemNo ? " · శ్లో. " + card.poemNo : "");
-    return "మూలం" + (card.poemNo ? " · పద్యం " + card.poemNo : "");
-  }
+  const clearBookmarkBtn = document.getElementById("clearBookmarkBtn");
 
   function depthClass(depth){
     if(depth <= 0) return "";
@@ -672,29 +667,14 @@
     const card = deck[state.index];
     if(!card) return;
 
-    const bookmark = loadBookmark(state.version);
-    const isBookmarked = bookmark && bookmark.id === card.id;
-
     progressLabel.textContent = "పుట " + (state.index+1) + " / " + deck.length;
     asvasamLabel.textContent = card.asvasam ? card.asvasam.trim() : "—";
     progressFill.style.width = (((state.index+1)/deck.length)*100) + "%";
     prevBtn.disabled = state.index === 0;
     nextBtn.disabled = state.index === deck.length - 1;
+    clearBookmarkBtn.disabled = !loadBookmark(state.version);
 
     const wrapper = document.createElement("div");
-
-    // ribbon
-    const ribbon = document.createElement("div");
-    ribbon.className = "ribbon" + (isBookmarked ? " active" : "");
-    ribbon.title = "ఇక్కడ బుక్‌మార్క్ చేయి";
-    ribbon.innerHTML = '<svg viewBox="0 0 34 60" xmlns="http://www.w3.org/2000/svg">'
-      + '<path class="rtag" d="M0 0 H34 V52 L17 40 L0 52 Z"/></svg>';
-    ribbon.addEventListener("click", () => {
-      saveBookmark(state.version, state.index);
-      render();
-      showHint("ఈ పుట బుక్‌మార్క్ చేయబడింది");
-    });
-    wrapper.appendChild(ribbon);
 
     // header
     const header = document.createElement("div");
@@ -710,30 +690,44 @@
     pno.textContent = card.poemNo ? ("పద్యం " + card.poemNo) : "";
     badgeGroup.appendChild(pno);
     header.appendChild(badgeGroup);
-
-    if(state.version === "sanskrit"){
-      const pill = document.createElement("div");
-      pill.className = "lang-pill " + card.lang;
-      pill.textContent = poemLabel(card);
-      header.appendChild(pill);
-    }
     wrapper.appendChild(header);
 
     // body
     const body = document.createElement("div");
     body.className = "card-body";
 
-    if(card.introNote){
-      const note = document.createElement("div");
-      note.className = "intro-note";
-      note.textContent = card.introNote;
-      body.appendChild(note);
+    if(state.version === "sanskrit"){
+      const telLabel = document.createElement("div");
+      telLabel.className = "block-label tel";
+      telLabel.textContent = "మూలం";
+      body.appendChild(telLabel);
     }
 
     const poemText = document.createElement("div");
     poemText.className = "poem-text";
-    poemText.textContent = card.text;
+    poemText.textContent = card.telugu;
     body.appendChild(poemText);
+
+    if(state.version === "sanskrit"){
+      const sansWrap = document.createElement("div");
+      sansWrap.className = "sanskrit-block";
+      const sansLabel = document.createElement("div");
+      sansLabel.className = "block-label sans";
+      sansLabel.textContent = "అనువాదం";
+      sansWrap.appendChild(sansLabel);
+      if(card.sanskrit){
+        const sansText = document.createElement("div");
+        sansText.className = "poem-text";
+        sansText.textContent = card.sanskrit;
+        sansWrap.appendChild(sansText);
+      } else {
+        const pending = document.createElement("div");
+        pending.className = "sanskrit-pending";
+        pending.textContent = "అనువాదం లభ్యం కాలేదు";
+        sansWrap.appendChild(pending);
+      }
+      body.appendChild(sansWrap);
+    }
 
     if(card.meaning){
       body.appendChild(makeSection("పద్యార్థం", card.meaning));
@@ -761,7 +755,7 @@
 
     cardEl.innerHTML = "";
     cardEl.appendChild(wrapper);
-    window.scrollTo({top:0, behavior:"instant" in window ? "instant" : "auto"});
+    stageEl.scrollTop = 0;
   }
 
   function makeSection(title, content){
@@ -818,22 +812,19 @@
     return section;
   }
 
-  let hintTimer = null;
-  function showHint(msg){
-    let hint = document.querySelector(".ribbon-hint");
-    if(!hint){
-      hint = document.createElement("div");
-      hint.className = "ribbon-hint";
-      document.body.appendChild(hint);
-    }
-    hint.textContent = msg;
-    hint.classList.add("show");
-    clearTimeout(hintTimer);
-    hintTimer = setTimeout(() => hint.classList.remove("show"), 1600);
+  let toastTimer = null;
+  function showToast(msg){
+    const toast = document.getElementById("toast");
+    toast.textContent = msg;
+    toast.classList.add("show");
+    clearTimeout(toastTimer);
+    toastTimer = setTimeout(() => toast.classList.remove("show"), 1600);
   }
 
   /* =========================================================
-     6. NAVIGATION
+     6. NAVIGATION (prev/next also acts as the bookmark - every
+     move saves position, so a separate bookmark control isn't
+     needed beyond a way to clear it)
      ========================================================= */
   function goTo(index){
     const deck = getDeck();
@@ -847,12 +838,17 @@
 
   prevBtn.addEventListener("click", prev);
   nextBtn.addEventListener("click", next);
+  clearBookmarkBtn.addEventListener("click", () => {
+    clearBookmark(state.version);
+    render();
+    showToast("బుక్‌మార్క్ తొలగించబడింది");
+  });
   document.addEventListener("keydown", (e) => {
     if(e.key === "ArrowRight") next();
     if(e.key === "ArrowLeft") prev();
   });
 
-  // swipe (horizontal only, so vertical page scroll is unaffected)
+  // swipe (horizontal only, so vertical scroll within the stage is unaffected)
   const cardWrap = document.getElementById("cardWrap");
   let touchStartX = null, touchStartY = null;
   cardWrap.addEventListener("touchstart", (e) => {
