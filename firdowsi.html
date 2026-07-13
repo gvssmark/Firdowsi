@@ -10,7 +10,6 @@
 <style>
   :root{
     --ink:#1c2430;
-    --ink-soft:#3a4557;
     --paper:#f3ead2;
     --paper-shadow:#e3d6ae;
     --binding:#232b3d;
@@ -27,28 +26,30 @@
     --sans: 'Noto Sans Telugu', sans-serif;
   }
   *{box-sizing:border-box;}
-  html,body{height:100%;}
+  html{background:var(--binding-deep);}
   body{
     margin:0;
     font-family:var(--sans);
     background:
       radial-gradient(1200px 700px at 50% -10%, #2b3550 0%, var(--binding) 45%, var(--binding-deep) 100%);
+    background-attachment:fixed;
     color:var(--paper-text);
     min-height:100vh;
-    display:flex;
-    flex-direction:column;
-    overflow:hidden;
   }
 
-  /* ---------- Top bar ---------- */
+  /* ---------- Top bar (sticky) ---------- */
   .topbar{
+    position:sticky;
+    top:0;
+    z-index:30;
     display:flex;
     align-items:center;
     justify-content:space-between;
     padding:14px 18px;
     gap:12px;
-    flex-shrink:0;
     color:var(--paper);
+    background:linear-gradient(180deg, rgba(23,29,43,.97), rgba(23,29,43,.88));
+    backdrop-filter:blur(6px);
   }
   .title-block{display:flex;flex-direction:column;line-height:1.15;}
   .title-block .kav{
@@ -92,8 +93,11 @@
 
   /* ---------- Progress ---------- */
   .progress-row{
-    padding:0 18px 8px;
-    flex-shrink:0;
+    position:sticky;
+    top:57px;
+    z-index:29;
+    padding:0 18px 10px;
+    background:linear-gradient(180deg, rgba(23,29,43,.88), rgba(23,29,43,0));
   }
   .progress-meta{
     display:flex;
@@ -118,62 +122,54 @@
 
   /* ---------- Card stage ---------- */
   .stage{
-    flex:1;
     position:relative;
+    padding:14px 12px 90px;
+    min-height:calc(100vh - 110px);
     display:flex;
-    align-items:center;
     justify-content:center;
-    padding:6px 10px 18px;
-    min-height:0;
   }
   .nav-btn{
-    position:absolute;
+    position:fixed;
     top:50%;
     transform:translateY(-50%);
     width:44px;
     height:44px;
     border-radius:50%;
     border:1px solid rgba(255,255,255,.18);
-    background:rgba(255,255,255,.06);
+    background:rgba(35,43,61,.85);
     color:var(--gold-soft);
     font-size:20px;
     cursor:pointer;
     display:flex;
     align-items:center;
     justify-content:center;
-    z-index:5;
+    z-index:25;
     transition:background .2s, opacity .2s;
+    backdrop-filter:blur(4px);
   }
   .nav-btn:hover{background:rgba(255,255,255,.14);}
-  .nav-btn:disabled{opacity:.25; cursor:default;}
-  .nav-prev{left:6px;}
-  .nav-next{right:6px;}
+  .nav-btn:disabled{opacity:.2; cursor:default;}
+  .nav-prev{left:8px;}
+  .nav-next{right:8px;}
   @media (min-width:640px){
-    .nav-prev{left:18px;}
-    .nav-next{right:18px;}
+    .nav-prev{left:calc(50% - 340px);}
+    .nav-next{right:calc(50% - 340px);}
   }
 
   .card-wrap{
     width:100%;
     max-width:620px;
-    height:100%;
-    max-height:100%;
-    display:flex;
-    align-items:center;
-    justify-content:center;
-    touch-action:pan-y;
   }
 
   .card{
     position:relative;
     width:100%;
-    max-height:100%;
     background:var(--paper);
     border-radius:var(--radius);
     box-shadow:0 18px 40px rgba(0,0,0,.45), 0 2px 0 rgba(255,255,255,.04) inset;
     display:flex;
     flex-direction:column;
-    overflow:hidden;
+    overflow:visible;
     background-image:
       linear-gradient(var(--paper-shadow) 1px, transparent 1px);
     background-size: 100% 34px;
@@ -192,24 +188,23 @@
   }
   .ribbon:hover{transform:translateY(2px);}
   .ribbon svg{display:block;width:100%;}
-  .ribbon .rtag{
-    fill:#8a1f2c;
-  }
+  .ribbon .rtag{fill:#8a1f2c;}
   .ribbon.active .rtag{fill:var(--gold);}
   .ribbon-hint{
-    position:absolute;
-    top:44px;
-    right:14px;
-    font-size:10px;
+    position:fixed;
+    top:70px;
+    left:50%;
+    transform:translateX(-50%);
+    font-size:12px;
     background:var(--binding);
     color:var(--gold-soft);
-    padding:3px 7px;
-    border-radius:4px;
+    padding:6px 12px;
+    border-radius:6px;
     opacity:0;
     pointer-events:none;
     transition:opacity .2s;
     white-space:nowrap;
-    z-index:7;
+    z-index:40;
   }
   .ribbon-hint.show{opacity:1;}
 
@@ -249,8 +244,6 @@
   .lang-pill.sans{background:var(--teal);}
 
   .card-body{
-    flex:1;
-    overflow-y:auto;
     padding:14px 26px 10px;
   }
   .intro-note{
@@ -269,16 +262,8 @@
     white-space:pre-wrap;
     color:var(--paper-text);
   }
-  .verse-no-tag{
-    display:inline-block;
-    margin-top:8px;
-    font-size:12px;
-    color:var(--paper-text-soft);
-  }
 
-  .section{
-    margin-top:16px;
-  }
+  .section{margin-top:16px;}
   .section-toggle{
     display:flex;
     align-items:center;
@@ -297,6 +282,7 @@
   .section-toggle .chevron{
     transition:transform .2s;
     font-size:10px;
+    display:inline-block;
   }
   .section-toggle.open .chevron{transform:rotate(90deg);}
   .section-content{
@@ -321,11 +307,15 @@
     border-radius:0 8px 8px 0;
     padding:8px 12px;
   }
+  .reply.depth-1{margin-left:16px;border-left-color:var(--teal);background:rgba(47,111,98,.07);}
+  .reply.depth-2{margin-left:32px;}
+  .reply.depth-3plus{margin-left:44px;}
   .reply .reply-sender{
     font-size:11.5px;
     font-weight:700;
     color:var(--maroon);
   }
+  .reply.depth-1 .reply-sender, .reply.depth-2 .reply-sender, .reply.depth-3plus .reply-sender{color:var(--teal);}
   .reply .reply-text{
     font-size:13.5px;
     line-height:1.55;
@@ -347,6 +337,7 @@
     font-size:11px;
     color:var(--paper-text-soft);
     border-top:1px dashed var(--line);
+    margin-top:6px;
   }
   .footer-sender{font-weight:700;}
 
@@ -365,7 +356,7 @@
     align-items:center;
     gap:12px;
     font-size:13px;
-    z-index:20;
+    z-index:35;
     box-shadow:0 10px 30px rgba(0,0,0,.5);
     max-width:90vw;
   }
@@ -448,6 +439,10 @@
   const TOPIC_TELUGU = "22. ఫిరదౌసి";
   const TOPIC_SANSKRIT = "27. ఫిరదౌసి సంస్కృతం";
 
+  function dayKey(dateIso){
+    return (dateIso||"").slice(0,10);
+  }
+
   function fmtDate(dateIso, timeIso){
     try{
       const d = new Date(dateIso);
@@ -464,62 +459,98 @@
   const ASVASAM_WORDS = ["అవతారిక","ప్రథమాశ్వాసము","ద్వితీయాశ్వాసము","తృతీయాశ్వాసము","చతుర్థాశ్వాసము"];
 
   /* =========================================================
+     Generic reply-tree helper
+     Rules:
+     - a row with refNo attaches directly under the row whose
+       messageNo === refNo (single direct lookup, no chain-walking)
+     - a row with no refNo (or an unresolved refNo) attaches to the
+       end of its own day: the last "anchor" (card-producing) row
+       on the same date, or the last anchor on the most recent
+       earlier date if that day has no anchor of its own.
+     ========================================================= */
+  function buildReplyIndex(rows, isAnchor, anchorAttachKey){
+    // rows: all rows for this topic, in messageNo order
+    // isAnchor(row): true if row itself becomes a top-level card
+    // anchorAttachKey(row): the key children should attach under for this anchor row
+    //   (for telugu this is just row.messageNo; for sanskrit it's supplied by caller
+    //    after verse-splitting, so this fn is used slightly differently there)
+    const byMsgNo = new Map(rows.map(r => [r.messageNo, r]));
+    const anchors = rows.filter(isAnchor).sort((a,b)=> a.messageNo - b.messageNo);
+    const anchorsByDay = new Map(); // dayKey -> last anchor row (by messageNo) so far
+    const sortedAnchorDays = [];
+    anchors.forEach(a => {
+      const dk = dayKey(a.date);
+      if(!anchorsByDay.has(dk)) sortedAnchorDays.push(dk);
+      anchorsByDay.set(dk, a); // keep overwriting -> ends on last anchor of that day
+    });
+    // running "last anchor seen so far" per day, resolved chronologically
+    function lastAnchorAtOrBefore(dk){
+      let best = null;
+      for(const a of anchors){
+        const adk = dayKey(a.date);
+        if(adk <= dk) best = a; else break;
+      }
+      return best;
+    }
+
+    const childrenOf = new Map(); // messageNo -> [row,...] (direct children only)
+    function addChild(parentMsgNo, row){
+      if(!childrenOf.has(parentMsgNo)) childrenOf.set(parentMsgNo, []);
+      childrenOf.get(parentMsgNo).push(row);
+    }
+
+    rows.forEach(r => {
+      if(isAnchor(r)) return; // anchors aren't "attached", they're roots
+      let parentMsgNo = null;
+      if(r.refNo !== "" && byMsgNo.has(r.refNo)){
+        parentMsgNo = r.refNo;
+      } else {
+        const anchor = lastAnchorAtOrBefore(dayKey(r.date));
+        if(anchor) parentMsgNo = anchorAttachKey(anchor);
+      }
+      if(parentMsgNo !== null) addChild(parentMsgNo, r);
+    });
+
+    childrenOf.forEach(list => list.sort((a,b)=> a.messageNo - b.messageNo));
+    return childrenOf;
+  }
+
+  function renderReplyTree(childrenOf, rootMsgNo, depth, out){
+    const kids = childrenOf.get(rootMsgNo);
+    if(!kids) return;
+    kids.forEach(k => {
+      out.push({row:k, depth: depth});
+      renderReplyTree(childrenOf, k.messageNo, depth+1, out);
+    });
+  }
+
+  /* =========================================================
      2. TELUGU DECK
      ========================================================= */
   function buildTeluguDeck(){
     const rows = rawRows.filter(r => normTopic(r.topic1) === TOPIC_TELUGU)
                          .sort((a,b)=> a.messageNo - b.messageNo);
 
-    const poemRows = rows.filter(r => r.poemNo !== "");
-    const discussionRows = rows.filter(r => r.poemNo === "");
+    const isAnchor = r => r.poemNo !== "";
+    const childrenOf = buildReplyIndex(rows, isAnchor, r => r.messageNo);
 
-    const byMsgNo = new Map(rows.map(r => [r.messageNo, r]));
-
-    const cards = poemRows.map(r => ({
-      id: "t-" + r.messageNo,
-      messageNo: r.messageNo,
-      asvasam: r.asvasam,
-      poemNo: r.poemNo,
-      lang: "tel",
-      text: r.message,
-      meaning: r.meaning,
-      bhavam: r.bhavam,
-      sender: r.sender,
-      date: r.date, time: r.time,
-      replies: []
-    }));
-    const cardByMsgNo = new Map(cards.map(c => [c.messageNo, c]));
-    const poemMsgNosSorted = poemRows.map(r => r.messageNo).sort((a,b)=>a-b);
-
-    function nearestPrecedingPoem(msgNo){
-      let best = null;
-      for(const m of poemMsgNosSorted){
-        if(m <= msgNo) best = m; else break;
-      }
-      return best !== null ? best : poemMsgNosSorted[0];
-    }
-
-    function resolveTarget(row){
-      let cur = row;
-      const seen = new Set();
-      while(cur.refNo !== "" && !seen.has(cur.messageNo)){
-        seen.add(cur.messageNo);
-        const target = byMsgNo.get(cur.refNo);
-        if(!target) break;
-        if(target.poemNo !== "") return target.messageNo;
-        cur = target;
-      }
-      return null;
-    }
-
-    discussionRows.forEach(r => {
-      let targetMsgNo = resolveTarget(r);
-      if(targetMsgNo === null) targetMsgNo = nearestPrecedingPoem(r.messageNo);
-      const card = cardByMsgNo.get(targetMsgNo);
-      if(card) card.replies.push(r);
+    const cards = rows.filter(isAnchor).map(r => {
+      const flat = [];
+      renderReplyTree(childrenOf, r.messageNo, 0, flat);
+      return {
+        id: "t-" + r.messageNo,
+        messageNo: r.messageNo,
+        asvasam: r.asvasam,
+        poemNo: r.poemNo,
+        lang: "tel",
+        text: r.message,
+        meaning: r.meaning,
+        bhavam: r.bhavam,
+        sender: r.sender,
+        date: r.date, time: r.time,
+        replies: flat
+      };
     });
-
-    cards.forEach(c => c.replies.sort((a,b)=> a.messageNo - b.messageNo));
     return cards;
   }
 
@@ -533,14 +564,12 @@
     const spanRe = /<span class='(tel|sans)'>([\s\S]*?)<\/span>/g;
     const verseCards = [];
     const lastCardIdxForMsgNo = new Map();
-    const discussionRows = [];
     let currentAsvasam = "";
 
-    rows.forEach(r => {
-      if(r.message.indexOf("<span") === -1){
-        discussionRows.push(r);
-        return;
-      }
+    const isAnchor = r => r.message.indexOf("<span") !== -1;
+    const childrenOf = buildReplyIndex(rows, isAnchor, r => r.messageNo);
+
+    rows.filter(isAnchor).forEach(r => {
       const preamble = r.message.split("<span")[0].trim();
       if(preamble){
         for(const w of ASVASAM_WORDS){
@@ -548,7 +577,7 @@
         }
       }
       let m, idx = 0;
-      const localIdxStart = verseCards.length;
+      const localStart = verseCards.length;
       while((m = spanRe.exec(r.message)) !== null){
         const lang = m[1];
         let text = m[2].trim();
@@ -575,43 +604,14 @@
         idx++;
       }
       spanRe.lastIndex = 0;
-      if(verseCards.length > localIdxStart){
+      if(verseCards.length > localStart){
         lastCardIdxForMsgNo.set(r.messageNo, verseCards.length - 1);
+        const flat = [];
+        renderReplyTree(childrenOf, r.messageNo, 0, flat);
+        verseCards[verseCards.length - 1].replies = flat;
       }
     });
 
-    const allByMsgNo = new Map(rows.map(r => [r.messageNo, r]));
-    const verseMsgNosSorted = [...lastCardIdxForMsgNo.keys()].sort((a,b)=>a-b);
-
-    function nearestPrecedingVerseIdx(msgNo){
-      let best = null;
-      for(const m of verseMsgNosSorted){
-        if(m <= msgNo) best = m; else break;
-      }
-      const key = best !== null ? best : verseMsgNosSorted[0];
-      return lastCardIdxForMsgNo.get(key);
-    }
-
-    function resolveTargetIdx(row){
-      let cur = row;
-      const seen = new Set();
-      while(cur.refNo !== "" && !seen.has(cur.messageNo)){
-        seen.add(cur.messageNo);
-        if(lastCardIdxForMsgNo.has(cur.refNo)) return lastCardIdxForMsgNo.get(cur.refNo);
-        const target = allByMsgNo.get(cur.refNo);
-        if(!target) break;
-        cur = target;
-      }
-      return null;
-    }
-
-    discussionRows.forEach(r => {
-      let idx = resolveTargetIdx(r);
-      if(idx === null) idx = nearestPrecedingVerseIdx(r.messageNo);
-      if(idx !== undefined && idx !== null) verseCards[idx].replies.push(r);
-    });
-
-    verseCards.forEach(c => c.replies.sort((a,b)=> a.messageNo - b.messageNo));
     return verseCards;
   }
 
@@ -658,6 +658,13 @@
   function poemLabel(card){
     if(card.lang === "sans") return "అనువాదం" + (card.poemNo ? " · శ్లో. " + card.poemNo : "");
     return "మూలం" + (card.poemNo ? " · పద్యం " + card.poemNo : "");
+  }
+
+  function depthClass(depth){
+    if(depth <= 0) return "";
+    if(depth === 1) return "depth-1";
+    if(depth === 2) return "depth-2";
+    return "depth-3plus";
   }
 
   function render(){
@@ -754,9 +761,7 @@
 
     cardEl.innerHTML = "";
     cardEl.appendChild(wrapper);
-    cardEl.scrollTop = 0;
-    const bodyEl = cardEl.querySelector(".card-body");
-    if(bodyEl) bodyEl.scrollTop = 0;
+    window.scrollTo({top:0, behavior:"instant" in window ? "instant" : "auto"});
   }
 
   function makeSection(title, content){
@@ -777,18 +782,18 @@
     return section;
   }
 
-  function makeReplies(replies){
+  function makeReplies(flatReplies){
     const section = document.createElement("div");
     section.className = "section";
     const toggle = document.createElement("button");
     toggle.className = "section-toggle";
-    toggle.innerHTML = '<span class="chevron">▸</span><span>చర్చ (' + replies.length + ")</span>";
+    toggle.innerHTML = '<span class="chevron">▸</span><span>చర్చ (' + flatReplies.length + ")</span>";
     const list = document.createElement("div");
     list.className = "replies-list section-content";
-    replies.forEach(r => {
+    flatReplies.forEach(({row:r, depth}) => {
       const item = document.createElement("div");
-      item.className = "reply";
-      if(r.refNo !== "" && r.refSender){
+      item.className = "reply " + depthClass(depth);
+      if(depth > 0 && r.refSender){
         const refLine = document.createElement("div");
         refLine.className = "reply-ref";
         refLine.textContent = "↩ " + r.refSender + " వ్యాఖ్యకు స్పందన";
@@ -819,7 +824,7 @@
     if(!hint){
       hint = document.createElement("div");
       hint.className = "ribbon-hint";
-      document.getElementById("cardWrap").appendChild(hint);
+      document.body.appendChild(hint);
     }
     hint.textContent = msg;
     hint.classList.add("show");
@@ -847,7 +852,7 @@
     if(e.key === "ArrowLeft") prev();
   });
 
-  // swipe
+  // swipe (horizontal only, so vertical page scroll is unaffected)
   const cardWrap = document.getElementById("cardWrap");
   let touchStartX = null, touchStartY = null;
   cardWrap.addEventListener("touchstart", (e) => {
@@ -907,8 +912,6 @@
   /* =========================================================
      9. INIT
      ========================================================= */
-  const startBookmark = loadBookmark("telugu");
-  if(startBookmark) state.index = 0; // land on first, offer resume banner
   render();
   maybeOfferResume();
 
