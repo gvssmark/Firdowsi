@@ -1,0 +1,2642 @@
+<!DOCTYPE html>
+<html lang="te">
+<head>
+<meta charset="UTF-8">
+<title>పిరదౌసి — తెలుగు-సంస్కృత అనువాదం</title>
+<link href="https://fonts.googleapis.com/css2?family=Ramabhadra&family=Noto+Sans+Telugu:wght@400;500;600;700&family=Noto+Serif+Telugu:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --maroon:#8a2d3b;
+    --teal:#2f6f62;
+    --ink:#2a2015;
+    --ink-soft:#5c4f38;
+    --line:#cdbd8e;
+    --gold:#a9832a;
+    --serif: 'Noto Serif Telugu', 'Ramabhadra', serif;
+    --sans: 'Noto Sans Telugu', sans-serif;
+  }
+  *{box-sizing:border-box;}
+  body{
+    margin:0;
+    font-family:var(--sans);
+    color:var(--ink);
+    background:#fff;
+  }
+  .cover{
+    min-height:100vh;
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+    justify-content:center;
+    text-align:center;
+    page-break-after:always;
+    padding:40px;
+  }
+  .cover .kav{
+    font-family:var(--serif);
+    font-size:52px;
+    font-weight:700;
+    color:var(--maroon);
+    margin-bottom:8px;
+  }
+  .cover .sub{
+    font-size:18px;
+    color:var(--ink-soft);
+    letter-spacing:.04em;
+    margin-bottom:40px;
+  }
+  .cover .rule{
+    width:120px;
+    height:2px;
+    background:var(--gold);
+    margin:24px 0;
+  }
+  .cover .meta{
+    font-size:13px;
+    color:var(--ink-soft);
+  }
+  .asvasam-section{
+    page-break-before:always;
+    padding:0 56px;
+  }
+  .asvasam-title{
+    font-family:var(--serif);
+    font-size:26px;
+    font-weight:700;
+    color:var(--maroon);
+    text-align:center;
+    border-bottom:2px solid var(--gold);
+    padding-bottom:14px;
+    margin:36px 0 30px;
+  }
+  .entry{
+    margin-bottom:34px;
+    break-inside:avoid;
+  }
+  .entry-header{
+    display:flex;
+    justify-content:space-between;
+    align-items:baseline;
+    border-bottom:1px dashed var(--line);
+    padding-bottom:4px;
+    margin-bottom:10px;
+  }
+  .poem-no{
+    font-family:var(--serif);
+    font-weight:700;
+    font-size:15px;
+    color:var(--maroon);
+  }
+  .verse{
+    font-family:var(--serif);
+    font-size:16.5px;
+    line-height:1.85;
+    white-space:pre-wrap;
+  }
+  .block-label{
+    font-size:10.5px;
+    font-weight:700;
+    letter-spacing:.08em;
+    text-transform:uppercase;
+    margin:4px 0;
+  }
+  .block-label.tel{color:var(--maroon);}
+  .block-label.sans{color:var(--teal);}
+  .sanskrit-block{ margin-top:14px; }
+  .sanskrit-pending{
+    font-size:13px;
+    font-style:italic;
+    color:var(--ink-soft);
+  }
+  .gloss{
+    margin-top:10px;
+    padding:10px 14px;
+    background:#faf6ea;
+    border-left:3px solid var(--gold);
+    font-size:13.5px;
+    line-height:1.6;
+    color:var(--ink-soft);
+    white-space:pre-wrap;
+  }
+  .gloss-label{
+    font-size:10px;
+    font-weight:700;
+    letter-spacing:.06em;
+    text-transform:uppercase;
+    color:var(--gold);
+    margin-bottom:3px;
+  }
+  .discussion{
+    margin-top:14px;
+  }
+  .discussion-label{
+    font-size:10.5px;
+    font-weight:700;
+    letter-spacing:.08em;
+    text-transform:uppercase;
+    color:var(--ink-soft);
+    border-top:1px dashed var(--line);
+    padding-top:8px;
+    margin-bottom:8px;
+  }
+  .reply{
+    font-size:12.5px;
+    line-height:1.55;
+    padding:6px 10px;
+    margin-bottom:6px;
+    background:#faf8f1;
+    border-left:2px solid var(--maroon);
+    break-inside:avoid;
+  }
+  .reply.depth-1{ margin-left:18px; border-left-color:var(--teal); }
+  .reply.depth-2{ margin-left:34px; }
+  .reply.depth-3plus{ margin-left:46px; }
+  .reply-sender{
+    font-weight:700;
+    color:var(--maroon);
+    font-size:11.5px;
+  }
+  .reply.depth-1 .reply-sender, .reply.depth-2 .reply-sender, .reply.depth-3plus .reply-sender{ color:var(--teal); }
+  .reply-text{ white-space:pre-wrap; margin-top:2px; }
+  .reply-ref{
+    font-size:10px;
+    font-style:italic;
+    color:var(--ink-soft);
+    margin-bottom:2px;
+  }
+  @media print{
+    @page{ margin:22mm 18mm; }
+    .asvasam-section{ padding:0; }
+  }
+  @media screen{
+    body{ background:#e9e3d2; }
+    .cover, .asvasam-section{
+      background:#fff;
+      max-width:800px;
+      margin:24px auto;
+      box-shadow:0 0 24px rgba(0,0,0,.12);
+    }
+    .asvasam-section{ padding:36px 56px; }
+  }
+</style>
+</head>
+<body>
+  <div class="cover">
+    <div class="kav">పిరదౌసి</div>
+    <div class="sub">గుర్రం జాషువా కావ్యం &middot; తెలుగు మూలం - సంస్కృత అనువాదం</div>
+    <div class="rule"></div>
+  <div class="sub">పద్య సౌందర్యం వేదిక లో  &middot; శ్రీ వెంపటి కుటుంబ శాస్త్రి  గారి సమర్పణ</div>
+
+    
+  </div><div class="asvasam-section"><div class="asvasam-title">ప్రథమాశ్వాసము</div><div class="entry">
+        <div class="entry-header"><span class="poem-no">పద్యం 1</span></div>
+        <div class="block-label tel">మూలం</div>
+        <div class="verse">చం. మును గజనీమహమ్మదుఁ డభూత పరాక్రమశాలి,వీరవా|
+హినుల బలంబుతోఁ బదియు నెన్మిదిమాఱులు కత్తిదూసి, చి|
+క్కని రుధిరంబులో భరతఖండము నార్ద్రమొనర్చి, సోమనా|
+థునిఁ బెకలించి, క్రైకొనియెఁ దొమ్మిదివన్నెల రత్నరాసులన్||.</div>
+        <div class="sanskrit-block">
+          <div class="block-label sans">అనువాదం</div><div class="verse">ఖ్యాతో యో గజనీమహమ్మదభిధో దుర్వారవీర్యః పురా
+స్వానీకేన యుతో
+భువం సుమహితం శ్రీమణ్డితం భారతమ్ ।
+క్రాన్త్వాఽష్టాదశవారమ్
+అత్ర రుధిరం సంప్లావ్య
+సోమేశ్వరం భిత్త్వా
+అలుణ్ఠదమేయరత్నవిభవం సౌవర్ణసర్వస్వకమ్</div></div></div><div class="entry">
+        <div class="entry-header"><span class="poem-no">పద్యం 2</span></div>
+        <div class="block-label tel">మూలం</div>
+        <div class="verse">సీ. బంగారునాణెముల్ బస్తాల కెత్తించి మదపుటేన్గులమీఁదఁ బదిలపఱచి|
+లేఁతపచ్చల నేరి గోతాలఁ గుట్టించి
+లొట్టిపిట్టలమీఁద దిట్టపఱచి|
+కురువిందమణులను కుంచాలఁ గొలిపించి
+పరువుటెద్దుల బండ్లపై నమర్చి|
+మొలకవజ్రముల జాలెలఁబోసి కూర్పించి
+గుర్రాల మూఁపులఁ గుస్తరించి|
+
+తే.పదియు నెనిమిది విజయరంభల వరించి|
+గాంగజలమున నెత్తుటికత్తి గడిగి|
+సర్వము హరించి హిందుదేశంబు విడిచి|
+గజనిమామూదు గజనీకిఁ గదలిపోయె.</div>
+        <div class="sanskrit-block">
+          <div class="block-label sans">అనువాదం</div><div class="verse">గోణీషు సౌవర్ణమయాన్ హి టఙ్కాన్ ధృత్వా
+సమారోప్య గజేషు సమ్యక్ ।
+హారీతకాన్ స్యూతచయేషు బద్ధాన్
+ఉష్ట్రేషు నిక్షిప్య యథావకాశమ్ ॥ 2 ॥
+
+గోమేధికాన్ ప్రస్థచయేన చేయాన్
+శయ్యాసు సంసీవ్య నిధాయ యానే ।
+వజ్రాణి సంస్కృత్య చ చాలినీషు
+సఙ్గ్రథ్య సంస్థాప్య చ ఘోటకేషు ॥ 3 ॥
+
+వృత్వా చ సోఽష్టాదశవారమత్ర జయశ్రియం
+గాఙ్గజలేషు ఖడ్గమ్ । ప్రక్షాల్య
+హిన్దూన్ సకలాన్ విలుణ్ఠ్య
+మహమ్మదోఽసౌ గజనీం జగామ</div></div></div><div class="entry">
+        <div class="entry-header"><span class="poem-no">పద్యం 3</span></div>
+        <div class="block-label tel">మూలం</div>
+        <div class="verse">కులుకుంబూత పసిండి కుడ్యములపైఁ గుట్టాణిముత్యాలుఁ బ
+చ్చలుఁజెక్కించి, చిరత్న రత్నఖచితస్తంభంబు లెత్తించి, మే
+డలు గట్టించి, మసీదుల న్నిలిపి, తుష్ట స్వాంతుఁడై పెంపునం
+గొలువయ్యెన్ దనసింహపీఠిక ననుంగుం బత్నులుప్పొంగఁగన్.</div>
+        <div class="sanskrit-block">
+          <div class="block-label sans">అనువాదం</div><div class="verse">సౌవర్ణేషు చ కుడ్యకేషు
+రుచిరా ముక్తాశ్చ హారీతకాన్ సంస్థాప్య
+అమితవైభవోజ్జ్వలమణిస్తమ్భేషు మస్జీదకాన్ ।
+నిర్మాయాఽథ బహూన్ వియల్లిఖమహాసౌధాంశ్చ
+తుష్టాత్మకో రేమేఽధ్యాసితసింహపీఠమహితః
+స్వాన్తఃపురైః ప్రీతిదైః</div></div></div><div class="entry">
+        <div class="entry-header"><span class="poem-no">పద్యం 4</span></div>
+        <div class="block-label tel">మూలం</div>
+        <div class="verse">భారతక్షోణిఁ గల్గు దేవస్థలములు
+చెదరి గజనీపురాన మసీదులయ్యె
+నిప్పటి మసీదు లేరూప మెత్తఁగలవొ
+కాల మెఱుఁగును, ధారుణీగర్భ మెఱుఁగు.</div>
+        <div class="sanskrit-block">
+          <div class="block-label sans">అనువాదం</div><div class="verse">శ్రీభారతస్య మహితేశ్వరమన్దిరాణి
+మస్జీదరూపమభిగమ్య విరేజురత్ర ।
+కిం రూపమేవ హి వహేయురిమాని
+కాలే శ్వోభావినీతి
+ధరణిః స చ వేత్తి కాలః</div></div></div><div class="entry">
+        <div class="entry-header"><span class="poem-no">పద్యం 5</span></div>
+        <div class="block-label tel">మూలం</div>
+        <div class="verse">హిందువులు దోర్బలము నాశ్రయించి బ్రతుకు
+ద్రవ్యసంపద, తురక భూధవునిఁ జేరి
+కాంపురంబుండె నతని ఖడ్గమును వలచి
+నిరి నిజమ్ముగ వట్టి టక్కరిది సుమ్ము.</div>
+        <div class="sanskrit-block">
+          <div class="block-label sans">అనువాదం</div><div class="verse">హిన్దూకరౌఘం హ్యుపజీవయన్తీ
+సుఖం స్థితా ద్రవ్యమయీ సుసమ్పత్ ।
+ఖడ్గం తురుష్కస్య నృపస్య వృత్వా
+యయౌ ధిగేషా కపటా చలా శ్రీః</div></div></div><div class="entry">
+        <div class="entry-header"><span class="poem-no">పద్యం 6</span></div>
+        <div class="block-label tel">మూలం</div>
+        <div class="verse">ఎందుఁజూచిన, దనకత్తి కెదురులేక
+కోరినంత ధనమునకుఁ గొదువ లేక
+రాయబలంగంబులను గన్ను మూయనీక
+యేలుబడి రాజ్యమునుఁ జలాయించుచుండె.</div>
+        <div class="sanskrit-block">
+          <div class="block-label sans">అనువాదం</div><div class="verse">ఖడ్గస్య సర్వత్ర గతిం హ్యరుద్ధాం విధాయ
+లబ్ధ్వా స ధనం హ్యమేయమ్ ।
+జ్ఞాతీన్వినిద్రాన్ సతతం చ కృత్వా
+రాజ్యం యథేచ్ఛం విపులం శశాస</div></div></div><div class="entry">
+        <div class="entry-header"><span class="poem-no">పద్యం 7</span></div>
+        <div class="block-label tel">మూలం</div>
+        <div class="verse">తే.నగరిమొగసాల నుండు గంధద్విపంబు|
+దంతములమీఁద వ్రాయించెఁ దనచరిత్ర|
+దనరు దిగ్దంతుల పదాఱు దంతములకుఁ|
+గలుపుకొనఁబోలు విజయసంగ్రామ సంఖ్య</div>
+        <div class="sanskrit-block">
+          <div class="block-label sans">అనువాదం</div><div class="verse">నగరద్వారి విరాజమానమదసృడ్గన్ధద్విపేన్ద్రస్య
+తద్ రదనద్వన్ద్వతలే
+స్వకీయమఖిలం వృత్తం నృపోఽలేఖయత్ ।
+లిఖితం దిగ్గజదన్తకేషు విజయస్యాలేఖ్యకం హ్యాత్మనః మహితం భారతజైత్రయాత్రగణనాయోగేన కుర్వన్నివ</div></div></div><div class="entry">
+        <div class="entry-header"><span class="poem-no">పద్యం 9</span></div>
+        <div class="block-label tel">మూలం</div>
+        <div class="verse">క. ఒక్కొక్క వీరభటునకు|
+నిక్కంబగు నతని యుద్ధ నిపుణత్వంబున్|
+జెక్కించి యిచ్చె నీలపు|
+టక్కరములతోడ బిరుదు టడిదంబులపై||8
+
+క. వడి గల సేనాపతులను|
+కడాని శాలువలతోడఁ గంకణములతో|
+గడియింపరాని పచ్చల|
+పిడికిళ్ల బహూకరించె విద్వత్సభలన్</div>
+        <div class="sanskrit-block">
+          <div class="block-label sans">అనువాదం</div><div class="verse">యుద్ధే దర్శితవిక్రమం ప్రతిభటం
+శౌర్యానురూపం లసత్-నీలాలఙ్కృతహేమపట్టబిరుదైః
+సమ్మానయామాస సః ।
+సేనాన్యశ్చతురాన్ మహార్ఘవసనైర్గ్రైవేయకైః కఙ్కణైః
+విద్వత్సాక్షికమార్చయత్
+కరమితైర్దుష్ప్రాపహారీతకైః</div></div></div><div class="entry">
+        <div class="entry-header"><span class="poem-no">పద్యం 10</span></div>
+        <div class="block-label tel">మూలం</div>
+        <div class="verse">మ. తన కావించిన యుద్ధయాత్రల కమర్త్యత్వంబు గల్పింపఁ గో|
+రినవాఁడై యలపారసీక సుకవిశ్రేణీ శిరోభూషణం|
+బనఘుండౌ పిరదౌసి నామకవి నాహ్వానించి యొడ్డోలగం|
+బున నుద్గ్రంథము సేతకై యొసఁగెఁ గర్పూరంపు తాంబూలమున్</div>
+        <div class="sanskrit-block">
+          <div class="block-label sans">అనువాదం</div><div class="verse">సఙ్గ్రామైస్సముపార్జితస్య యశసో
+నిత్యత్వమారక్షితుం
+పిర్దౌసిం వరపారసీకసుకవిశ్రేష్ఠం సమాహూయ
+తమ్ । సద్గ్రన్థం స్వయశోవితానమహితం
+చాచన్ద్రతారస్థిరం నిర్మాతుం యుయుజే
+దదావధిసభం కర్పూరతామ్బూలకమ్</div></div></div><div class="entry">
+        <div class="entry-header"><span class="poem-no">పద్యం 11</span></div>
+        <div class="block-label tel">మూలం</div>
+        <div class="verse">ఉ. ఓ కవివర్య! నీ సుకవితోజ్జ్వల వాజ్మయ పుణ్యభూమిలో|
+నాకుఁ గృతిప్రధాన సదనంబు రచింపుము శాశ్వతంబుగన్|
+మా కులభూషణంబులగు, మానవనాథుల గావ్యదేహ ది|
+వ్యాకృతులం బొనర్పుము చిరాయురుపేతులఁజేయు మిద్ధరిన్</div>
+        <div class="sanskrit-block">
+          <div class="block-label sans">అనువాదం</div><div class="verse">హే కావ్యగ్రథనాధురన్ధర !
+వచోవైచిత్ర్యభాసోజ్జ్వలే
+హ్యుద్యానే తవ వాఙ్మయే
+మమ యశస్సౌధం చ నిర్మీయతామ్ ।
+యే చాస్మత్కులదీపకా నృపతయః
+తాన్ కావ్యదివ్యాకృతీన్ కృత్వా
+అస్మాన్ అవినశ్వరేణ యశసా కాయేన సంయోజయేః</div></div></div><div class="entry">
+        <div class="entry-header"><span class="poem-no">పద్యం 12</span></div>
+        <div class="block-label tel">మూలం</div>
+        <div class="verse">కవినిఁగన్న తల్లిగర్భంబు ధన్యంబు
+కృతినిఁ జెందువాఁడు మృతుఁడు గాఁడు
+పెరుగుఁదోటకూర విఖ్యాత పురుషులు |
+కవిని వ్యర్ధజీవిఁగా దలంత్రు.</div>
+        <div class="sanskrit-block">
+          <div class="block-label sans">అనువాదం</div><div class="verse">ధన్యా హి మాతా జననీ కవేర్యా
+కృతేశ్చ భర్తా న మృతః కదాచిత్ ।
+యత్పణ్డితమ్మన్యజనా వదన్తి
+వ్యర్థం కవేర్జీవనమిత్యవద్యమ్</div></div></div><div class="entry">
+        <div class="entry-header"><span class="poem-no">పద్యం 13</span></div>
+        <div class="block-label tel">మూలం</div>
+        <div class="verse">తమ్మిచూలి కేలుఁదమ్మినిఁ గల నేర్పు
+కవి కలంబునందుఁ గలదు గాన
+నీశ్వరత్వ మతనికే చలామణి యయ్యె
+నిక్కువముగఁ బూజనీయుఁ డతఁడు.</div>
+        <div class="sanskrit-block">
+          <div class="block-label sans">అనువాదం</div><div class="verse">బ్రహ్మణో హస్తగా శక్తిః
+లేఖనీగా యతః కవేః ।
+ఈశ్వరత్వం కవావేవ సఙ్గతం
+పూజ్య ఏవ సః</div></div></div><div class="entry">
+        <div class="entry-header"><span class="poem-no">పద్యం 14</span></div>
+        <div class="block-label tel">మూలం</div>
+        <div class="verse">క్షణము గడచిన దాని వెన్కకు మఱల్ప
+సాధ్యమే మానవున కిలాచక్రమందు?
+దాటిపోయిన యుగములనాఁటి చరిత
+మరలఁ బుట్టింపఁ గవియ సమర్ధుఁడగును.</div>
+        <div class="sanskrit-block">
+          <div class="block-label sans">అనువాదం</div><div class="verse">న కోఽపి మానవో భూమౌ క్షణమావర్తయేద్గతమ్ ।
+కవిస్సృజతి వై నూనం చరితం హి యుగాన్తరమ్</div></div></div><div class="entry">
+        <div class="entry-header"><span class="poem-no">పద్యం 15</span></div>
+        <div class="block-label tel">మూలం</div>
+        <div class="verse">ఒక్కొక్క పద్దియంబున
+కొక్కొక బంగారు రూక యొసఁగెదను కవీ!
+మక్కామసీదు తోడని
+వక్కాణించెన్ మహా సభామధ్యమునన్.</div>
+        <div class="sanskrit-block">
+          <div class="block-label sans">అనువాదం</div><div class="verse">ప్రత్యేకపద్యం వితరామి తుభ్యం సువర్ణటఙ్కం
+సమయో మదీయః ।
+మక్కాస్థమస్జీదకమత్ర సాక్షి
+ఇత్యేవం సభామధ్యగతస్స ఊచే</div></div></div><div class="entry">
+        <div class="entry-header"><span class="poem-no">పద్యం 16</span></div>
+        <div class="block-label tel">మూలం</div>
+        <div class="verse">మానవేంద్రుని సత్యవాగ్దానమునకు
+హృదయగోచర మగుచు వర్ణింపరాని
+యద్భుతావేశ మంగంబు నాక్రమించె
+స్వాంతమునఁ దోఁచె నూత్న విసర్గకవితి [నిసర్గకవిత].</div>
+        <div class="sanskrit-block">
+          <div class="block-label sans">అనువాదం</div><div class="verse">నృపస్య తత్సత్య-వచః-ప్రదానాత్
+హృద్గోచరః కశ్చిదవర్ణనీయః ।
+వేగో వివేశాఽథ కవేశ్శరీరే
+చిత్తే చ నూత్నా కవితా విరేజే</div></div><div class="discussion"><div class="discussion-label">చర్చ (20)</div><div class="reply "><div class="reply-sender"> Psriramarao</div>
+      <div class="reply-text">భలే!
+అరుదుగా వినే అంశమండి.
+మన భాషలోనుండి సంస్కృతం లోనికి!!
+మా గురుదేవులు శ్రీ జటావల్లభులవారువ్రాసిన భద్రాద్రిశతకాన్ని శ్రీ దోర్బల
+ప్రభాకరశర్మగారు సంస్కృత భాషలోనికి అనువదించినారండి
+👏👏👍👍💐💐🙏🙏</div></div><div class="reply "><div class="reply-sender">Kutumba Sastry</div>
+      <div class="reply-text">సారథులవారికీ, సమూహమందలి పెద్దలకూ సభ్యులకూ వందనములు. శ్రీ కృష్ణమోహన్ గారి పిరదౌసి సమర్పణము ఖాయపడినవెంటనే నేను నా సంస్కృతానువాదపద్యాలను కూడా సమర్పించుటకు అనుమతిని కోరియుంటిని. సారథులవారు, సురేంద్రగారు అంగీకరించిరి. సారథులవారు తెలుగులిపిలో సమర్పింపవలెననిరి. నాకు టంకణమున ఎక్కువ శక్తిలేక మూలమును అనువాదమును ఇతరులచే టంకణము చేయించితిని. కృష్ణమోహన్ గారి సమర్పణలతో ఏ విధముగా అనుసంధానించవలెనో తెలియరాలేదు. అందువలన ఈ నాడు మంగళవారమునాడు సమర్పించితిని. చివరినిముషమున తెలుగు టంకణములో కొన్ని పద్యములు ఆరంభమందున మధ్యలో టంకింపబడకుండుట గమనించితిని. కానీ, అంత త్వరగా వాటిని టంకించు సామర్థ్యము లేదు. సహృదయులు యథోచితముగా తెలుగుపద్యములను పూరించుకోగలరని మనవి. కవిపండితులైన సభ్యులు మూలమునకు మరింతచేరువగా కూర్చుటకు అనువాదమున చేయవలసిన మార్పులను సూచించగలరు. పునర్ముద్రణమున తగు మార్పులు చేయగలవాడను. నా సమర్పణకు ప్రధానోద్దేశ్యము అదియే. అట్లే, భాషాగతభ్రమప్రమాదములు కంటపడినచో సూచించగలరు.</div></div><div class="reply depth-1"><div class="reply-ref">↩  Kutumba Sastry వ్యాఖ్యకు స్పందన</div><div class="reply-sender">Ramaprasad Manda</div>
+      <div class="reply-text">మహాశయా!
+క్రింది నా విజ్ఞప్తిని మన్నింప ప్రార్థన!
+శ్రీ కృష్ణమోహన్ గారు ప్రతి నాలుగవ సోమవారము నాడును, పిరదౌసి కావ్యము నుండి పద్యములను సమర్పించుచున్నారు. వారు నాడు మధ్యాహ్నము 12 గంటల వరకు పద్యములను సమర్పించి, ముగింతురు.
+తదనంతరము, అనగా
+ప్రతి నాలుగవ సోమవారము
+మధ్యాహ్నము 12 తరువాత
+శ్రీకృష్ణమోహన్ గారి సమర్పణలు సంపన్నమైన పిమ్మట,
+మీరు మీ అనువాద శ్లోకములను సమర్పించినచో, అద్భుతముగ నుండును.
+శ్రీకృష్ణమోహన్ గారు దాదాపుగా 15-20 పద్యములను సమర్పింతురు.
+ఆనాడు సమర్పితమైన 15-20 పద్యముల యనువాద శ్లోకములను మీరు సమర్పించినచో, కథాక్రమము సుబోధకమగును.
+ఆనాడు సమర్పితమైన తెలుగు పద్యభావము సంస్కృతమున ప్రతిఫలించుట, దానిని దర్శించి మేమందరము ధన్యులమగుట - గొప్ప యనుభవము కాబోవుచున్నది.
+నా యీ విజ్ఞప్తిని మన్నింప మనవి.
+నమస్కారము!
+పై విషయమై నేను 5.15 pm కు పెట్టిన పోస్టును తొలగించితిని.
+దానిని పరిగణింపవలదని ఇందుమూలముగా మనవి.</div></div><div class="reply depth-2"><div class="reply-ref">↩ Ramaprasad Manda వ్యాఖ్యకు స్పందన</div><div class="reply-sender">Kutumba Sastry</div>
+      <div class="reply-text">తప్పకుండా అట్లానే చేస్తాను.</div></div><div class="reply "><div class="reply-sender"> sahitisamrajyam</div>
+      <div class="reply-text">🙏
+అద్భుతం గురువర్యా!
+జాషువాగారి పద్యము లెంత సరళ సుందరములో మీ శ్లోకములుకూడ సరళ సుందరములు, సుబోధకములు.
+లలితపదబంధములతో సహజధారాశుద్ధితో, ఏమాత్రము అన్వయకాఠిన్యము లేకుండ హాయిగా చదివించుచున్నవి.
+చిన్నపుడు చదివిన పంచవటీ కృషీవలః శ్రామికవర్గ శేష్ఠః అను పాఠ్యభాగములను (శ్రీ పుల్లేల శ్రీరామచంద్రుడు గారి వనుకుంటాను) స్ఫురణకు తెచ్చుచున్నవి.
+నమో నమః
+🙏</div></div><div class="reply depth-1"><div class="reply-ref">↩  sahitisamrajyam వ్యాఖ్యకు స్పందన</div><div class="reply-sender">Kutumba Sastry</div>
+      <div class="reply-text">ధన్యవాదములు. 🙏</div></div><div class="reply "><div class="reply-sender"> Krishnamohan</div>
+      <div class="reply-text">పద్యాలకు మీ సంస్కృతానువాదము అద్భుతముగా ఉందండి. మీ ద్వారా మాకు సంస్కృతభాష నేర్చుకొనే సదవకాశమిది. ధన్యవాదములండీ.
+నమో నమః 🙏🏻🙏🏻🙏🏻</div></div><div class="reply depth-1"><div class="reply-ref">↩  Krishnamohan వ్యాఖ్యకు స్పందన</div><div class="reply-sender">Kutumba Sastry</div>
+      <div class="reply-text">ధన్యవాదములు.🙏</div></div><div class="reply "><div class="reply-sender"> Kameswara Rao Bh</div>
+      <div class="reply-text">ఆహా! మహాప్రసాదం.🙏
+సంస్కృతం నేర్చుకొనేందుకు గొప్ప అవకాశం. పైన తెలుగుపద్యం, క్రింద సంస్కృత అనువాదం - అర్థం చేసుకోడానికి చాల సులువుగా ఉండడమే కాక, అనువాదంలోని అందాలు చక్కగా తెలుస్తున్నాయి. కంఠస్థం చేయడానికి కూడా ఎంతో సరళంగా, అనువుగా ఉన్నాయి.
+చాలా అరుదైన సంస్కృత మత్తేభాన్ని కూడా చూపించారు. మదగజాన్ని, దిగ్గజాలను వర్ణించడానికి మరి అదే కదా ఉచితం!
+ఇత్యేవం సభామధ్యగతస్స ఊచే - ఇక్కడ టంకటణప్రమాదమేదో  ఉన్నట్టుంది?
+🙏</div></div><div class="reply depth-1"><div class="reply-ref">↩  Kameswara Rao Bh వ్యాఖ్యకు స్పందన</div><div class="reply-sender">Kutumba Sastry</div>
+      <div class="reply-text">ధన్యవాదాలు.🙏</div></div><div class="reply depth-1"><div class="reply-ref">↩  Kameswara Rao Bh వ్యాఖ్యకు స్పందన</div><div class="reply-sender">Kutumba Sastry</div>
+      <div class="reply-text">ఇత్యేవం అన్న పాదంలో టంకణదోషము కాదు. నా కపిచేష్టితదోషము. పద్యబంధమందు సంధి నిత్యము. నేను సంధి చేసే వృత్తాన్ని నిర్వహించాను. అయితే, చదువరులకు అన్వయం చదువగానే సహజంగా కలగాలన్న భావనతో పాదవిభాగాన్ని అవసరమైనచోట అటుఇటు చేసి, అన్వయసౌలభ్యం కోసం సంధులను అవసరమనిపించినచోట విడదీసి ముద్రింపించాను. సాంప్రదాయకులైన పెద్దలకు వైమత్యమేర్పడుట సహజమని ఎంచి పాదవిభాగాన్ని, సంధులనూ నిర్వహించి చూపి ప్రతిశ్లోకాన్నీ రెండువిధములుగా ముద్రింపించాను. ఇత్యేవం అన్నచోట ఇకారమునకు ముందున్న సాక్షి లోని ఇకారంతో సంధి చేసుకొని పఠిస్తే చంధస్సు సరిపోతుంది. అందుకే అన్నాను కపిచేష్టితమని. మన్నించగలరు.🙏</div></div><div class="reply depth-2"><div class="reply-ref">↩  Kutumba Sastry వ్యాఖ్యకు స్పందన</div><div class="reply-sender"> Kameswara Rao Bh</div>
+      <div class="reply-text">అయ్యో, మీరలా అనే అనకూడదండీ. ఇప్పుడర్థమయింది! అర్థసౌలభ్యంకోసం సంధులు విడదీసి వ్రాసారని ఇతర చోట్ల గమనించాను కాని ఇక్కడ గ్రహించలేకపోయాను. 🙏</div></div><div class="reply "><div class="reply-sender"> Parimala A</div>
+      <div class="reply-text">🙏🙏🙏 తెలుగు పద్యం పక్కనే సంస్కృత శ్లోకం సుబోధకంగా ఉన్నది. ధన్యవాదములు.💐💐</div></div><div class="reply "><div class="reply-sender"> Aditya</div>
+      <div class="reply-text">6 శ్లోకంలో శ్రీభారత లో  మొదట ఉన్న శ్రీ  7 శ్లోకంలో చిట్టచివరకు వెళ్లిపోవడం...  ఆ పద్యాల భావాన్ని సూచించేలా సంపద తరలిపోయన అనుభూతిని కలిగించేలా ఉంది. 🙏🙏</div></div><div class="reply depth-1"><div class="reply-ref">↩  Aditya వ్యాఖ్యకు స్పందన</div><div class="reply-sender">Kutumba Sastry</div>
+      <div class="reply-text">ఆహా! నా శ్రమ‌ఫలించినది. మీ వంటి సూక్ష్మదృష్టిగల సహృదయులు చదవడం వల్ల సార్థకత ఏర్పడినది. నేనూహించని, నాకు ఊహకందని ధ్వన్యర్థాన్ని మీరు వెలికి తీశారు. నమస్సులు.👏👏👏🙏🙏🙏</div></div><div class="reply "><div class="reply-sender"> Kameswara Rao Bh</div>
+      <div class="reply-text">&gt;&gt;చల్లనివేడి
+ఎదురుగా ఉన్నది సూర్యచంద్రనేత్రుడు(నేత్ర) కదా మరి!😊</div></div><div class="reply "><div class="reply-sender"> vsn murty</div>
+      <div class="reply-text">ఆర్యా! వివాహాహ్వానమందుకొని
+విందుభోజనమునకు పోతే
+వెండి పళ్యములో విందునందించి
+పళ్యముకూడా తమ కోసమే
+అన్నప్పుడు కలిగే ఆనందం కలిగింది.
+ఇంతటి అవకాశమందుకున్న మేము
+ధన్యులము.
+ఇకముందు నాల్గవ సోమవారము
+ప్రత్యేకతను సంతరించుకొనును.
+వందన సహస్రములు.
+సారథుల సూచన మేలు మేలు.</div></div><div class="reply depth-1"><div class="reply-ref">↩  vsn murty వ్యాఖ్యకు స్పందన</div><div class="reply-sender"> Aditya</div>
+      <div class="reply-text">సూపర్ పోలిక 😃</div></div><div class="reply depth-1"><div class="reply-ref">↩  vsn murty వ్యాఖ్యకు స్పందన</div><div class="reply-sender"> sahitisamrajyam</div>
+      <div class="reply-text">రజతపాత్రం దాచుకునేందుకు రసహృదయభోషాణం తెరచి ఉంచుకోవాలి మనం.</div></div><div class="reply depth-1"><div class="reply-ref">↩  vsn murty వ్యాఖ్యకు స్పందన</div><div class="reply-sender">Kutumba Sastry</div>
+      <div class="reply-text">సార్, మీరెప్పుడూ పరగుణపరమాణూన్ అన్న సూక్తికి ఉదాహరణమైనవారే. 🙏</div></div></div></div><div class="entry">
+        <div class="entry-header"><span class="poem-no">పద్యం 17</span></div>
+        <div class="block-label tel">మూలం</div>
+        <div class="verse">పారసీక గ్రంథ భండారముల నెల్లఁ
+గదలించి తీయని పదములేరి
+వ్యంగ్యవాచ్యార్ధ మహాంభోనిధానంబుఁ
+దరిచి ముత్యములు రత్నములుఁ గూర్చి
+లలితంబులైన యలంకారములు నెల్లఁ
+బొరలించి మేలైన సరకులెత్తి
+దిరిసెనపుంబూవు కరణి ముద్దులు గారు
+శయ్యావిలాసంబు సంతరించి
+
+శాసనము లన్ని పరికించి సకలరాజ
+చరితలం దింత సత్యంబు జాఱనీక
+ఆర్యసన్నుత షాహనామాభిధాన
+భాసుర గ్రంథరచన కుపక్రమించె.</div>
+        <div class="sanskrit-block">
+          <div class="block-label sans">అనువాదం</div><div class="verse">ఆలోడ్య సర్వాన్ భువి పారసీక-
+గ్రన్థాన్ సుశబ్దాన్ మధురాన్ విచిత్య
+వ్యంగ్యార్థ వాచ్యార్థ మహాసముద్రం
+నిర్మథ్య ముక్తాశ్చ మణీంశ్చ లబ్ధ్వా 18
+
+వక్రోక్త్యలఙ్కారగణం విచిన్త్య
+లాలిత్యయుక్తాన్ వినివేశ్య సమ్యక్ ।
+శృఙ్గారసామ్రాజ్యమహానిధానం
+శయ్యావిలాసం రుచిరం విధాయ ॥ 19 ॥
+
+పరీక్ష్య సర్వం హ్యభిలేఖజాతం
+సత్యం కథోదన్తకమాకలయ్య ।
+సద్భిః సదాకీర్తిత-శాహనామా-
+గ్రన్థం ప్రణేతుం కృతయత్నకోఽభూత్</div></div></div><div class="entry">
+        <div class="entry-header"><span class="poem-no">పద్యం 18</span></div>
+        <div class="block-label tel">మూలం</div>
+        <div class="verse">వాని డెందంబు సోఁకిపోవని తలఁపులు
+వాని కనుసన్నఁ దలలు వంపని యుపమలు
+వాని కలమున గులుకుఁ జూపని పదములు.
+మందునకు లేవు నాఁటి వాఙ్మయమునందు.</div>
+        <div class="sanskrit-block">
+          <div class="block-label sans">అనువాదం</div><div class="verse">హృద్గోచరా యే న భవన్తి భావాః
+వక్రోక్తయస్తస్య వశం న యాతాః ।
+శబ్దా విలాసం న చ దర్శయన్తి
+నాసన్ తదానీన్తనవాఙ్మయే తే</div></div></div><div class="entry">
+        <div class="entry-header"><span class="poem-no">పద్యం 19</span></div>
+        <div class="block-label tel">మూలం</div>
+        <div class="verse">వసుధ శాసింపగల సార్వభౌముఁడగును
+ధీరుఁడగు, భిక్షుకుం డగు, దీనుఁ డగును
+దుఃఖితుం డగు, నిత్యసంతోషి యగును
+సత్కవి ధరింపరాని వేషములు గలవె!</div>
+        <div class="sanskrit-block">
+          <div class="block-label sans">అనువాదం</div><div class="verse">భవేత్ కదాచిద్వసుధాధిపస్సః
+ధీరోఽథ భిక్షుశ్చ హి దీన ఏవ ।
+దుఃఖీ తథా నిత్యసుఖీ భవేచ్చ
+వేషాః కవేః సన్తి సమేఽపి యోగ్యాః</div></div></div><div class="entry">
+        <div class="entry-header"><span class="poem-no">పద్యం 20</span></div>
+        <div class="block-label tel">మూలం</div>
+        <div class="verse">తెలుఁగుఁ గవిత్వపుంజిగి, విదేశపుఁ గైతలచెన్ను, ద్రావిడే
+యుల కవనంబులోని పసయుం బొసఁగన్ రచియించుచుండె గే
+వల రసబంధురంబగు ప్రబంధము, సర్వపదార్థ ధర్మముల్
+దెలియఁ దదంతరాంతర విలీనతఁ గొండొక పిచ్చివానిఁగన్.</div>
+        <div class="sanskrit-block">
+          <div class="block-label sans">అనువాదం</div><div class="verse">మాధుర్యం సంస్కృతోక్తేః, నిరుపమ-రసవా-క్చిత్రవైచిత్త్ర్య-సుశ్రీః,
+వైదేశీ కావ్యలక్ష్మీః, కవన-వనగతా ద్రావిడానాం వచః శ్రీః ।
+భాయాత్ స్వే గ్రన్థరాజే సువిమల-కవితాబన్ధ-దీప్తౌ యథా సః,
+కావ్యం తేనే తథా, విస్మృత-సకలజగత్స్ఫూర్తికో-న్మత్తతుల్యః</div></div></div><div class="entry">
+        <div class="entry-header"><span class="poem-no">పద్యం 21</span></div>
+        <div class="block-label tel">మూలం</div>
+        <div class="verse">అంత నొకనాటి రాత్రి నిజాలయమునఁ
+బుష్పశయ్యను బవళించి ముమ్మరముగ
+ముసురుకొని వచ్చు తలఁపు గుంపులను, రసము
+బొందుచేయుచుఁ గన్నులు మోడ్చియుండ.</div>
+        <div class="sanskrit-block">
+          <div class="block-label sans">అనువాదం</div><div class="verse">తతః కదాచి-న్నిజగేహ-సీమ్ని
+సుఖం శయానోఽధిలతాన్తశయ్యమ్ ।
+పరాపత-ద్భావ-రసాంశ్చ తన్వన్ ।
+యావత్స నేత్రే పిదధే చ తావత్</div></div></div><div class="entry">
+        <div class="entry-header"><span class="poem-no">పద్యం 22</span></div>
+        <div class="block-label tel">మూలం</div>
+        <div class="verse">ఆకాలంబునఁ బారసీకసతులం దాకారరేఖాగుణ
+శ్రీకిం బట్టపురాణియైన యొక రాజీవాక్షి యేతెంచి నా
+యాకూతంబు ఫలించునే ? కవివరేణ్యా ! నీకు నారూప మం
+గీకార్యంబగునే ? యటం చడుగసాగెం బ్రౌఢవాగ్వైఖరిన్,</div>
+        <div class="sanskrit-block">
+          <div class="block-label sans">అనువాదం</div><div class="verse">తత్కాలీన-వరాఙ్గనా-జనతతా-వాకారరేఖాగుణ-
+శ్రీరాజ్యస్య మహేశ్వరీవ విలస-త్పార్సీక-సౌన్దర్యభూః ।
+కంజాక్షీ సముపేత్య కాచిదవదత్ “కిం మే ఫలేత్కామనా ?
+స్వీకార్యం కిల రూపయౌవనమిదం మే తే కవీంద్రాధిప?”</div></div></div><div class="entry">
+        <div class="entry-header"><span class="poem-no">పద్యం 23</span></div>
+        <div class="block-label tel">మూలం</div>
+        <div class="verse">చెలువము సౌరభంబు లెదచిమ్మెడు లేఁత గులాబి మొగ్గకున్
+దులయగు నాదు జవ్వనము దోసిటఁ బట్టి భవత్పదాంబుజం
+బులకడ నిల్పితిం బ్రణయపూజకు వేళ యతిక్రమించె నీ
+కులసతి నయ్యెదన్ గవితకున్ జిరకాలము తల్లి నయ్యెదన్.</div>
+        <div class="sanskrit-block">
+          <div class="block-label sans">అనువాదం</div><div class="verse">ప్రీతా-స్సౌగన్ధవీచీః  ప్రతిపురుషహృదం వ్యాపయ-న్నర్ధమీలద్-
+“గూలాబీ” కుడ్మలాభం మమ మధురతమం యౌవనం తే పదాబ్జే ।
+న్యస్తం, వేలా హ్యతీతా వితత-రతియుత-ప్రేమపూజా-కృతే తద్
+భూయాసం తే సతీ, స్యాం చిరమిహ కవితాపుత్రికాయాశ్చ మాతా</div></div></div><div class="entry">
+        <div class="entry-header"><span class="poem-no">పద్యం 24</span></div>
+        <div class="block-label tel">మూలం</div>
+        <div class="verse">ముద్దరాల, నంతిపురుల నుండెడిదానఁ
+దెగువఁబూని, సిగ్గు తెఱలు చీల్చి
+బయలుపడిన నాదు పావన స్నేహంబుఁ
+జెప్పనేల పారసీక కవికి ?</div>
+        <div class="sanskrit-block">
+          <div class="block-label sans">అనువాదం</div><div class="verse">స్వర్గ్యా విముగ్ధా త్వయి లగ్నచిత్తా
+ధైర్యేణ లజ్జాపటకం విదార్య ।
+త్వయ్యర్పయామి ప్రణయం పవిత్రం
+కిం వాధికైర్మే వచనైః కవీన్ద్ర !”</div></div></div><div class="entry">
+        <div class="entry-header"><span class="poem-no">పద్యం 25</span></div>
+        <div class="block-label tel">మూలం</div>
+        <div class="verse">తనువెల్లన్ బులకింపఁ, జిత్తమున నుత్సాహంబు రెట్టింప, నం
+గన కెంగేలు గ్రహించి, ప్రేమరసదిగ్ధంబైన వాల్చూపునన్
+గని, యాశ్లేష మొనర్చినన్ గఱకు బాణం బొండు డెందాన గ్రు
+చ్చినయట్లయ్యె నతండు త్రుళ్ళిపడి లేచెం గంపితాంగంబునన్.</div>
+        <div class="sanskrit-block">
+          <div class="block-label sans">అనువాదం</div><div class="verse">రోమాఞ్చత్తనుకో, హృది ద్విగుణితం హ్యుత్సాహభావం వహన్,
+కాన్తాం తాం స్వకరే-ఽర్పిత-స్వ-తనుకాం ప్రేమ్ణా గృహీత్వాదరమ్ |
+ఆశ్లిష్యత్స కటాక్షపాతసహితం యావత్, తదా మార్గణా-
+పాతాద్దీర్ణహృదబ్జవానివ హఠాల్లేభే స్మృతిం భీతిదామ్</div></div></div><div class="entry">
+        <div class="entry-header"><span class="poem-no">పద్యం 26</span></div>
+        <div class="block-label tel">మూలం</div>
+        <div class="verse">హృద్య కావ్యరచన నేకాగ్రత వహించి|
+కళవళంబు లేని కవిమనస్సు|
+గాలి కెదురు గట్టు కాచగోళం బయ్యె,|
+గండుచేపఁ దాఁకు కమల మయ్యె</div>
+        <div class="sanskrit-block">
+          <div class="block-label sans">అనువాదం</div><div class="sanskrit-pending">అనువాదం లభ్యం కాలేదు</div></div></div><div class="entry">
+        <div class="entry-header"><span class="poem-no">పద్యం 27</span></div>
+        <div class="block-label tel">మూలం</div>
+        <div class="verse">నరుని సుఖదుఃఖముల ముందు నడచివచ్చు
+నీడ లే స్వప్నములు సుమ్ము నిశ్చయముగ
+కాలచక్రంబు గంభీర గమనమందు
+దాగిఁకొని యెన్ని యెన్ని చిత్రములు గలవొ ?</div>
+        <div class="sanskrit-block">
+          <div class="block-label sans">అనువాదం</div><div class="verse">నరస్య దుఃఖస్య సుఖస్య చైవ
+ఛాయాః ప్రయాన్త్యః పురతో భవన్తి ।
+స్వప్నాః, గభీరే నను కాలచక్ర-
+యన్త్రే విచిత్రాణి కియన్తి సన్తి !</div></div></div><div class="entry">
+        <div class="entry-header"><span class="poem-no">పద్యం 28</span></div>
+        <div class="block-label tel">మూలం</div>
+        <div class="verse">అతఁడా రాతిరి కన్ను మూయక తదీయ స్వప్నవృత్తాంత మ
+ద్భుతమైనన్ దలపోయు చుండె, నపుడంభోజాప్తుఁడున్ దూర్పుఁగొం
+డతలన్ గుంకుమచల్లెఁ బశ్చిమగిరిన్ భస్మచ్చవిన్ జంద్రుఁడున్
+మృతుఁడై వ్రాలె నభస్సునం దణఁగిపోయెం దారకాగోళముల్.</div>
+        <div class="sanskrit-block">
+          <div class="block-label sans">అనువాదం</div><div class="verse">రాత్రిం తాం స హి నిర్నిమేషనయనః స్వప్నస్య వృత్తాన్తకం
+ధ్యాయన్నేవ నినాయ, నీరజసుహృ-చ్చిక్షేప రక్తచ్ఛవిమ్ ।
+పూర్వాద్రౌ, శశలాఞ్ఛనశ్చ వికిరన్ భస్మచ్ఛవిం పశ్చిమే
+శాన్తోఽభూద్, గగనే చ తారకగణో లీనోఽభవన్నిష్ప్రభః</div></div></div><div class="entry">
+        <div class="entry-header"><span class="poem-no">పద్యం 29</span></div>
+        <div class="block-label tel">మూలం</div>
+        <div class="verse">క్రమమొప్పన్ సులతానుమేడల నగారా మ్రోసె, నాహూతనా
+దములన్నిండె మశీదు, లాఫ్ఘనుల స్కంధావారమం దాట గు
+ఱ్ఱము కెంజూలు విదల్చి హేషలిడెఁ, బిర్దౌసీ కవీంద్రుండుఁ గా
+ల్యములన్ దీర్చి వసించె నింటిమొగసాలన్ మేలిపీఠంబునన్.</div>
+        <div class="sanskrit-block">
+          <div class="block-label sans">అనువాదం</div><div class="verse">సుల్తానస్య చ సౌధపఙ్క్తిషు బభౌ యామప్రహారధ్వనిః
+మస్జీదేషు రవో నమాజకరణాహ్వానార్థకః సంబభౌ ।
+స్కన్ధావారగతో హయశ్చ విదధే హేషారవం సంభ్రమం
+పిర్దౌసిః కృతకాల్యక-స్సుఖమయం పీఠం శ్రితోఽభూత్ క్షణమ్</div></div></div><div class="entry">
+        <div class="entry-header"><span class="poem-no">పద్యం 30</span></div>
+        <div class="block-label tel">మూలం</div>
+        <div class="verse">అపుడొక పారసీకుఁడు రయంబున వచ్చి సలాము చేసి తొ
+ట్రుపడు నెలుంగుతోఁ గవివరుల్ దయ సేయుఁడు తత్ క్షణంబ మీ
+విపుల సుఖైకసౌధము గుభిల్లునఁ గూలిన దమ్మగారు వ్రా
+సి పనిచి రంచు నిచ్చెఁ దనచే నొక యుత్తరమున్ వినమ్రుఁడై.</div>
+        <div class="sanskrit-block">
+          <div class="block-label sans">అనువాదం</div><div class="verse">కశ్చిత్ పార్సీకదేశా దతిశయిత-రయాత్ వ్యాకుల-స్వాన్తక-స్సన్
+పిర్దౌసిం ప్రాప్య నత్వా నయనయుగ-పతద్బాష్పధార-స్సవేగమ్ ।
+ప్రావోచత్ తత్క్షణం స్వం పురమభిగమనం దర్శయన్ పత్రకం తత్-
+పత్నీసమ్ప్రేషితం చాకథయ దుపనతం సౌఖ్యసౌధస్య భఙ్గమ్</div></div></div><div class="entry">
+        <div class="entry-header"><span class="poem-no">పద్యం 31</span></div>
+        <div class="block-label tel">మూలం</div>
+        <div class="verse">వత్సరత్రయంబు వయసువచ్చిన ముద్దు
+కాలు సేతులుండి కదలు ముద్దు
+పుత్ర నామకమున మొదటఁ బుట్టిన ముద్దు
+మాననీయ ! యింక మనకు లేదు.</div>
+        <div class="sanskrit-block">
+          <div class="block-label sans">అనువాదం</div><div class="verse">స్నేహస్య రాశిర్వయసా మ్రదీయాన్
+వాత్సల్యరాశిః కరపాదయుక్తః ।
+పుత్రస్య నామ్నా ప్రథమప్రసూతిః
+నేతః పరం నౌ భువి సఞ్చకాస్తి”</div></div></div><div class="entry">
+        <div class="entry-header"><span class="poem-no">పద్యం 32</span></div>
+        <div class="block-label tel">మూలం</div>
+        <div class="verse">అని తన భార్యామణి వ్రా
+సిన కమ్మఁ బఠించి సుకవిశేఖరుఁడపుడే
+తన తూసునగరమునకుఁబ
+యనమయ్యె నయోమయ వ్యథాకులితమతిన్.</div>
+        <div class="sanskrit-block">
+          <div class="block-label sans">అనువాదం</div><div class="verse">ఇత్యేవం లిఖితం పత్రం పత్న్యా దృష్ట్వా మహాకవిః ।
+వ్యథిత శ్శూన్య-చేతస్కః స్వపురం ప్రయయౌ హఠాత్</div></div></div><div class="entry">
+        <div class="entry-header"><span class="poem-no">పద్యం 33</span></div>
+        <div class="block-label tel">మూలం</div>
+        <div class="verse">కొడుకు నెంజలి హృదయంబుఁ గోయుచుండ
+నన్నపానీయములు ముట్టఁడయ్యె నతఁడు
+కాలపురుషుండు దినదినాకారుఁడగుచు
+భావుకుని లీల నోదార్చి పోవుచుండె.</div>
+        <div class="sanskrit-block">
+          <div class="block-label sans">అనువాదం</div><div class="verse">శల్యే సుతస్య మరణాజ్జనితే హృదబ్జం
+నిత్యం వికర్తయతి నిస్స్పృహజీవనం తమ్ ।
+త్యక్తాన్నపానమముకం దినరూపమేత్య
+స్నేహాత్స్మ సాన్త్వయతి కాలపుమాన్ క్రమేణ</div></div><div class="discussion"><div class="discussion-label">చర్చ (12)</div><div class="reply "><div class="reply-sender">Kutumba Sastry Vempaty</div>
+      <div class="reply-text">సహృదయులైన సముదాయసభ్యులకు వందనములు. వెనుకటి ఆవృత్తములో పాదవిభాగాన్ని బుద్ధిపూర్వకంగా అన్యథయించి సమర్పించాను. దాని వలన సంశయమేర్పడినది. ఈ సముదాయమునకు అట్టి ఆవశ్యకత లేనందువల్ల, అది ప్రామాణికము కానందువల్ల, ఈ సారినుండి పాదవిభాగానుసారముగా పెట్టితిని.</div></div><div class="reply "><div class="reply-sender">Kutumba Sastry Vempaty</div>
+      <div class="reply-text">శ్లోకసంఖ్యలో మూలమునకూ అనువాదమునకూ హెచ్చుతగ్గులు కానవచ్చుచున్నవి. దానికి, ప్రధానకారణము సీసపద్యమునకు నేను మూడు ఉపజాతివృత్తములను వాడి  నిర్వహించితిని. అదికాక, చాలా అరుదుగా వేరే కారణమూ ఉండవచ్చును. ఆచార్య రవ్వా శ్రీహరిగారు కూడా పిరదౌసిని అనువదించి ముద్రించియుంటిరి. వారు రెండు భాషలలోనూ కవనమందు సమానప్రజ్ఞ కలవారయినందువలన, సీసము మొదలగు జాతులకు అదేఛందస్సులో సంస్కృతానువాదం చేసియుండిరి. అది ఒక వినూత్న ప్రయోగము. 🙏 వీలయినంతవరకూ, శ్ల</div></div><div class="reply "><div class="reply-sender">Kutumba Sastry Vempaty</div>
+      <div class="reply-text">వీలయినంతవరకూ, ఏ పాదమునకు ఆ పాదమందే అనువాదము వచ్చునట్లు, వీలయినంతవరకూ మూలమందలి తత్సమములను అలానే వాడుటకు ప్రయత్నించితిని. సాఫల్యవిషయమున పెద్దల అభిప్రాయము ప్రమాణము.🙏</div></div><div class="reply depth-1"><div class="reply-ref">↩ Kutumba Sastry Vempaty వ్యాఖ్యకు స్పందన</div><div class="reply-sender">🇮🇳 J S R Rao 🇮🇳</div>
+      <div class="reply-text">తమరి గళ మాధుర్యం కూడా జోడించి సంస్కృతాoధ్రములలో  అన్నీ వినిపించిన తరిoపమా మేము మరింత , కవి కోయిల అంటూ!? 🙏💐 ‎</div></div><div class="reply depth-2"><div class="reply-ref">↩ 🇮🇳 J S R Rao 🇮🇳 వ్యాఖ్యకు స్పందన</div><div class="reply-sender">Kutumba Sastry Vempaty</div>
+      <div class="reply-text">సారథులవారి అనుమతియున్నచో మంగళవారమునాడు ప్రయత్నించుదును.🙏</div></div><div class="reply depth-3plus"><div class="reply-ref">↩ Kutumba Sastry Vempaty వ్యాఖ్యకు స్పందన</div><div class="reply-sender">🇮🇳 J S R Rao 🇮🇳</div>
+      <div class="reply-text">గానం వారని వారి ఇంటి మరో పేరు. పండితులను, కవి కోకిలలను , సభ్యుల కోరికను  మన్నించుట వారి ఆచారం అని నేను విశ్వసింతును. 💐💐💐 ‎</div></div><div class="reply depth-3plus"><div class="reply-ref">↩ 🇮🇳 J S R Rao 🇮🇳 వ్యాఖ్యకు స్పందన</div><div class="reply-sender">Kutumba Sastry Vempaty</div>
+      <div class="reply-text">ఈ మాట ముమ్మాటికీ నిజము. 👏👏👏🙏🙏🙏</div></div><div class="reply depth-3plus"><div class="reply-ref">↩ Kutumba Sastry Vempaty వ్యాఖ్యకు స్పందన</div><div class="reply-sender">Kutumba Sastry Vempaty</div>
+      <div class="reply-text">ఈ వేళ ఇప్పుడు తప్పనిసరి పని ఉన్నది. అందువలన, మంగళవారం యథాశక్తిగా ప్రయత్నింతును. మీ అభిమానమునకు ధన్యవాదములు.🙏</div></div><div class="reply "><div class="reply-sender">Kutumba Sastry Vempaty</div>
+      <div class="reply-text">దయజేసి మూలమునకు మరింతచేరువగా చేయుటకు ఉపాయములు తోచినచో శెలవీయగలరు. అలాగే చందోదోషములుగానీ, భాషాదోషములుగానీ కంటపడినచో తప్పక సూచించగలరు. ఉపకృతుడనౌదును.</div></div><div class="reply "><div class="reply-sender">Kutumba Sastry Vempaty</div>
+      <div class="reply-text">సరదాగా,
+ముద్దు బెడద
+ఎంతో ఆహ్లాదకరమైన ముద్దుపదము అనువాదసమయమున మొద్దై ఎంతగానో ఇబ్బంది పెట్టినది. చుంబనార్థము సర్వత్ర పొసగదు. కుంతీకమార్యాదులలో వాత్సల్యార్థమును గ్రహించి నిర్వహించితిని. ముద్దులపెండ్లాము మొదలగు చోట్ల అదియునూ పొసగదు. ఎంత ప్రయత్నించిననూ, సర్వస్థలములందు నిర్వహణకు యోగ్యమైన ఒక సంస్కృతపదము తోచక  భావార్థమును అనువదించి సరిపెట్టుకుంటిని. గ్రహించగలరు. ఇలాంటి చోట్ల అనువాదము దుస్సాధమగును.   🙏</div></div><div class="reply "><div class="reply-sender">Kutumba Sastry Vempaty</div>
+      <div class="reply-text">సమర్పణ విలంబితమైనది. మన్నించగలరు.</div></div><div class="reply "><div class="reply-sender">Kutumba Sastry Vempaty</div>
+      <div class="reply-text">శ్రీయుతులు కృష్ణమోహనుగారికి వారందించిన సహకారమునకు ధన్యవాదములు. 🙏</div></div></div></div><div class="entry">
+        <div class="entry-header"><span class="poem-no">పద్యం 34</span></div>
+        <div class="block-label tel">మూలం</div>
+        <div class="verse">రెండేడుల్ సనినంతఁజక్కని కొమార్తెన్ గాంచి సానందుఁడై
+గండూషించే మనోవిచారము నలంకారంబులున్ జిన్నెలు
+న్నిండన్గావ్యము వ్రాయఁజొచ్చె మరలన్నిద్రాసుఖత్యాగియై
+పండాకుంబలెనయ్యెఁ “బాపము” తనూ ప్రాబల్యరక్తచ్యుతిన్.</div>
+        <div class="sanskrit-block">
+          <div class="block-label sans">అనువాదం</div><div class="verse">నిర్యాతే చ సమాద్వయే సురుచిరాం దైవాత్ సుతాం ప్రాప్య త-
+ద్దుఃఖాన్ముక్తమనాః ప్రసన్నధిషణో నిర్నిద్రనీతక్షపః ।
+సాలఙ్కారవచోవిలాసలసితం కావ్యం వితేనే నవం
+శుష్కం పత్రమివాభవద్వపురహో ధాతుక్షయాన్నీరసమ్</div></div><div class="discussion"><div class="discussion-label">చర్చ (3)</div><div class="reply "><div class="reply-sender">Komalarao</div>
+      <div class="reply-text">నాకు సంస్కృతం పూర్తిగా అర్థము కాకపోయినా మీ
+అనవాదము తెలుగునకు సమీచీనమై ఒప్పె
+👏👏🙏🙏</div></div><div class="reply "><div class="reply-sender">Krishnamohan</div>
+      <div class="reply-text">అన్ని తెలుగు పద్యాలకు మీరు చేసిన అనువాదము సంస్కృతభాషతో అంతగా పరిచయము లేని నాకు అవగతమైనదండీ.
+💐💐👌👌🙏🏻🙏🏻</div></div><div class="reply depth-1"><div class="reply-ref">↩ Krishnamohan వ్యాఖ్యకు స్పందన</div><div class="reply-sender">Kutumba Sastry Vempaty</div>
+      <div class="reply-text">నా ప్రయత్నం ఫలించినట్లే. అయితే ఒక చిన్న సవరణ. మీకు, అలాగే మన సమూహసభ్యులకు సంస్కృతం అర్థం కాకపోవడమన్నది అంగీకార్యం కాదు. ఎందుకో చెప్పలేను కానీ, నాకు కూడా పిరదౌసీ అనువాదం తృప్తినిచ్చింది. కృత్యాదిలో మాత్రం చాలా భయపడినాను. కారణం జాషువాగారి కవితలో జాతిపదాలు మెండుగా ఉంటాయి. ఈ రోజు ఈ విషయాలను చర్చించుకోవచ్చుననుకుంటాను. కాకపోతే, తెలియజేస్తే తొలగిస్తాను.🙏</div></div></div></div><div class="entry">
+        <div class="entry-header"><span class="poem-no">పద్యం 35</span></div>
+        <div class="block-label tel">మూలం</div>
+        <div class="verse">ముదురుకోయిల కంఠమున నివాసము సేయు
+కొసరింపుఁ గూఁతల గుట్టు దెలిసి,
+ప్రతిపుష్పగంధగర్భముఁ జీల్చికొని వచ్చు
+పిల్లగాడ్పుల జన్మవృత్త మరసి
+మేఘంబు తెరచాటు మెఱపు భోగముసాని
+మోసగింపుల యర్థమును గ్రహించి,
+శరధినాయకుని కొన్నురువు పిల్లల తీఱు
+బడిలేని యాటల భావ మెఱిఁగి,
+ముగ్ధమోహన సౌందర్యపూర్ణయైన
+ప్రకృతి రమతోడ స్నేహభావమున మెలఁగి
+ముప్పదేఁడులు సర్వాంగ పుష్టి మెఱయఁ
+గబ్బము రచించే పిర్దేసి కవివరండు.</div>
+        <div class="sanskrit-block">
+          <div class="block-label sans">అనువాదం</div><div class="verse">జ్ఞాత్వా రహస్యం మధుమత్తకణ్ఠ-
+ధ్వనేర్ను పుంస్కోకిల-కూజితానామ్ ।
+భిత్త్వా సుమాన్తర్గత-గన్ధగర్భం
+మన్దం వహద్వాయుగతిం విభావ్య || 37 ॥ 
+
+ కాదమ్బినీచ్ఛన్నముఖాబ్జవిద్యుద్-
+వేశ్యాగతం వఞ్చనకం విభావ్య ।
+సాముద్రఫేనేషు చ బుద్బుదానాం
+జ్ఞాత్వా విలాసాన్ శిశువృత్తతుల్యాన్ ॥ 38 ॥ 
+
+ సమ్మోహయన్ముగ్ధవపుర్విభూత్యా
+రత్వా ప్రకృత్యా సహ చాత్మతోషమ్ ।
+త్రింశత్సమా యావదసౌ వితేనే
+సర్వాఙ్గపుష్టం సుకవిస్సుకావ్యమ్</div></div></div><div class="entry">
+        <div class="entry-header"><span class="poem-no">పద్యం 36</span></div>
+        <div class="block-label tel">మూలం</div>
+        <div class="verse">కృతి ముగియించి యాఫ్టును మహీపతి దర్శన మాచరించి సం
+గతి వివరించినన్ నృపతి గడ్డము దువ్వుచు మందహాస వా
+సితముఖుఁడై “భళీ ! సుకవి శేఖర ! యెల్లి సభాంతరస్థవం
+డితుల సమక్షమందునఁబఠింపుము ర” మ్మని పంపెనాతనిన్.</div>
+        <div class="sanskrit-block">
+          <div class="block-label sans">అనువాదం</div><div class="verse">కావ్యం సమాప్య నృపతిం వినివేద్య వృత్తం
+యావద్దదౌ, పరిమృశన్ స హి లమ్బకూర్చమ్ ।
+స్తుత్వా కవిం, వికసితాననకశ్చ భూత్వా,
+మధ్యేసభం స్వకవితాపఠనం శశాస</div></div></div><div class="entry">
+        <div class="entry-header"><span class="poem-no">పద్యం 37</span></div>
+        <div class="block-label tel">మూలం</div>
+        <div class="verse">అనుమానం బిసుమంత లేని మదితో, సంభోనిధానంబు నీఁ
+దినవానింబలె, హేమసమ్మిళితకీర్తిన్ గాంచు కౌతుహలం
+బున, లజ్ఞావతియై స్వయంవర సభాభూమిం బ్రవేశించు ము
+గనుబోర్గ్రంథముఁ జంకబెట్టుకొని యాస్థానంబు డాయంజనెన్.</div>
+        <div class="sanskrit-block">
+          <div class="block-label sans">అనువాదం</div><div class="verse">మనసా నిర్జితసంశయేన తరసా దుర్లఙ్ఘనీయం మహా-
+జలధిం తీర్ణ ఇవాధికీకృతమహాకౌతూహలః ప్రేక్షితుమ్ ।
+సుయశః స్వర్ణమయం స్వయంవరవధూ-తుల్యక్రియ స్తత్సభా-
+భవనం ప్రావిశదేష సత్కవివరో మూర్తో యథా ముగ్ధతా</div></div></div><div class="entry">
+        <div class="entry-header"><span class="poem-no">పద్యం 38</span></div>
+        <div class="block-label tel">మూలం</div>
+        <div class="verse">మేలిమి వీడకుండ కరి మ్రింగి వెలార్చిన వెల్గపండులన్
+బోలి నృపావలంబమున బొజ్జలు పెంచిన పెద పెద్ద దా
+డీల తురుష్క పండితుల ఠీవికిఁ దావలమైన కొల్వు గ
+ర్వాలసదృక్కులంగనుచు నాతఁడు చొచ్చెఁ దదంతరాళమున్.</div>
+        <div class="sanskrit-block">
+          <div class="block-label sans">అనువాదం</div><div class="verse">కరిణీభుక్తకపిత్థకేన సదృశైః రాజాశ్రయాద్వర్ధితో-
+దరకైః దీర్ఘపచేలిమైః సువిశదైః కూర్చ్ఐ స్సమేతాననైః ।
+పరితః పణ్డితనామకైః పరివృతాం దుర్వార-గర్వాకులాం
+నమితోదఞ్చితవీక్షణైః కవివరో రాజ్ఞః సభాం ప్రావిశత్</div></div></div><div class="entry">
+        <div class="entry-header"><span class="poem-no">పద్యం 39</span></div>
+        <div class="block-label tel">మూలం</div>
+        <div class="verse">ఎలనవ్వు నెమ్మొగంబునఁ
+గులుకం గృతినందు పెండ్లికొడు కాఫ్టును భూ
+తలనాథఁ డపుడు కౌతూ
+హలియై చనుదెంచి గద్దియను వసియించెన్.</div>
+        <div class="sanskrit-block">
+          <div class="block-label sans">అనువాదం</div><div class="verse">మన్దస్మితాలఙ్కృతవక్త్రదీప్తిః
+కావ్యస్య వధ్వాః గ్రహణేఽనురక్తః ।
+అఫఘానభూపః ప్రవివేశ హృష్టః
+కౌతూహలావిష్టవరో యథాఽసౌ</div></div></div><div class="entry">
+        <div class="entry-header"><span class="poem-no">పద్యం 40</span></div>
+        <div class="block-label tel">మూలం</div>
+        <div class="verse">ఆనతినంది సొంపు తడియారని షష్టి సహస్రపద్యసం
+ధానితమైన గ్రంథము ముదంబున విచ్చి పఠింపసాగె
+ల్తానుల రాజ్యపాలన విధానము తండ్రి సబక్తజీను ము
+న్నీనిన లేటికొమ్మఁ దనియించుటలాదిగలట్టి ఘట్టముల్</div>
+        <div class="sanskrit-block">
+          <div class="block-label sans">అనువాదం</div><div class="verse">అనుజ్ఞాతో రాజ్ఞాభినవరససిక్తం చ కవనం
+సహస్రాణాం షష్ట్యా పరిగణితపద్యైర్విలసితమ్ ।
+ఉపాక్రామత్ కావ్యం విశదయితు మాద్యన్తమధురం
+చరిత్రం సౌల్తానం జనకథనకీర్త్యాదిమహితమ్</div></div></div><div class="entry">
+        <div class="entry-header"><span class="poem-no">పద్యం 41</span></div>
+        <div class="block-label tel">మూలం</div>
+        <div class="verse">కంపంబుగదుర చెంగట నిల్పు నొకసారి
+యుక్కు పుప్పొడిరాలు యుద్ధభూమి
+పులక లుప్పొంగఁ గన్నులఁ గట్టు నొకసారి
+చెడుగురాజుల యేలుబడుల బొమ్మ
+ఆనంద మొదవఁ బ్రత్యక్షించు నొకసారి
+మగువల కడకంటి మంత్రశక్తి
+దయ నిండిపాఱఁ బ్రదర్శించు నొకసారి
+బక్కచిక్కిన పేదవాని బ్రతుకు
+సున్నితంబైన కవి మనస్సున వసించు
+కల్పనాశక్తి బహువిధగతుల మెఱయ
+పాదుషాతోడ నతని దర్బారుసీమ
+సంచితానంద జలనిధి ముంచితేల్చె.</div>
+        <div class="sanskrit-block">
+          <div class="block-label sans">అనువాదం</div><div class="verse">అయః పరాగం వికిరన్ మహాజిం
+చాక్ష్ణోః పురస్తాత్తనుతే కదాచిత్ ।
+సామన్తరాట్పాలనచిత్రకం హి
+రోమాఞ్చితాఙ్గం కురుతే కదాచిత్ ॥ 45 ॥ 
+
+ స్త్రీణాం చ నేత్రత్రికమన్త్రశక్తిం
+ప్రత్యక్షయత్యక్ష్ణి కదాకదాచిత్ ।
+దయాసముద్రః కురుతే కదాచిత్
+శల్యావశేషం హి దరిద్రవృత్తమ్</div></div></div><div class="entry">
+        <div class="entry-header"><span class="poem-no">పద్యం 42</span></div>
+        <div class="block-label tel">మూలం</div>
+        <div class="verse">పదముల పొందిక గుఱ్ఱపుడు
+గదనున కెనవచ్చు పద్యగమనము రససం
+పదయును స్వభావశబలత
+కదలించే సభాంతరాళ కవుల మనంబుల్.</div>
+        <div class="sanskrit-block">
+          <div class="block-label sans">అనువాదం</div><div class="verse">శయ్యా పదానాఞ్చ సమా గతిశ్చ
+సఙ్గ్రామ-హేషా-గమనేన శస్యా।
+సమ్పద్రసానాం చ హి భావసమ్పత్
+తరఙ్గయామాస మనాంసి తత్ర</div></div></div><div class="entry">
+        <div class="entry-header"><span class="poem-no">పద్యం 43</span></div>
+        <div class="block-label tel">మూలం</div>
+        <div class="verse">అరమోడ్పుఁ గనులు పులకిత
+శరీరములు పొందుపఱచి సత్కవివరుఁడా
+తురకలదొర కొలువును కి
+క్కురుమననీ కెలిమి నేలుకొన మొదలిడియెన్.</div>
+        <div class="sanskrit-block">
+          <div class="block-label sans">అనువాదం</div><div class="verse">నిమీలితార్థైశ్చ విలోచనాబ్జైః
+హృష్టైశ్చ రోమాఞ్చితగాత్రకైశ్చ ।
+యుక్తాం సభాం చాఫ్ఘనభూపకస్య
+స్తబ్ధాం విశబ్దాం స శశాస సమ్యక్</div></div></div><div class="entry">
+        <div class="entry-header"><span class="poem-no">పద్యం 44</span></div>
+        <div class="block-label tel">మూలం</div>
+        <div class="verse">ఆ సులతాను నోలగము నట్టు లోకానొక రాజఠీవి ము
+మ్మాసములేలి గ్రంథము సమాప్తముఁజేసి యొసంగిపోయెఁ బి
+ర్దాసి నిజాలయంబునకుఁ దత్ఫలితంబుగ వెండినాణెముల్
+బాస దొలంగి పంపె నరపాలుఁడు పండితి లేమి చెప్పిరో ?</div>
+        <div class="sanskrit-block">
+          <div class="block-label sans">అనువాదం</div><div class="verse">సుల్తానస్య సభాస్థలీ-మధివసన్ రాజోచితం పూజితో
+మాసానాం త్రితయే సమాప్య కవితాగ్రన్థస్య పాఠం యయౌ ।
+పిర్దోసిః నిజవాసదేశమథ తత్స్వీకృత్య సమ్ప్రేషయత్
+రాజా రాజతటఙ్కకాన్ కవివరాః కిం వాబ్రువన్ స్యుర్నను</div></div></div><div class="entry">
+        <div class="entry-header"><span class="poem-no">పద్యం 45</span></div>
+        <div class="block-label tel">మూలం</div>
+        <div class="verse">ఎన్నో కొండలు గుండెలోఁ గరఁగిపోయెన్ వార్థిసంతానముల్
+గన్నీరయ్యె, సమస్తలోకము నిరాకారస్థితిం బొల్చె, ను
+త్పన్నంబయ్యె విషాదమేఘపటలధ్వాంతౌఘ, మాశాలతల్
+సున్నాలయ్యె నగాధకూపజలరాసుల్ దోఁచెఁ బిర్దాసికిన్.</div>
+        <div class="sanskrit-block">
+          <div class="block-label sans">అనువాదం</div><div class="verse">నైకాః పర్వతపఙ్క్తయః సమభవన్ భగ్నాః భృశం విద్రుతాః
+పిర్దోసే-ర్హృదయే సముద్రతతయో బాష్పాణి లోకాస్సమే ।
+లుప్తాకారదశా విషాదజలదధ్వాన్తౌఘ ఆశాలతాః శూన్యాః
+దుస్తరకూపసాగరమయం సర్వం జగచ్చాగ్రతః</div></div></div><div class="entry">
+        <div class="entry-header"><span class="poem-no">పద్యం 46</span></div>
+        <div class="block-label tel">మూలం</div>
+        <div class="verse">ధనము మరలించి మానవేంద్రునకుఁ బంపి
+పొరలుకొనివచ్చు దుఃఖంబుఁ దెరల నడుమ
+నాకృతి వహించియున్న నిరాశవంటి
+యుత్తరము వ్రాసె నిందాసహోక్తికముగ.</div>
+        <div class="sanskrit-block">
+          <div class="block-label sans">అనువాదం</div><div class="verse">ప్రతిప్రేష్య ధనం సర్వం సుల్తానాయ సుదుఃఖితః ।
+మూర్తనైరాశ్యరూపఞ్చ పత్రం ప్రాదాత్ సగర్హణమ్</div></div></div><div class="entry">
+        <div class="entry-header"><span class="poem-no">పద్యం 47</span></div>
+        <div class="block-label tel">మూలం</div>
+        <div class="verse">ఓ సుల్తాను మహమ్మదూ ! కృతక విద్యుద్దీపముల్ నమ్మి యా
+శాసౌధంబును గట్టికొంటి నది నిస్సారంపు టాకాశమై
+నాసర్వస్వము దొంగిలించి నరకానం గూలిపోయెన్, వృథా
+యాసప్రాప్తిగ నిల్చినాఁడ నొక దుఃఖాక్రాంతలోకంబునన్.</div>
+        <div class="sanskrit-block">
+          <div class="block-label sans">అనువాదం</div><div class="verse">హే ! సుల్తానమహమ్మద !వ్యరచయం సౌధాన్ మహాశామయాన్
+విద్యుద్దీపగణం ప్రతీత్య, త ఇమే హృత్వా మదీయం శుభం ।
+సర్వస్వం నరకేఽపతన్ గగనవత్ సారేణ హీనాః
+వృథాయాసం ప్రాప్య పతామి దుఃఖబహులే నైరాశ్యలోకే ముహుః</div></div></div><div class="entry">
+        <div class="entry-header"><span class="poem-no">పద్యం 48</span></div>
+        <div class="block-label tel">మూలం</div>
+        <div class="verse">పూని ఖరాసికిన్ మనుజభుక్తి నొసంగెడు రాతిగుండె సు
+ల్తానుల కస్మదీయ కవితాసుధఁ జిందిన పాతకంబు నా
+పై నటనం బొనర్చినది, వాస్తవ మిట్టి స్వయంకృతైక దో
+షానలదగ్ధమై చనిన యర్థము నాకు లభింపఁబోవునే !</div>
+        <div class="sanskrit-block">
+          <div class="block-label sans">అనువాదం</div><div class="verse">యత్నాత్ ఖఙ్గతతిం మనుష్య-నివహేనా-న్నేన సమ్ప్రీణయత్
+పాషాణాధిక-కర్కశాత్మమనసాం సుల్తాననృణాం కృతే ।
+స్వీయం కావ్యసుధా-నిషేక-జనితం పాపం నరీనర్తి మే
+నూనం స్యాత్స్వకృతాపరాధజనితో వహ్నిర్దహేదర్థకమ్</div></div></div><div class="entry">
+        <div class="entry-header"><span class="poem-no">పద్యం 49</span></div>
+        <div class="block-label tel">మూలం</div>
+        <div class="verse">ఇంక విషాదగీతములకే మిగిలెన్ రసహీనమై మషీ
+పంకము నాకలమ్మున, నభాగ్యుడనైతి వయఃపటుత్వమున్
+గ్రుంకె శరీరమం దలముకొన్నది వార్ధకభూత మీ నిరా
+శాంకిత బాష్పము ల్పలములైనవి ముప్పదియేండ్ల సేవకున్.</div>
+        <div class="sanskrit-block">
+          <div class="block-label sans">అనువాదం</div><div class="verse">లేఖన్యామిహ శిష్ట ఏష చ మషీపఙ్కో విషాదాత్మకాన్
+గేయాన్ లేఖితుమేవ, పాటవమథో కాయస్య జీర్ణం తతః ।
+దేహే స్వే ముహురావృణోతి చ మహావార్ధక్యభూతః ఫలం
+త్రింశద్వర్ష-సుషేవణస్య వితతం బాష్పం నిరాశాఙ్కితమ్</div></div><div class="discussion"><div class="discussion-label">చర్చ (8)</div><div class="reply "><div class="reply-sender">Kutumba Sastry Vempaty</div>
+      <div class="reply-text">సభ్యమహాశయులకు క్షమాయాచనపూర్వకముగా విన్నవించునది. ఇప్పటికి అతి కష్టముమీద సంస్కృతానువాదం మీ ముందుంచగలిగాను. పఠించునవకాశము తక్కువగానుండుటవలన చాలావరకూ నా ప్రయత్నము వ్యర్థమే యగును. తెలుగు మూలమున సాంకేతికకారణములవలన అచ్చుతప్పులు కానవచ్చినవి. కానీ తెలుగుటంకణమున గతి మందమగుట వలన సరిదిద్దలేక పోతిని. పైగా, సర్వవిదితము, ఈ రోజునే అధీతపూర్వము అని  తప్పనిసరైన పరిస్థితులలో ఉపేక్షించవలసి వచ్చినది. మన్నించగలరు. సంస్కృతానువాదమున అవి తక్కువగనే ఉండనోపును. శెలవు.</div></div><div class="reply depth-1"><div class="reply-ref">↩ Kutumba Sastry Vempaty వ్యాఖ్యకు స్పందన</div><div class="reply-sender">Krishnamohan</div>
+      <div class="reply-text">తద్దుఃఖాన్ముక్తమనాః
+గండూషించె మనోవిచారము
+💐💐🙏🏻🙏🏻🙏🏻</div></div><div class="reply "><div class="reply-sender">Kutumba Sastry Vempaty</div>
+      <div class="reply-text">మీవంటి పెద్దల అభిప్రాయములు నాకు మార్గదర్శకములు. ధన్యోస్మి.🙏🙏🙏</div></div><div class="reply depth-1"><div class="reply-ref">↩ Kutumba Sastry Vempaty వ్యాఖ్యకు స్పందన</div><div class="reply-sender">Kutumba Sastry Vempaty</div>
+      <div class="reply-text">ముఖ్యంగా, పెద్దవయసునకూడా మీకు గల ఓర్పు, ఉత్సాహము, నిబద్ధత నావంటివానికి ఉపదేశములే. 🙏</div></div><div class="reply "><div class="reply-sender">Psriramarao</div>
+      <div class="reply-text">మధ్యేసభమ్---- మధ్యేమార్గం
+వంటి అలుక్సమాసమనుకొందునండి</div></div><div class="reply depth-1"><div class="reply-ref">↩ Psriramarao వ్యాఖ్యకు స్పందన</div><div class="reply-sender">Kutumba Sastry Vempaty</div>
+      <div class="reply-text">అవునండి.</div></div><div class="reply "><div class="reply-sender">sahitisamrajyam</div>
+      <div class="reply-text">మాస్టారు అన్నట్టు అనువాదం మూలానికి వన్నె తెచ్చింది.
+సంస్కృతంతో అల్ప పరిచయమున్న నాకే సుబోధకంగా ఉన్నాయి అనువాద శ్లోకాలు.
+గుఱ్ఱపు కదనును - సంగ్రామ హేషా గమనం అని మరింత కదను త్రొక్కించినారు.
+తడియారని - అభినవరససిక్తం అనడమే కాకుండా
+ఆద్యంతమధురం అన్న మరో విశేషణం వేయడం మరింత అందగించింది.
+లజ్జావతిని -మూర్తో యథా ముగ్ధతా అనడం మరింత మనోహరం.
+యిలా చెప్పుకుంటూపోతే ఎన్నో.
+బ్రహ్మశ్రీ కుటుంబశాస్త్రి గారికి నమశ్శతములు.
+🙏</div></div><div class="reply depth-1"><div class="reply-ref">↩ sahitisamrajyam వ్యాఖ్యకు స్పందన</div><div class="reply-sender">Kutumba Sastry Vempaty</div>
+      <div class="reply-text">ఎలా ధన్యవాదాలు చెప్పాలో తెలియరావడం లేదు. చాలా నిశితంగా చూచారు. నమస్సులు. భ్రమప్రమాదాలనుకూడా అంతే స్పష్టతతో ప్రకటించమని ప్రార్థన.🙏🙏🙏</div></div></div></div><div class="entry">
+        <div class="entry-header"><span class="poem-no">పద్యం 50</span></div>
+        <div class="block-label tel">మూలం</div>
+        <div class="verse">ఒక్కొక పద్దియంబునకు నొక్కొక నెత్తురుబొట్టు మేనిలోఁ
+ దక్కువగా రచించితి, వృథాశ్రమయయ్యెఁ గులీనుఁడైన రా
+ జిక్కరణిన్ మృషల్వలుకునే ? కవితాఋణ మీయకుండునే
+ నిక్క మెఱుంగనైతి గజనీసులతానుమహమ్మదగ్రణీ !</div>
+        <div class="sanskrit-block">
+          <div class="block-label sans">అనువాదం</div><div class="verse">ఏకైక-పద్య-రచనార్థ-మయే ! శరీరే
+ హ్యేకైకశోణితకణః క్షపితో, వృథాసౌ ।
+ శ్రాన్తిః, కులీననృపతిశ్చ వదేన్మృషా కిం ?
+ కిం నో దదాతి కవితార్ణకమేవ నూనమ్ !</div></div></div><div class="entry">
+        <div class="entry-header"><span class="poem-no">పద్యం 51</span></div>
+        <div class="block-label tel">మూలం</div>
+        <div class="verse">అల్లాతోడని పల్కి నా పసిఁడి కావ్యద్రవ్యమున్ వెండితోఁ
+ జెల్లింపన్ దొరకొన్న టక్కరివి నీచేఁ బూజితుండైనచో
+ నల్లాకున్ సుఖమే ? మహమ్మదు నృపాలా! సత్యవాక్యం బెవం
+ డుల్లంఘింపఁడొ వాఁడెపో నరుఁడు, ధన్యుండిద్ధరామండలిన్.</div>
+        <div class="sanskrit-block">
+          <div class="block-label sans">అనువాదం</div><div class="verse">అల్లా సాక్షీ తి చోక్త్వా, నవమధుమధురాం కావ్యకన్యాం సువర్ణాం
+ స్వీకర్తుం హ్యుద్యతోఽసి, క్షితిపమిషలసన్ముష్కరిన్ ! రాజతేన !
+ ప్రీణీయాత్ పూజితోఽల్లా  కథమిహ భవతా, స ప్రభుః సత్యసన్ధో;
+ ధన్యస్సోఽస్తీహ యోఽపి, క్షితిప ! భువి సదా సత్యనిష్ఠో మనుష్యః !</div></div></div><div class="entry">
+        <div class="entry-header"><span class="poem-no">పద్యం 52</span></div>
+        <div class="block-label tel">మూలం</div>
+        <div class="verse">హాయిగ నీయశస్సు వెలయంగల చక్కని మేడకట్టి దీ
+ ర్ఘాయువుఁ బోసినాఁడను త్వదన్వయవల్లికి వట్టిచేతులన్
+ బోయెద సంధకారమున మున్గి సుఖంబులఁ బ్రొద్దు గ్రుంకె రా
+ జా! యికఁ దాండవించెద భయంకర భేదతమాలవాటికన్.</div>
+        <div class="sanskrit-block">
+          <div class="block-label sans">అనువాదం</div><div class="verse">భావత్కీం సుయశః-ప్రతాప-వితతిం ప్రత్యక్షయత్ కావ్యసత్-
+ సౌధం నిర్మితవాన్, త్వదన్వయలతాం దీర్ఘాయుషా సిక్తవాన్ ।
+ రిక్తేనైవ కరేణ యామి విలయం గాఢాన్ధకారేఽధునా,
+ రాజన్ ! మే సుఖమస్తమేవ, భయదే నృత్యామి ఖేదే వనే</div></div></div><div class="entry">
+        <div class="entry-header"><span class="poem-no">పద్యం 53</span></div>
+        <div class="block-label tel">మూలం</div>
+        <div class="verse">చిరముగ బానిసీని నభిషేక మొనర్చితి మల్లెపూవు ట
+ త్తరులొలికించి మాయజలతారున రాదుగదా పసిండి, యో
+ కఱకు తురుష్కభూపతి! యఖండమహీవలయంబునందు,
+ నా శిరమున, బోసికొంటిని నశింపని దుఃఖపు టగ్నిఖండముల్.</div>
+        <div class="sanskrit-block">
+          <div class="block-label sans">అనువాదం</div><div class="verse">వంశం తే నితరాం సువాసకశతైః పుష్పోద్భవైః సిక్తవాన్
+ మిథ్యాస్వర్ణమయేషు తన్తుషు కథం స్వర్ణం లభేయ హ్యహమ్ ।
+ దుష్టాత్మన్ ! కుతురుష్కభూమిప ! మహీచక్రే విశాలే స్వయం
+ శీర్షే మేఽగ్నికణాన్ భృశం విదహతో దుఃఖాత్మకాన్ వ్యాక్షిపమ్</div></div></div><div class="entry">
+        <div class="entry-header"><span class="poem-no">పద్యం 54</span></div>
+        <div class="block-label tel">మూలం</div>
+        <div class="verse">అలసట దీర్చుకొందును మహమ్మదు రాజులతో సమాధి శ
+ య్యలపయిముప్ప దేఁడుల ప్రయాసకుడెందము గందిపోయె ని
+ ర్మలమగు చిత్తశాంతి కిఁక మార్గములే దెన లేని పండు వె
+ న్నెల గురియించు నాకవిత నీకు లభించె నసత్యవాదికిన్.</div>
+        <div class="sanskrit-block">
+          <div class="block-label sans">అనువాదం</div><div class="verse">విశ్రామ్యామి సమం సమాధిశయనే భూపైస్తురుష్కైరహం
+ త్రింశద్వర్షకృతప్రయాసవిధినా ధ్వస్తం మమేదం మనః ।
+ మార్గో నాస్తి సుఖైకతానకమనఃశాన్త్యై చ చాన్ద్రామృతా-
+ సారా మే కవితా బభూవ భవతస్స్వీయా మృషాత్మన్ ! నృప !”</div></div></div><div class="entry">
+        <div class="entry-header"><span class="poem-no">పద్యం 55</span></div>
+        <div class="block-label tel">మూలం</div>
+        <div class="verse">కనులన్ గెంపు నటింప మైమఱపు హుక్కాద్రావు సుల్తాను, లే
+ ఖను వాల్చూపులతోఁబఠించుకొని యాకంఠంబుగాఁగ్రోథ మె
+ క్కిన వ్రేటుంగొను కోడె పెద్దపులిమాడ్కిన్ లేచి సేనాపతిన్
+ గని పిర్దౌసినిఁ బట్టి చంపుఁడని యాజ్ఞాపించె నుద్దండతన్.</div>
+        <div class="sanskrit-block">
+          <div class="block-label sans">అనువాదం</div><div class="verse">రక్తం నేత్రయుగం విసంజ్ఞకరణీం  హుక్కా పిబన్ సోఽపి తత్
+ సుల్తానోఽథ కటాక్షపాతవిధినా పత్రం పఠిత్వా భృశమ్।
+ క్రుద్ధస్తాడితసింహవత్ ద్రుతతరం పీఠాత్సముత్థాయ తత్-
+ పిర్దౌశే-ర్గ్రహణే వధే చ కఠినం సేనాపతిం చాదిశత్</div></div></div><div class="entry">
+        <div class="entry-header"><span class="poem-no">పద్యం 56</span></div>
+        <div class="block-label tel">మూలం</div>
+        <div class="verse">అక్కట! పండువంటి మరియాదకు నెక్కిన మీ కులీనతన్
+ దక్కువచేసి వ్రాసిన విధంబునఁ బద్దియముల్ ధ్వనించెడిన్,
+ చక్కని మల్లికాసుమమునన్ జరియించి మదద్విరేఫముల్
+ రెక్కలు రాచి యందు సవరింపఁగ జాలునె నీలివన్నెలన్ ?</div>
+        <div class="sanskrit-block">
+          <div class="block-label sans">అనువాదం</div><div class="verse">హా ! హా ! నిర్మలపావనోజ్జ్వలభవత్కౌలీనసత్సమ్పదం
+ న్యూనీకుర్వదివ ప్రభాతి కవనే ధ్వన్యర్థజాతం నను ।
+ శుభ్రే మల్లికపుష్పకే విచరతో భృఙ్గస్య తత్పుష్పకం
+ పక్షోత్సర్జన-కర్మణా హి మలినీకర్తుం కథం యుజ్యతే ?</div></div></div><div class="entry">
+        <div class="entry-header"><span class="poem-no">పద్యం 57</span></div>
+        <div class="block-label tel">మూలం</div>
+        <div class="verse">నరపతి ప్రేమతో నొక తృణంబొ కణంబొ యొసంగె, దానితో
+ గరము వహింప కిక్కరణిఁ గాఱులుకూయునె పారసీకుఁ డె
+ వ్వరు రచియింపలే రితనిపాటి కవిత్వ మటంచుఁ బల్క జొ
+ చ్చిరి సభలోన నిచ్చకపు జీతము లందెడు పండితబ్రువుల్.</div>
+        <div class="sanskrit-block">
+          <div class="block-label sans">అనువాదం</div><div class="verse">ప్రేమ్ణా భూమిపతిః తృణం కణమథో ప్రాదాత్ తత-స్తోషయే-
+ దాత్మానం నను పారసీకకవిరాట్ తద్వైపరీత్యేన హి ।
+ దుర్వాచ్యం వదతీహ చేదృశ-మహాకావ్యం చ కుర్యాన్న కో ?”
+ హ్యేవం ప్రాహురహో కవిబ్రువగణాః రాజ్ఞః ప్రియంవాదినః</div></div></div><div class="entry">
+        <div class="entry-header"><span class="poem-no">పద్యం 58</span></div>
+        <div class="block-label tel">మూలం</div>
+        <div class="verse">పాపము పండెనో కవిని బట్టి వధింపఁ దలంచి నాఁడు భూ
+ మీపతి బాసఁదప్పి యుపమింపగరాని కృతఘ్నుఁడౌర యా
+ శోపహతిన్ గరం బుడుకుచున్న కవీంద్రుని వేఁడి రక్తధా
+ రాపతనం బమంగళకరం బనుచుండిరి ధర్మతత్పరుల్.</div>
+        <div class="sanskrit-block">
+          <div class="block-label sans">అనువాదం</div><div class="verse">కిం పాపం ఫలతీహ సత్కవివరం హన్తుం ప్రవృత్తోఽస్త్యయం
+ స్వం వాక్యం చ న మానయన్, నిరుపమః కార్తఘ్న్య-దుష్టో నృపః ।
+ ఆశాసౌధ-సమూలపాత-జనిత-క్షోభేణ చోష్ణం చ తద్-
+ రక్తం నో భువి పాతయేదశుభదం హ్యేవం జగుర్ధార్మికాః</div></div></div><div class="entry">
+        <div class="entry-header"><span class="poem-no">పద్యం 59</span></div>
+        <div class="block-label tel">మూలం</div>
+        <div class="verse">రాజుతలమీఁద కవి కప్పురంబు చల్లె,
+ సుకవి తలమీఁద రాజు నిప్పుకలు విసరె.
+ కొంద రే పుణ్యమో చేరుకొనియె ననిరి,
+ కొంద రే పాపమో పట్టికుడిపె ననిరి.</div>
+        <div class="sanskrit-block">
+          <div class="block-label sans">అనువాదం</div><div class="verse">రాజ్ఞో మూర్ధని సిక్తవాన్ కవివరో కర్పూరధూలిం శివం,
+ రాజా మూర్ధని సిక్తవాన్ కవివిధోః వహ్నేః కణాన్ దుర్భరాన్ ।
+ “పుణ్యం ప్రాక్తనజన్మ-సఞ్చిత-మిదం స్యాద్ధీతి కేచిజ్జగుః,
+ పాపం కిఞ్చన దుర్భరం ఫలతి చే” త్యేవం పరే చాబ్రువన్</div></div></div><div class="entry">
+        <div class="entry-header"><span class="poem-no">పద్యం 60</span></div>
+        <div class="block-label tel">మూలం</div>
+        <div class="verse">సరస-కవిరాజ-పూజా-
+ పరతంత్రుం డొకఁడు మిగుల వ్యాకులపడి యా
+ పిరదౌసికడకు వేగమ
+ యరగి మహమ్మదుని కరకుటానతి వినిచెన్.</div>
+        <div class="sanskrit-block">
+          <div class="block-label sans">అనువాదం</div><div class="verse">కశ్చి-త్కవేరధికపూజన-తత్పరోఽథ
+ చిత్తే భృశం కృత-మహాభయ-శఙ్కకస్సన్ ।
+ పిర్దౌసివాస-మతివేగవశేన గత్వా
+ చాజ్ఞాం న్యవేదయదమూం కఠినాం నృపస్య</div></div></div><div class="entry">
+        <div class="entry-header"><span class="poem-no">పద్యం 61</span></div>
+        <div class="block-label tel">మూలం</div>
+        <div class="verse">అరువది వేల దిన్హరము లస్త్రములై తుద కిట్లు కుత్తుకన్
+ దరుగుట కుద్యమించిన విధానము సర్వము నాలకింపగా
+ పిరదవుసీ ముఖాబ్జమునఁ జిన్నని నవ్వుదయించే మింట నీ
+ శ్వరుడు గలండొ లేఁడొ యనుసంశయమున్ దళుకొత్తె నెమ్మదిన్.</div>
+        <div class="sanskrit-block">
+          <div class="block-label sans">అనువాదం</div><div class="verse">దిన్హారాణి సువర్ణకాన్యథ గలే షష్ట్యాస్సహస్రం పత-
+ చ్ఛస్త్రీభూయ, వికర్తనే కృతమహాయత్నాని సఞ్జానతః ।
+ పిర్దౌసేర్వదనే స్మితం లఘువపుః ప్రాదుర్బభూవా- ‘స్తి
+ కిం దేవో వ్యోమ్ని ? న వేతి ?’ తస్య హృదయే శఙ్కా బభూవోత్కటా</div></div></div><div class="entry">
+        <div class="entry-header"><span class="poem-no">పద్యం 62</span></div>
+        <div class="block-label tel">మూలం</div>
+        <div class="verse">కృతి యొక బెబ్బులింబలె శరీరపటుత్వము నాహరింప, శే
+ షితమగు నస్థిపంజరము జీవలవంబున నూఁగులాడఁగా
+ బ్రతికియుఁ జచ్చియున్న ముదివగ్గు మహమ్మదు గారి ఖడ్గదే
+ వతకు రుచించునా ? పరిభవవ్యధ యింతటనంతరించునా ?</div>
+        <div class="sanskrit-block">
+          <div class="block-label sans">అనువాదం</div><div class="verse">దేహో జర్జరతాం గతోఽస్తి చ మహాకావ్యస్య సమ్పాదనాద్
+ అస్థ్నాం చాపి చయోఽస్తి జీవలవ-సఞ్చారేణ డోలాయితః ।
+ కిం ప్రీత్యై ప్రభవేత్ మహమ్మద-మహాఖడ్గాఖ్య-దేవ్యై చ త-
+ ద్దేహో మేఽర్ధమృతస్య ? కిం పరిభవో హ్యన్తం సమేయాదితః</div></div></div><div class="entry">
+        <div class="entry-header"><span class="poem-no">పద్యం 63</span></div>
+        <div class="block-label tel">మూలం</div>
+        <div class="verse">ముత్యముల కిక్కయైన సముద్రమునను
+ బెక్కుమాఱులు మున్కలు వేసినాఁడ
+ భాగ్యహీనుఁడ ముత్యమ్ము వడయనయితి
+ వనధి నను మ్రింగ నోరు విచ్చినది తుదకు.</div>
+        <div class="sanskrit-block">
+          <div class="block-label sans">అనువాదం</div><div class="verse">ముక్తానాం ప్రభవే మహోదధి-తలే భూయో న్యమజ్జం భృశం,
+ నిర్భాగ్యో, న మయా కదాచిదథ సా ముక్తా సమాసాదితా ।
+ అన్తే వ్యాత్త-కరాల-వీచి-వదనో-ఽమ్భోధిః ప్రవృత్తో ను మాం
+ నిశ్శేషం గరితుం, భవామి గహనే లీనో ఽన్ధకారే ఽధునా”</div></div></div><div class="entry">
+        <div class="entry-header"><span class="poem-no">పద్యం 64</span></div>
+        <div class="block-label tel">మూలం</div>
+        <div class="verse">అనుచు విలిఖించె నొక పద్దియము మసీదు
+ గోడపయి నమ్మహాకవి కుంజరుండు
+ వేగుబోక నమాజు గావింప వచ్చి
+ చదువుభక్తుల నెమ్మేను జలదరింప.</div>
+        <div class="sanskrit-block">
+          <div class="block-label sans">అనువాదం</div><div class="verse">ఇత్యేవం స మహాకవీశ్వరవరో “మస్జీదభిత్తౌ” స్వకం
+ వృత్తం పద్యమయం లిలేఖ కరుణం హ్యుచ్చావచం దుర్భగమ్ ।
+ సాయం తత్ర “నమాజ” హేతుకతయాఽఽగచ్ఛజనానాం తనౌ
+ రోమాఞ్చః ప్రభవేద్ యథా పరిభవ-క్లేశస్య సమ్భావనాత్</div></div><div class="discussion"><div class="discussion-label">చర్చ (18)</div><div class="reply "><div class="reply-sender">Vimala Aryasomayajula</div>
+      <div class="reply-text">పిరదౌసి కావ్యమును వ్యాకరణ సహితంగా వివరిస్తున్న శ్రీయుతులు కృష్ణమోహన్ గారికి సంస్కృతములో అందిస్తున్న శ్రీయుతులు కుటుంబశాస్త్రి గారికి అభినందనలతో ధన్యవాదములు.</div></div><div class="reply "><div class="reply-sender">Komalarao</div>
+      <div class="reply-text">పిరదౌసి కావ్యానికి సంస్కృతానువాదము చేస్తున్న ఆచార్యులు శ్రీ కుటుంబశాస్త్రి గారికి నమస్సులు 🙏🙏</div></div><div class="reply "><div class="reply-sender">Psriramarao</div>
+      <div class="reply-text">ఉచ్చావచము వంటి చక్కనిపదములు నేర్చుకొనవచ్చుమనము! మస్జీదు-- అల్లా--- నమాజు
+ పదములనట్లే ప్రయోగించుట సమంజసము.
+ పసిడికావ్యద్రవ్యమున్
+ నవమధు మధురాం కావ్యకన్యాం సువర్ణాం
+ అని అనువదించుట--
+ 👏👏👍👍💐💐🙏🙏</div></div><div class="reply "><div class="reply-sender">sahitisamrajyam</div>
+      <div class="reply-text">బ్రహ్మశ్రీ కుటుంబశాస్త్రిగారి శ్లోకాలు, మూలంలోని  తెలుగుపద్యాలంత మృదువుగా సాగుతున్నాయి. రాజ్ఞో మూర్ధని సిక్తవాన్ కవివరో.......
+ రాజా మూర్ధని సిక్తవాన్ కవివిధోః.......
+ మూలానికి వన్నె తెచ్చిన అనువాదం.
+ నమో నమః.
+ 🙏</div></div><div class="reply "><div class="reply-sender">Krishnamohan</div>
+      <div class="reply-text">ఒక్కొక్క తెలుగు పదానికి సంస్కృతంలో దాని అనువాదమును పరిశీలించి చూడవలసినదే. అంత అద్భుతంగా ఆనువదించారు శ్రీ కుటుంబశాస్త్రిగారు.🙏🏻</div></div><div class="reply "><div class="reply-sender">sahitisamrajyam</div>
+      <div class="reply-text">శ్రీ పుల్లేల శ్రీరామచంద్రుడు గారు తమ పేరును సంస్కృతములో శ్రీరామచంద్రుడుః అని వ్రాసేవారని
+ శ్రీ గరికపాటివారి ఉవాచ.
+ 🙏</div></div><div class="reply "><div class="reply-sender">డా॥ గణపతి అశోక శర్మ</div>
+      <div class="reply-text">ఫిరదౌసి కావ్యమును కవికోకిల గుఱ్ఱంజాషువాగారి హృదయావిష్కరణముతో, వ్యాకరణ విశేషములతో చక్కని వ్యాఖ్యానంతో సమర్పించిన శ్రీకృష్ణమోహనులకు ధన్యవాదములు. అభినందనలు. తిక్కన నవ్వుల పట్టికను, వివరించిన కోమలరావుగారకి ధన్యవాదములు.
+ జాషువాగారి ఫిరదౌసి సంస్కృతానువాదమును ఉర్దూపదాలనుపయోగించి మణిప్రవాళశైలితో, సరసవచనాలతో సమర్పించిన కుటుంబశాస్త్రిగారికి ధన్యవాదములు, నమస్సులు.
+ గురువులు రామారావు మాష్టారుగారు సరదామాటలతోపాటు సంస్కృతాంధ్ర ఫిరదౌసీ రచన వ్యాఖ్యానాలు అభినందించిన తీరు అనవద్యము. భాగ్యబంధురయోగము. సరదామాటలతో కొక్కొండవారి మాటల మూటలు గిలిగింతలు విశేషజ్ఞానప్రదాలు. ధన్యులము. ధన్యవాదములు. నమస్సులు.</div></div><div class="reply "><div class="reply-sender">V. Vasantha Sobha</div>
+      <div class="reply-text">ఫిరదౌసి కావ్యాన్ని సవివరంగా వ్యాకరణ సూత్రాలతో వివరిస్తున్న శ్రీ కృష్ణమోహన్ గారికి ధన్యవాదాలు.. పద్యాలకు సంస్కృతానువాదాన్ని అందిస్తున్న శ్రీ కుటుంబ శాస్త్రి గారికి నమస్సులు 🙏</div></div><div class="reply "><div class="reply-sender">Guntupalli Rameswaram</div>
+      <div class="reply-text">పిరదౌసి కావ్యములోని జాషువాగారి పద్యాలకు రసోచితమైన వ్యాఖ్యానముతో ప్రథమాశ్వాసమును సంపన్నం చేసిన సన్మిత్రుడు కృష్ణమోహన్ కు శుభాభినందనలు. విశ్వములోని సంస్కృత విద్వాంసులకు తెలుగు మహాకవి జాషువా వారి  పిరదౌసి ని పరిచయం చేసిన కులపతి శ్రీ వెంపటి కుటుంబశాస్త్రిగారికి సాష్టాంగ ప్రణామములు
+ 🙏🙏🙏</div></div><div class="reply "><div class="reply-sender">Kutumba Sastry Vempaty</div>
+      <div class="reply-text">శ్రీరామారావు మాస్టారికి హృదయపూర్వక నమోవాకములు. వారు శెలవిచ్చిన అభిప్రాయం నా వంటి వానికి అమూల్యమైన భాగ్యసంపద. శ్రీ కృష్ణమోహనుగారు నా చేయి పట్టుకుని నా చేత వ్రాయించినంత పని చేస్తున్నారు. వారి సహృదయతకూ సౌజన్యమునకూ నమస్సులు. చాలామంది విద్వత్పాఠకులు ఎంతో ప్రోత్సాహకమైన అభిప్రాయాలను వెలిబుచ్చి నాకు మార్గదర్శనము చేసియున్నారు. అందరికీ పేరు పేరున కృతజ్ఞతలను ప్రకటించుకొనుచున్నాను. ఈ సదవకాశాన్ని నాకు కల్పించిన సారథులవారికి వందనములు.</div></div><div class="reply "><div class="reply-sender">Kameswara Rao Bh</div>
+      <div class="reply-text">ఫిరదౌసీకవి హృదయాన్ని జాషువాగారు ఆవిష్కరిస్తే, జాషువాకవి హృదయాన్ని కృష్ణమోహన్ గారు ఆవిష్కరిస్తున్నారు. వారికి అనేక నమస్సులు.🙏 శ్రీ కుటుంబశాస్త్రిగారి అనువాదం, అనువాదకులకు ఒజ్జబంతి.
+ సవరింపఁగ జాలునె నీలివన్నెలన్ - మలినీకర్తుం కథం యుజ్యతే
+ పండువంటి మరియాదకు - నిర్మలపావనోజ్జ్వలభవ
+ ఆశాసౌధ-సమూలపాత-జనిత-క్షోభేణ
+ అద్భుతమ్!
+ మాస్టారుగారన్న గైర్వాణ్యనువర్తనము భలే గొప్ప సమంజసమైన మాట! ఆర్ణకమ్, కార్తఘ్న్య, కౌలీన - వీటిని గుర్తించమని చెప్పే దీటైన మాట!
+ ఒక రహస్యం చెప్పాలి - నేను జాషువాగారి పద్యాలకోసం కన్నా కుటుంబశాస్త్రిగారి అనువాదాలకే కోసమే ఎక్కువ ఎదురుచూస్తున్నాను.😊
+ 🙏</div></div><div class="reply depth-1"><div class="reply-ref">↩ Kameswara Rao Bh వ్యాఖ్యకు స్పందన</div><div class="reply-sender">Kutumba Sastry Vempaty</div>
+      <div class="reply-text">ధన్యోస్మి. ఇప్పటికి నా ప్రయాస సార్థకమైనది. ఆ పరితోషాద్విదుషాం🙏🙏🙏</div></div><div class="reply depth-1"><div class="reply-ref">↩ Kameswara Rao Bh వ్యాఖ్యకు స్పందన</div><div class="reply-sender">sahitisamrajyam</div>
+      <div class="reply-text">సేమ్ పిచ్ .😊</div></div><div class="reply "><div class="reply-sender">Kutumba Sastry Vempaty</div>
+      <div class="reply-text">మీ మనస్సటువంటిది.🙏🙏🙏</div></div><div class="reply "><div class="reply-sender">vsn murty</div>
+      <div class="reply-text">వేదికలో బ్రహ్మశ్రీ కుటుంబశాస్త్రివర్యుల సంస్కృతానువాదము సభ్యులందరికీ ఒకవరంగా నేను భావిస్తాను. కోరకనే లభించిన వరం మరింత ఆనందదాయకం. సంస్కృతభాషను నేర్చుకోదలచినవారికి ఈ అనువాదం గొప్ప పాఠంగా కూడా లభించినట్లే. శాస్త్రివర్యులకు అనేకానేక నతులు.</div></div><div class="reply depth-1"><div class="reply-ref">↩ vsn murty వ్యాఖ్యకు స్పందన</div><div class="reply-sender">Kutumba Sastry Vempaty</div>
+      <div class="reply-text">మీ ఔదార్యమట్టిది.🙏🙏🙏</div></div><div class="reply "><div class="reply-sender">Ramaprasad Manda</div>
+      <div class="reply-text">పిరదౌసి కావ్యమును రసజ్ఞహృదయాహ్లాదముగా సమర్పించుచున్న శ్రీ కృష్ణ మోహన్ గారికి, దేవభాషలో సమర్పించుచున్న శ్రీ కుటుంబ శాస్త్రి గారికి, నమస్సులు!</div></div><div class="reply "><div class="reply-sender">UshaSridevi Karunakar</div>
+      <div class="reply-text">పిరదౌసి పద్యములకు సంస్కృతానువాదములను సమర్పించి, పద్యసౌందర్య సభ్యులకు సంస్కృత పదములను నేర్చుకొనే చక్కని అవకాశం కల్పిస్తున్న శ్రీ వేంపటి కుటుంబశాస్త్రి @919968966893 గురువర్యులకు వినయపూర్వక పాదాభివందనములు.
+ 🙏🏻🙏🏻</div></div></div></div></div><div class="asvasam-section"><div class="asvasam-title">ద్వితీయాశ్వాసము</div><div class="entry">
+        <div class="entry-header"><span class="poem-no">పద్యం 1</span></div>
+        <div class="block-label tel">మూలం</div>
+        <div class="verse">ఇనబింబంబు గతించె, బ్రాతవడిపోయె న్నింగియున్నేల పొం
+ చిన క్రొంజీఁకటు లఱ్ఱుసాఁచి వెలిఁగించెన్ దారకాదీపముల్
+ మన దౌర్భాగ్య కవీశ్వరుం డపు డవేలంబైన నైరాశ్యమున్
+ వనితారత్నము వెంబడింపఁ బయనింపన్ జొచ్చె నుగ్రాటవిన్.</div>
+        <div class="sanskrit-block">
+          <div class="block-label sans">అనువాదం</div><div class="verse">అస్తం భానురుపాగమద్
+ భువనకం జాతం పురాణం
+ తమో నూత్నం బాహుయుగం ప్రసార్య
+ భగణానా-దీపయ-ద్దీపకాన్ ।
+ దౌర్భాగ్య-ప్రతిరూపకః కవివరోఽస్మాకం
+ దురన్తేన దుర్నైరాశ్యేన పరీవృతో
+ వనితయా సాకం జగాహే వనమ్</div></div></div><div class="entry">
+        <div class="entry-header"><span class="poem-no">పద్యం 2</span></div>
+        <div class="block-label tel">మూలం</div>
+        <div class="verse">జలదంబు ల్నలు పెక్కి యాకసమునన్ సంచారముంజేసె భూ
+ లలనారత్నము స్నానమాడునని వేళాఘంటిల్ మ్రోసెఁ గ్రోం
+ జలిగాడ్పుల్ చెలరేఁగి దేహమున నంటన్ గూండ్లలో ఁబండికూ
+ నలపై రెక్కలుగప్పి కన్ను మలిపెన్ నానాశకుంతచ్చటల్.</div>
+        <div class="sanskrit-block">
+          <div class="block-label sans">అనువాదం</div><div class="verse">శ్యామీభూత-పయోధరోఽథ వితతో బభ్రామ ఖే
+ సూచయన్ వేలాం స్నానవిధే-ర్భువో
+ నినదనం చక్రేఽథ ఘణ్టారవమ్ ।
+ వాయౌ నూతనశీతలే స్పృశతి చ స్వే గాత్రకే
+ నీడకే పక్షాన్ పోతతతౌ ప్రసార్య
+ పిదధే నేత్రే శకున్త-చ్ఛటః</div></div></div><div class="entry">
+        <div class="entry-header"><span class="poem-no">పద్యం 3</span></div>
+        <div class="block-label tel">మూలం</div>
+        <div class="verse">తన కళ్యాణియుఁ గూఁతురున్ జటుల కాంతారంబులం బాదచా
+ రిణులై వచ్చుట చూడఁజాలక కవిశ్రేష్ఠుడు వర్షించు వె
+ చ్చని కన్నీటికిఁ గారణంబగు మహీశమ్మన్యునిం బండ్లు నూ
+ ఱినయట్లంబరవీధియం దుఱిమియార్చెన్ గర్భిణీ మేఘముల్.</div>
+        <div class="sanskrit-block">
+          <div class="block-label sans">అనువాదం</div><div class="verse">పత్నీం స్వాం తనయాం చ
+ దుర్గమవనే పద్భ్యాం చలన్తీం శ్రమాత్
+ దృష్ట్వా దుర్విమనాయితస్య సుకవేః
+ వర్షత్కవోష్ణాశ్రుణః। హేతౌ రాజ్ఞి
+ దతాం “కటాత్కటకటాం
+ కోపాదివోచ్చైస్తరాం కుర్వన్తీవ
+ చకాశిరేఽథ జలదా గర్భిణ్య ఏవాగ్రతః</div></div></div><div class="entry">
+        <div class="entry-header"><span class="poem-no">పద్యం 4</span></div>
+        <div class="block-label tel">మూలం</div>
+        <div class="verse">చిటిపొటి చినుకులు చిలుకరించెను గాని
+ కుంభవర్షంబును గురియలేదు
+ ఉరుముల బలుమారు హుంకరించెను గాని
+ పిడుగుకైదువుల గుప్పింపలేదు
+ కడలేని మెఱుపుతీఁగలు పెంచుకొనుఁగాని
+ నేత్రావరోధంబు నెఱపలేదు
+ చలిగాడ్పు మొలకల వెలువరించెను గాని
+ కసరి యీదరిగాలి విసరలేదు
+ అతిరయంబున గగనంబు నాక్రమించి
+ బలిసి గద్దించి యటు నిటుఁబరువులెత్తి,
+ తెలివి సెడి క్రమక్రమముగాఁ దేలిపోయె
+ గవి కుటుంబముఁ గరుణించి కాఱుమొయిలు.</div>
+        <div class="sanskrit-block">
+          <div class="block-label sans">అనువాదం</div><div class="verse">స్తోకం పయశ్శీకరవృష్టిమేవ తేనేఽథ
+ చక్రే న హి కుమ్భవృష్టిమ్ ।
+ హుఙ్కారమాత్రం స్తనితైశ్చకార
+ భూయోఽశనీన్నో విససర్జ ఖఙ్గాన్ ॥4॥
+
+ విద్యుల్లతాశ్చైవ తతాన భూయః
+ నైవాకరోన్నేత్రగతేర్విఘాతమ్ ।
+ శీతం హి వాయుం ప్రతతాన వేగం
+ వాత్యాం న కోపాత్ ప్రససార తీవ్రామ్ ॥5॥
+
+ వేగేన చాక్రమ్య దివం సమగ్రాం
+ భ్రాన్త్వాథ పీనశ్చ సశబ్దకశ్చ ।
+ క్రమేణ చాస్తఙ్గతధీర్యయౌ సః
+ కవేః కుటుమ్బే సదయః పయోదః</div></div></div><div class="entry">
+        <div class="entry-header"><span class="poem-no">పద్యం 5</span></div>
+        <div class="block-label tel">మూలం</div>
+        <div class="verse">పకపక నవ్వుచు న్నభముపట్టునఁదోఁచె ననంతకోటితా
+ రక లదియర్ధరాత్రము కరంబున బెబ్బులి వేఁటమాని కూ
+ రికి గుఱు వెట్టుచుండెఁ బొదరిండ్లఁ బరుండి తమాలపల్లవ
+ ప్రకరములంధకారమున రాజ్యముసేయఁదొడంగె నుమ్మడిన్.</div>
+        <div class="sanskrit-block">
+          <div class="block-label sans">అనువాదం</div><div class="verse">తన్వత్యో హసితం విహాయసి భృశం దృష్టాస్తతస్తారకాః
+ కాలశ్చాభవదర్ధరాత్రమ్
+ అహితో వ్యాఘ్రః సుఖం ఘోరికామ్ । చక్రే
+ స్వాం మృగయాం విహాయ శయితో గుల్మేషు
+ గాఢాస్తమస్సఙ్ఘాతాశ్చ తమాలపల్లవతతిః
+ చక్రు-స్స్వరాజ్యం పునః</div></div></div><div class="entry">
+        <div class="entry-header"><span class="poem-no">పద్యం 6</span></div>
+        <div class="block-label tel">మూలం</div>
+        <div class="verse">ఆనడికిరేయి భీకరకాననమునఁ
+ బయన మొనరించు కవి కుటుంబము నరసి
+ తారకాదివ్య నేత్రపద్మములు విచ్చి
+ కాచి రక్షించు చుండె జగద్గురుండు.</div>
+        <div class="sanskrit-block">
+          <div class="block-label sans">అనువాదం</div><div class="verse">జ్ఞాత్వా కవేస్సాహసయానమస్మిన్
+ భయావహే దుర్గమకాననే చ।
+ తదార్ధరాత్రే నను తారకాక్షః
+ రరక్ష సర్వాత్మక ఈశ్వరోఽథ</div></div></div><div class="entry">
+        <div class="entry-header"><span class="poem-no">పద్యం 7</span></div>
+        <div class="block-label tel">మూలం</div>
+        <div class="verse">వాఁగుల వంకలన్ గిరుల వన్యమృగంబుల సూదిరాలయం
+ దాగహనో గ్రభూములు నిజాంగనతో గమియించి పూర్వ ది
+ గ్భాగము తెల్లనై మలయవాయువు లల్లన వీవ నొండుచో
+ నాఁగి, భజింపఁజొచ్చె, బరమాత్మని మోహనపద్యపంక్తులన్.</div>
+        <div class="sanskrit-block">
+          <div class="block-label sans">అనువాదం</div><div class="verse">తీర్త్వా ప్రస్రవణం ఝరీశ్చ కటకాన్
+ వన్యాంశ్చ జన్తూన్ తథా
+ సూచీ-తీక్ష్ణ-శిలా-సుదుర్గమ-భువః తీర్త్వా
+ స్వపత్న్యా సహ ।
+ ప్రాచ్యాం రక్తరుచౌ చ
+ మన్దచలనే వాయావవాచీగతే
+ స్థిత్వా క్వాపి
+ విభుం జగత్పతిమథోఽగాయత్
+ మనోజ్ఞైః పదైః</div></div></div><div class="entry">
+        <div class="entry-header"><span class="poem-no">పద్యం 8</span></div>
+        <div class="block-label tel">మూలం</div>
+        <div class="verse">విత్తనంబున మహావృక్షంబు నిమిడించి
+ సృష్టించి గారడీ సేయువాఁడ
+ కడుపులో శిశువును గల్పించి పదినెలల్
+ మోయించి యూపిరి వోయువాఁడ
+ సద్భక్తవరులకు సాక్షాత్కరించియు
+ నున్నచోటెఱిఁగింప కున్నవాఁడ
+ పొటమరింపక ముందె పుష్పసంతతులకు
+ వింతగా రంగులు వేయువాఁడ
+ చెలువమొప్పఁబుడమి సృష్టించి మా కిచ్చి
+ అనుభవింపుఁడనుచు నానతిచ్చి
+ నిలువ నీడలేక నిల్చిన కలవాఁడ !
+ కడుపునిండ నన్నుఁ గన్నవాడ !</div>
+        <div class="sanskrit-block">
+          <div class="block-label sans">అనువాదం</div><div class="verse">బీజే మహావృక్షతనుం నిధాయ
+ సృష్ట్వేన్ద్రజాలం కురుషే మహాత్మన్ ।
+ గర్భే శిశుం ప్రేష్య
+ నవాధికాంస్తాన్ మాసాన్ సముద్వాహ్య
+ తనోషి జీవమ్ ॥10॥
+
+ సాక్షాత్కృత-స్సన్నపి భక్తతత్యా
+ స్థానం స్వకం నో ప్రకటీకరోషి ।
+ పూర్వం వికాసాచ్చ సుమేషు చిత్రాన్
+ వర్ణా-ననన్తాన్ తనుషే సదైవ ॥11॥
+
+ అస్మాసు చ స్నేహవశేన
+ భూమిం సృష్ట్వాథ దత్త్వానుభవస్య హేతోః ।
+ స్థాతుం క్వచిత్ స్థానవిహీన ఏవ తిష్ఠన్ విభో
+ విశ్వపితః పరాత్మన్ !</div></div></div><div class="entry">
+        <div class="entry-header"><span class="poem-no">పద్యం 9</span></div>
+        <div class="block-label tel">మూలం</div>
+        <div class="verse">కుంకుమపంకముం బులుముకొన్నవి తూరువుకొండ నెత్తముల్
+ పంకజబాంధవుం డరుణపాదముల న్నిగిడించే, మింట నే
+ ణాంకుఁడు చిన్నవోయి చరమాచలసానుతటంబు లెక్కి మై
+ జింకయుఁ దాను గడ్డిగఱచెన్, బెనుచీఁకటు లార్చెఁగాకులై.</div>
+        <div class="sanskrit-block">
+          <div class="block-label sans">అనువాదం</div><div class="verse">ప్రాచీది-క్ప్రబభౌ చ రాగరుచిరా లిప్తేవ పఙ్కేన వై
+ సూర్యస్స్వాన్ కిరణాం-స్తతాన గగనే
+ చన్ద్రో హతాశో భవన్ ।
+ అస్తాద్రేశ్చ తటే చచార సమృగో న్యస్యన్ తృణం స్వే ముఖే
+ కాకీభూయ తమాంసి
+ శోకనినదం చారున్తుదం చుక్రుశుః</div></div></div><div class="entry">
+        <div class="entry-header"><span class="poem-no">పద్యం 10</span></div>
+        <div class="block-label tel">మూలం</div>
+        <div class="verse">సంజకెంజాయలో జలకంబు సవరించి
+ పఱతెంచు సూర్యబింబమ్ములోన
+ పదనాఱు దినముల పరువు వచ్చిన నాఁటి
+ చంద్రుని ధవళహాసములలోన
+ పూలతోడ ముద్దుముచ్చట సెప్పి
+ చెఱలాడు మొలక తెమ్మెరలలోన
+ నీలమేఘంబుల నెఱియలలోఁ గుల్కి
+ పరువెత్తు మెఱపు గర్భములలోన
+ హాయిగాఁ బవ్వళించి బ్రహ్మాండములను
+ బల్కరించుచు నున్న దివ్యస్వరూప !
+ హృదయమును జీల్చి పూజ లర్పించుకొందు
+ నందుకొని పొమ్ము, వ్యవధి లేదనక రమ్ము.</div>
+        <div class="sanskrit-block">
+          <div class="block-label sans">అనువాదం</div><div class="verse">సాన్ధ్యారుణే తోయనిధౌ నిమజ్జ్య
+ స్నాత్వోదయం గచ్ఛతి సూర్యబిమ్బే ।
+ వయోమితౌ షోడశమాత్రకాయాం
+ చన్ద్రస్య భాస్వ-ద్ధవలా-ట్టహాసే ॥14॥
+
+ ఉద్యానగుల్మైః సరసోక్తిజాలం
+ సమ్భాష్య గచ్ఛత్సు మిలిన్దకేషు ।
+ నీలాభ్రసన్ధౌ చ విహస్య
+ వేగం యాన్తీషు విద్యుత్సు చ చఞ్చలాసు ।। 15।।
+
+ సుఖం శయానః
+ సకలాంశ్చ లోకాన్ ఆమన్త్రయన్ భ్రాజసి
+ దివ్యతేజాః ! ।
+ విదార్య హృత్పద్మమిదం తవార్చాం తనోమి
+
+ గృహ్ణీష్వ సమేహి నూనమ్</div></div></div><div class="entry">
+        <div class="entry-header"><span class="poem-no">పద్యం 11</span></div>
+        <div class="block-label tel">మూలం</div>
+        <div class="verse">గాలికిఁ దూఁదియాడు గిజగాని కులాయముఁ జూపి నాకు నీ
+ పోలిక లాత్మలోఁ గరఁగిపోసితి, ధన్యుఁడనైతి, కొండలం
+ దేలిన మబ్బులోన నెలుఁగెత్తి శరీరము పుల్కరింప, రా
+ గాలపనం బొనర్చితివి, యర్థముగా దెఱిగింపు మీశ్వరా !</div>
+        <div class="sanskrit-block">
+          <div class="block-label sans">అనువాదం</div><div class="verse">వాయౌ చఞ్చలనీడకం చటకకా-నిర్మాణ-సిద్ధం ముదా
+ హస్తాభ్యాం పరిదర్శ్య
+ నైజవిభవం సంజ్ఞాపితం హే ! ప్రభో ! ।
+ ధన్యోఽహం,
+ శిఖరాగ్రమేఘవితతౌ
+ ఉచ్చైస్స్వరేణాలపన్ రాగాన్ గాయసి
+ మే వపుః పులకితం
+ స్వాత్మానమావిష్కురు</div></div></div><div class="entry">
+        <div class="entry-header"><span class="poem-no">పద్యం 12</span></div>
+        <div class="block-label tel">మూలం</div>
+        <div class="verse">అలసటలేక హోరుమని యూర్చుచుఁబారెడు నిమ్మహానదిన్
+ గులుకు తరంగమాలికలకున్ గిలిగింతలు పెట్టి ఫేనపం
+ క్తుల నటనావిలాసములకుం దలయాచుచు నేను మ్రొక్కినన్
+ గిలకిల నవ్వి నన్నుఁదిలకింపని కారణమేమి దైవమా ?</div>
+        <div class="sanskrit-block">
+          <div class="block-label sans">అనువాదం</div><div class="verse">అశ్రాన్తం కలఘోషనాదసహితం
+ నద్యా వహన్త్యా నట-ద్భఙ్గోత్తుఙ్గ-తరఙ్గ-మాలిక-గణే
+ నృత్య-త్సుఫేనాఙ్కురాన్। దృష్ట్వా
+ తన్నటనావిలాసచకితో వన్దే భవన్తం యదా
+ కిం నో పశ్యసి మాం హసన్ కలకలం
+ కస్తత్ర హేతుః ప్రభో !</div></div></div><div class="entry">
+        <div class="entry-header"><span class="poem-no">పద్యం 13</span></div>
+        <div class="block-label tel">మూలం</div>
+        <div class="verse">కరమున నీవు సున్నితముగా జికిలీ లొనరించి పుష్ప వ
+ ల్లరుల నలంకరించుచు దళంబులు మోడిచి వాడివత్తులై
+ తొరఁగిన వృద్ధపుష్పముల దుస్థితికిం గరుణించి యశ్రువుల్
+ గురిసితి వట్టి నీ కనులలోన జెమర్చె నజాండభాండముల్</div>
+        <div class="sanskrit-block">
+          <div class="block-label sans">అనువాదం</div><div class="verse">హస్తాభ్యాం సుకుమారభావమహితం
+ వల్లీషు సంశ్లేషయన్ పుష్పాణాం వితతిం
+ పరేశ ! పరితో మ్లానాని భగ్నాని చ ।
+ దృష్ట్వా వృద్ధసుమాని,
+ తత్కరుణయా
+ కఞ్జాత-నేత్ర-ద్వయా-దశ్రూణా-మభివర్షణం యదకరోః,
+ తాభిర్దిశః పూరితాః</div></div></div><div class="entry">
+        <div class="entry-header"><span class="poem-no">పద్యం 14</span></div>
+        <div class="block-label tel">మూలం</div>
+        <div class="verse">ఆనిదురించు పెద్దపులి యాస్యబిలంబున నెన్ని జంతువుల్.
+ బోనములై యదృశ్యమయిపోయెనొ, రేపటి భుక్తికిన్ దయా
+ రైన మృగంబు లేపొదల యందవుగాము లెఱుంగ కింపుమై
+ మేనులువాల్చెనో, యెఱిఁగి మిన్నకచూచుచు నంగలార్తువా.</div>
+        <div class="sanskrit-block">
+          <div class="block-label sans">అనువాదం</div><div class="verse">తస్మిన్నాస్యబిలే కియన్తి విలయం యాతాని సత్త్వాని
+ తద్వ్యాఘ్రస్యేహ,
+ కియన్తి సన్తి ససుఖం సుప్తాని గుల్మేషు చ ।
+ శ్వోభూతే హి తదన్నహేతుకతయా
+ జానంశ్చ సర్వం ప్రభో !
+ కిం తూష్ణీం త్వమిహాసి ?
+ కా చ భవతో లీలా ?
+ న జానీమహే</div></div></div><div class="entry">
+        <div class="entry-header"><span class="poem-no">పద్యం 15</span></div>
+        <div class="block-label tel">మూలం</div>
+        <div class="verse">నాకుం దోడయి నిద్రమేలుకొనియుంట న్నీదు కన్గోనలన్
+ రేకెత్తెన్ జికురాకువన్నె లవి నిండెన్ బూర్వదిగ్భిత్తులన్
+ నీకే కానుక లీసమర్థుడగు నీ నిర్భాగ్యుఁడీ దేహమున్
+ నీ కిత్తున్ దలవాల్చి పొమ్మెలమి దండ్రీ ! నామనశ్శయ్యలన్,</div>
+        <div class="sanskrit-block">
+          <div class="block-label sans">అనువాదం</div><div class="verse">నిర్నిద్రస్య మయా సమం ను భవతో
+ నేత్రత్రిభాగో-ఽరుణచ్ఛాయాం పల్లవ-రాగ-సమ్పద-మిమాం ధత్తే
+ తయా సా చ దిక్ । ప్రాచీ రాగమయీ విభాతి
+ భవతే కిం దాతుమర్హోఽస్మ్యహం దేహాత్
+ ఏహి
+ శిరో నిధేహి చ మనశ్శయ్యాసు మే
+ హే ! ప్రభో !</div></div></div><div class="entry">
+        <div class="entry-header"><span class="poem-no">పద్యం 16</span></div>
+        <div class="block-label tel">మూలం</div>
+        <div class="verse">నన్నుఁబోలు కోటి నరుల మృత్తిక నుండి
+ వెలువరింప శక్తి గలిగి యుండి
+ నన్ను విడువలేక కన్నుమూయ వదేల ?
+ యెట్లు తీర్చుకొందు నీ ఋణంబు ?</div>
+        <div class="sanskrit-block">
+          <div class="block-label sans">అనువాదం</div><div class="verse">శక్తోఽపి మాదృశ-నరాన్ బహుకోటి-సంఖ్యాన్ స్రష్టుం మృదః
+ కిమితి మాం న జహాసి దేవ ।
+ ఉన్మీలితాక్షియుగలో-ఽవసి సర్వదైవ
+ నిర్యాతయామి కథమేవ తవర్ణమేతత్</div></div><div class="discussion"><div class="discussion-label">చర్చ (14)</div><div class="reply "><div class="reply-sender">Uma Lakshman</div>
+      <div class="reply-text">జాషువాగారి పద్యాలను సంస్కృతంలో అనువదించిన కుటుంబ శాస్త్రి గారికి హృదయపూర్వక నమస్కారములు.. సంస్కృతం రాని నాబోటి వారికి కూడా అర్ధమయేలా ఉంది మీ అనువాదం. ధన్యవాదములు 🙏🙏🙏🙏</div></div><div class="reply "><div class="reply-sender">Krishnamohan</div>
+      <div class="reply-text">జాషువాగారి పద్యాలకు బ్రహ్మశ్రీ కుటుంబశాస్త్రి గారి సంస్కృతానువాదం ద్వారా తెలియని సంస్కృతపదాలు తెలుసుకొనే సదవకాశం కలుగుతున్నది. సంస్కృతం నేర్చుకొనే సౌలభ్యము కల్పిస్తున్న వారికి మనఃపూర్వక ధన్యవాదములు. నమశ్శతములు.🙏🏻🙏🏻🙏🏻</div></div><div class="reply "><div class="reply-sender">Vimala Aryasomayajula</div>
+      <div class="reply-text">జాషువా గారి  పిరదౌసి కావ్యమును, వ్యాకరణాంశాలతో సహా శ్రీయుతులు కృష్ణమోహన్ గారు, దానిని సంస్కృతం లో బ్రహ్మశ్రీ వెంపటి కుటుంబశాస్త్రిగారు అందిస్తున్న యిరువురకు ధన్యవాదములు.</div></div><div class="reply "><div class="reply-sender">తెలుగు నుడి</div>
+      <div class="reply-text">పిరదౌసి వ్యాఖ్యాన సహితంగా అందించి ఆనందింపజేస్తున్న పెద్దలకు నమస్సులు ..!</div></div><div class="reply "><div class="reply-sender">Gayatri T</div>
+      <div class="reply-text">పిరదౌసి పద్యములకు సంస్కృతంలో అందిస్తున్న బ్రహ్మశ్రీ వెంపటి కుటుంబశాస్త్రి గారికి ధన్య వాదసహిత ప్రణామములు 🙏🏻🙏🏻</div></div><div class="reply "><div class="reply-sender">Guntupalli Rameswaram</div>
+      <div class="reply-text">మిత్రుడు కృష్ణమోహన్ పిరదౌసి కావ్యాన్ని సరళసుందరంగా వ్యాఖ్యానిస్తూ మొల్ల రామాయణం నుండి, ఉదయశ్రీ నుండి సముచితమైన ఉదాహరణలతో పరిపుష్టం చేశాడు. ధన్యవాదపూర్వక అభివాదములు మిత్రమా.
+ 💐💐💐💐💐
+ బ్రహ్మశ్రీ వెంపటి కుటుంబశాస్త్రిగారికి సాష్టాంగ ప్రణామములు
+ 🙏🙏🙏</div></div><div class="reply "><div class="reply-sender">డా॥ గణపతి అశోక శర్మ</div>
+      <div class="reply-text">జాషువాగారి పిరదౌసి కావ్యమును వ్యాకరణ సహితంగా అందిస్తున్న శ్రీ కృష్ణమోహన్ గారికి , సంస్కృతీకరణతో వివరణను అందిస్తున్న శ్రీ కుటుంబశాస్త్రి గారికి ధన్యవాదాలతో నమస్సులు 🙏🏻🙏🏻</div></div><div class="reply "><div class="reply-sender">Kameswara Rao Bh</div>
+      <div class="reply-text">ఈనాటి పద్యాలలో జాషువాగారి భావకవితావైభవం దర్శనమిచ్చింది. దానికి తగ్గ భావబంధురమైన చక్కని వ్యాఖ్యని అందించిన కృష్ణమోహన్ గారికి నమస్సులు. నోరు తెరచిన బెబ్బులిలో సుల్తాన్ గురించిన ధ్వనిని గొప్పగా వివరించారు. కుటుంబశాస్త్రిగారి అనువాదాన్ని గురించి చెప్పేదేముంది. మధురజలాన్ని తీర్థంగా మారుస్తున్నారు.
+ బెనుచీఁకటు లార్చెఁ గాకులై - ఇది నాకు తెలిసినంతవరకూ చాలా క్రొత్త పోలిక, అపూర్వం!
+ హృదయమును జీల్చి పూజ లర్పించుకొందు
+ నందుకొనిపొమ్ము, వ్యవధి లేదనకరమ్ము - ఇవి కూడా కరుణశ్రీగారి గొంతులో ప్రతిధ్వనించినవే.
+ గుండె కుదిలించి నీ ముందు కుప్పవోతు
+ అందుకోవయ్య హృదయపుష్పాంజలులను
+ గాలికిఁ దూఁగియాడు గిజిగాని కులాయముఁ జూపి నాకు నీ పోలిక లాత్శతోఁ గరఁగిపోసితి - జాషువాగారికి గిజిగాని గూడు చూస్తే ఎంత అబ్బురమో! దానిపై ఒక పద్యఖండికనే వ్రాసారు. ఇక్కడ కూడా మరల దాని ప్రస్తావన. అది భగవంతుని సృష్టికి గొప్ప చిహ్నమని అతని ప్రగాఢవిశ్వాసం. గిజిగాడు కవితలో నీవు ధరాతలి నున్న, బిట్టుగా వాగెడు నాస్తికుల్ తలలు వంతు రనంతుని చెంత ఖిన్నులై అంటారు.
+ గ్రొం| జలిగాడ్పుల్‌ చెలరేఁగి దేహముల నంటన్ గూండ్లలోఁబండి కూ - ఇక్కడ యతి విశేషం ఆలోచించాలి.
+ కొండలం| దేలిన మబ్బులోన నెలుఁగెత్తి శరీరము పుల్క_రింప - ఇక్కడ యతి సందేహం.
+ క్రొంజీఁకటు లఱ్ఱుసాఁచి వెలిఁగించెన్  - బాహుయుగం ప్రసార్య అని అఱ్ఱులు బదులు చేతులు సాచడం మరింత ఉచితంగా ఉంది. దీపాలు వెలిగించేది చేతులతోనే కదా.
+ అనువాదానికి లొంగని పండ్లునూరడమనే జాతీయానికి - కటాత్కటకటాం అనడం గొప్ప నేర్పు!
+ జగద్గురునికి -  సర్వాత్మక ఈశ్వరోఽథ అన్న పదాలు చాలా సార్థకంగా ఉన్నాయి. సర్వాత్మకుడు కాబట్టి వారిని కారడవిలోనూ కనిపెట్టుకున్నాడు, ఈశ్వరుడు కాబట్టి రక్షిస్తున్నాడు.
+ ఉద్యానగుల్మైః సరసోక్తిజాలం సమ్భాష్య గచ్ఛత్సు మిలిన్దకేషు - తెలుగులోని తెమ్మెరలు సంస్కృతంలో తుమ్మెదలు కావడం కొత్త అందాన్ని తెచ్చింది!
+ అస్తాద్రేశ్చ తటే చచార సమృగో న్యస్యన్ తృణం స్వే ముఖే - గడ్డికరవడం అనే జాతీయం సంస్కృతంలో కూడా ఉన్నదా?
+ 🙏</div></div><div class="reply depth-1"><div class="reply-ref">↩ Kameswara Rao Bh వ్యాఖ్యకు స్పందన</div><div class="reply-sender">sahitisamrajyam</div>
+      <div class="reply-text">బాహుయుగం ప్రసార్య- కటాత్కటకటాం -
+ మిలిందకేషు -
+ అనువాదానికి వన్నె తెచ్చినాయి.
+ తెలుగు సంస్కృతిని కల్పవృక్షం రామునిలో చూపించినారు కవిసమ్రాట్టులు.
+ గడ్డికరవడం - సంస్కృతంలో లేకున్నా శ్రీ కుటుంబశాస్త్రిగారు తెచ్చినారు - అని భావించవచ్చు.
+ మంచి వ్యాఖ్య నందిస్తున్న శ్రీ కృష్ణమోహన్ గారికి,
+ అద్భుతమైన అనువాదము నందిస్తున్న శ్రీ కుటుంబశాస్త్రిగారికి ధన్యవాదములు.
+ 🙏</div></div><div class="reply depth-1"><div class="reply-ref">↩ Kameswara Rao Bh వ్యాఖ్యకు స్పందన</div><div class="reply-sender">Kutumba Sastry Vempaty</div>
+      <div class="reply-text">శ్రీయుతులు కామేశ్వరరావు గారి నిశితపరిశీలన మనోహరము. తెమ్మెరలు అంటే తుమ్మెదలే అనే అనుకుని అలా అనువదించాను. అదీ నా తెలుగులో నా స్థాయి. దానికితోడు టేక్ ఈజీ మనస్తత్త్వము. ఇప్పటికీ తెమ్మెర అంటే తెలియదు. కామేశ్వరరావుగారు చెప్పలేదుకదా మరి! అయితే సాహితీసామ్రాజ్యం పోస్టింగ్ లో అనువాదం రాణించిదని అనడం ద్వారా డామేజ్ అయితే కాలేదని గుర్తించాను. సర్వాత్మకః అన్నదాని సార్థకతను ఇప్పుడే గ్రహించాను. ఛందోదృష్టితోనే ఆ పదం వేశాను. అందుకే అన్నారు వ్యాఖ్యాతా వేత్తి నో కవిః అని🙏 గడ్డికరవడం సంస్కృతంలో నానుడిగా నాకు తెలిసి లేదు. కానీ, తీసుకొనివద్దామని అనిపించి సాహసించాను. అప్పయ్యదీక్షితులువారు విశ్వప్రసిద్ధవిప్రకులప్రసూతేః యజ్ఞోపవీతవహనం .... అని వ్రాశారు. అదీ సంస్కృతంలో నా ఎరికలో లేదు. కాకపోతే, నుడికారం చాలాచోట్ల బాగా చికాకు పెడుతుంది. తప్పదు. చెతులారంగ అన్నదాని అనువాదానికి ఇప్పటికీ దిక్కుతోచడం లేదు. నిన్న నా పోస్టింగు పెట్టినదాది రాత్రి 11.30 వరకూ కంచిపీఠాధిపతుల సేవలో మొబైలు చూడలేదు. ఈరోజు స్పందించకపోతే కృతఘ్నత అవుతుంది. స్పందిస్తే లక్ష్మణరేఖ కాదండీ రామరేఖ దాటడమవుతుంది. ఒకటవదానికన్నా రెండవదే గ్రాహ్యమనిపించి వ్రాస్తున్నాను. మన్నించవలెను.
+ నా అనువాదాన్ని అభినందించిన పెద్దలందరికీ పేరు పేరున ధన్యవాదాలు. తప్పులను పట్టకునే దృష్టితోనూ, మరింత మెరుగుపరచే దృష్టతోనూ సమీక్షించవలసినదిగా మరోమారు ప్రార్థన.🙏🙏🙏🙏🙏</div></div><div class="reply "><div class="reply-sender">సత్యనారాయణ మూర్తి వడ్డాది</div>
+      <div class="reply-text">పిరదౌసి కావ్యసమర్పకులు శ్రీ కృష్ణమోహన్ గారికి, శ్రీ కుటుంబ శాస్త్రి గారికి ప్రణామములు. 💐💐💐🙏🙏🙏</div></div><div class="reply "><div class="reply-sender">V. Vasantha Sobha</div>
+      <div class="reply-text">జాషువా గారి పద్యాలను వ్యాకరణాంశాలతో, సరళ సుందరంగా వ్యాఖ్యానిస్తున్న శ్రీ కృష్ణమోహన్ గారికి, పద్యాలకు విశిష్టంగా సంస్కృతానువాదాన్ని అందిస్తున్న శ్రీ  కుటుంబ శాస్త్రి గారికి ధన్యవాదాలు.. నమస్సులు 🙏</div></div><div class="reply "><div class="reply-sender">Ramaprasad Manda</div>
+      <div class="reply-text">శ్రీ కృష్ణమోహన్, శ్రీ కుటుంబశాస్త్రి గారలకు నమస్సులు!</div></div><div class="reply "><div class="reply-sender">Komalarao</div>
+      <div class="reply-text">పిరదౌసీ కావ్యాన్ని సంస్కృతాంధ్రములలో జుగల్ బందీ చేస్తున్న శ్రీయుతులు వెంపటి కుటుంబశాస్త్రి గారికి పసుమర్తి గారికి నమస్సులు.</div></div></div></div><div class="entry">
+        <div class="entry-header"><span class="poem-no">పద్యం 17</span></div>
+        <div class="block-label tel">మూలం</div>
+        <div class="verse">ప్రకృతి పదార్థజాలములపై నుదయాస్తమయంబులందు నీ
+ యకలుషపాణి పద్మము రహస్యముగా లిఖియించి పోవు టొ
+ క్కొకసమయాన నేను గనుగొందునుగాని గ్రహింపఁజాల నెం
+ దుకు సృజియించినాడవొ ననున్ ఘనుడా ! యసమగ్రబుద్ధిగన్.</div>
+        <div class="sanskrit-block">
+          <div class="block-label sans">అనువాదం</div><div class="verse">పశ్యామీవ కదాకదాచిదిహ
+ తే హస్తస్య లేఖం రహః
+ ప్రాతస్సాయమ్ అమీషు సర్వభువనా-న్తఃపాతి-వస్తుష్వలమ్ ।
+ నో జానామి
+ కిమర్థమేవ హతకం మాం సృష్టవాన్ త్వం ప్రభో !
+ నిస్సీమం హి తవ ప్రభావమమలం
+ జ్ఞాతుం సమర్థో న యః</div></div></div><div class="entry">
+        <div class="entry-header"><span class="poem-no">పద్యం 18</span></div>
+        <div class="block-label tel">మూలం</div>
+        <div class="verse">మున్నొకనాఁడు నాకనులముం దొకసుందరి గానవచ్చి, య
+ త్యున్నత పర్వతాగ్రముననుండి గుభాలునఁ గూలఁద్రోసి పో
+ యె న్నను, నాఁటి దృశ్య మిపుడీ సులతానుని గాథలోన ను
+ త్పన్నముఁజేసి చూపితివి, దైవమ ! నేఁటికి కన్ను విప్పితిన్.</div>
+        <div class="sanskrit-block">
+          <div class="block-label sans">అనువాదం</div><div class="verse">కన్యా కాచన సున్దరీ
+ మమ పురః ప్రాదుర్బభూవైకదా పూర్వం
+ మాం చ మహోన్నతాద్రిశిఖరాత్
+ తూర్ణం నునోదైవ చ ।
+ దృశ్యం తత్
+ సులతానవృత్తకమిషాత్ సత్యాపితం హే ! ప్రభో !
+ మోహో మేఽపగతో
+ బభూవ విమలం జ్ఞానం
+ ప్రసాదాత్తవ</div></div></div><div class="entry">
+        <div class="entry-header"><span class="poem-no">పద్యం 19</span></div>
+        <div class="block-label tel">మూలం</div>
+        <div class="verse">ఈ విశ్వంభర నీ యనుగ్రహములో హిందోళముం బాడుకొం
+ చావంతేని యెఱుంగకున్నదిగదా న్యాయంబు నన్యాయమున్,
+ దేవా? యెక్కడిదీ ప్రశాంతగుణ? మాదిత్యుండు బ్రహ్మాండపుం
+ ద్రోవన్నిల్చునె, తెల్లవాఱునె, ప్రభూ క్రోధంబు నీకుండినన్.</div>
+        <div class="sanskrit-block">
+          <div class="block-label sans">అనువాదం</div><div class="verse">పృథ్వీ తే సదనుగ్రహాద్ధి వివశా
+ హిన్దోలరాగం సదా గాయన్తీ
+ న విజానతీ లసతి వై న్యాయ్యం తథాన్యాయ్యకమ్ ।
+ స్వామిన్ ! శాన్తగుణోఽయమేవ చ కుతః ?
+ సూర్యః పటుః కిం భవేద్ బ్రహ్మాణ్డే సముదేతుమేవ
+ యది తే కోపః ?
+ ప్రభాతం కుతః ?</div></div></div><div class="entry">
+        <div class="entry-header"><span class="poem-no">పద్యం 20</span></div>
+        <div class="block-label tel">మూలం</div>
+        <div class="verse">కమలహితుఁడు పుడమిఁగల పదార్థములను
+ హేమరసముచే మొలాము చేసె
+ నీకుఁ గోపమున్న నిన్న మొన్నటివంటి
+ వారలేని సుప్రభాత మగునె ?</div>
+        <div class="sanskrit-block">
+          <div class="block-label sans">అనువాదం</div><div class="verse">సూర్యస్సమస్తం భువి వస్తుజాతం
+ సౌవర్ణవర్ణం తనుతేఽత్ర నిత్యమ్ ।
+ కోపస్తవ స్యాద్యది దేవదేవ !
+ లోకే భవేన్నైవ హి సుప్రభాతమ్</div></div></div><div class="entry">
+        <div class="entry-header"><span class="poem-no">పద్యం 21</span></div>
+        <div class="block-label tel">మూలం</div>
+        <div class="verse">ఈ తొలికోడి కంఠమున నే యినబింబము నిద్రపోయెనో
+ రాతిరి, తూర్పుగొండ లభిరామములైనవి, దీని వక్రవుం
+ గూఁతలమర్మమేమి ? కనుఁగొమ్మని యల్లనహెచ్చరించి ప్రా
+ భాతసమీర పోతములు పై కొనియెం దొలి సంజకానుపుల్.</div>
+        <div class="sanskrit-block">
+          <div class="block-label sans">అనువాదం</div><div class="verse">అస్మిన్ కుక్కుటకణ్ఠసీమ్ని
+ కతమత్ సూర్యస్య బిమ్బం గతం నిద్రాం పూర్వనిశి ?
+ ప్రభాతరుచిరం పూర్వాద్రిజాతం బభౌ ।
+ కో వా కుక్కుటవక్రగీతికథితః సన్దేశసారో భవేద్ ?
+ జానీహీతి దిశన్ ప్రభాతపవనః సూతిం చ
+ లేభేఽగ్రిమామ్</div></div></div><div class="entry">
+        <div class="entry-header"><span class="poem-no">పద్యం 22</span></div>
+        <div class="block-label tel">మూలం</div>
+        <div class="verse">వేగురుఁజుక్కతో నిలిపివేసిన నీ రచియించు లేఖకుం
+ గాగితమైన యాకసమునన్ జిఱునవ్వులు గ్రుమ్మరించుచున్
+ డాఁగెదవేల యర్థవదనంబున ? ఏమని వ్రాసికొంటివో
+ నాగతు లందులేనఁ గరుణానిధి! చిత్తము విహ్వలించెడిన్.</div>
+        <div class="sanskrit-block">
+          <div class="block-label sans">అనువాదం</div><div class="verse">శుక్రేణైవ చ బిన్దునా స్థగితతల్లేఖస్య చాధారకే
+ పత్రే వ్యోమ్ని
+ తిరోదధాసి వదనం కిం కారణం సస్మితమ్ ।
+ కిం వా మామధికృత్య తత్ర లిఖితం ? కారుణ్యమూర్తే !
+ ప్రభో !
+ చిత్తం విహ్వలతాముపైతి సభయం
+ స్వామిన్ ! ప్రసీదేశ్వర !</div></div></div><div class="entry">
+        <div class="entry-header"><span class="poem-no">పద్యం 23</span></div>
+        <div class="block-label tel">మూలం</div>
+        <div class="verse">పిట్టలఁబీచుపీచు మనిపించుచు వేఁగుఁబడంతి దోసిటన్
+ బట్టె గులాబిగుత్తులు, నభంబునఁ బుప్పొడి దుమ్ము రేఁగ నీ
+ విట్టి నిసర్గ పూజలకుఁ దృప్తి వహింతువొ ? నాస్తవంబులోఁ
+ బట్టముఁగట్టు కొందువొ ? కృపానిధి ! గుండెలు గ్రుమ్మరించెదన్.</div>
+        <div class="sanskrit-block">
+          <div class="block-label sans">అనువాదం</div><div class="verse">శాకున్తాన్ మధురస్వనాన్ విదధతీ ప్రాభాతకన్యా
+ స్వకే హస్తాబ్జే చ గులాబపుష్పనిచయం కీర్ణత్పరాగం దధౌ ।
+ కిం తృప్తోఽసి నిసర్గపూజనవిధౌ తస్మిన్ ? అథో మే
+ స్తవే ?
+ హే ! కారుణ్యనిధే !
+ హృదబ్జకమిదం న్యస్యామి తే పాదయోః</div></div></div><div class="entry">
+        <div class="entry-header"><span class="poem-no">పద్యం 24</span></div>
+        <div class="block-label tel">మూలం</div>
+        <div class="verse">ఆగడపు మబ్బుశయ్యల నపరశిఖరిఁ
+ బుడుతచంద్రుఁడు నిద్దురవోవుచుండె
+ ఈ చెఱువునీట నతని కుయ్యెలలు గట్టి
+ జోలవాడుచు నావంకఁ జూడవేమి ?</div>
+        <div class="sanskrit-block">
+          <div class="block-label sans">అనువాదం</div><div class="verse">ధృష్టేషు మేఘశయనేషు చ
+ బాలచన్ద్రో నిద్రాతి పశ్చిమగిరేః శిఖరేషు
+ తస్మై । నీరే సరస్సు చ విధాయ తరఙ్గడోలాః
+ గాయంశ్చ
+ మాం న ఖలు పశ్యసి
+ కోఽత్ర హేతుః ?</div></div></div><div class="entry">
+        <div class="entry-header"><span class="poem-no">పద్యం 25</span></div>
+        <div class="block-label tel">మూలం</div>
+        <div class="verse">కులికిన స్వాతి మేఘములకుం దలయెత్తిన కాకిచిప్పలన్
+ నిలిచిన వాన చిన్కులు మణిత్వముఁదాల్చి సముద్రమందిర
+ స్థలుల నలంకరించినవి, స్వామి ! యనూహ్యములైన నీదు చేఁ
+ తలకు నమస్కరింతును, గృతజ్ఞుఁడనయ్యెదఁ గ్రుంగిపోయెదన్.</div>
+        <div class="sanskrit-block">
+          <div class="block-label sans">అనువాదం</div><div class="verse">వర్షత్స్వాతిపయోదసంముఖతయా చోత్కన్ధరాయాం తనౌ
+ శుక్తేః
+ బిన్దుచయో య ఏవ విగలద్వర్షస్య
+ ముక్తాత్మనా। సమ్భూతేన చ తేన సాగరతలం
+ సంమణ్డితం హే ! ప్రభో !
+ చిత్రం తావకచేష్టితం హ్యనుపమం
+ వన్దే కృతజ్ఞో భవన్</div></div></div><div class="entry">
+        <div class="entry-header"><span class="poem-no">పద్యం 26</span></div>
+        <div class="block-label tel">మూలం</div>
+        <div class="verse">గొలుసులు గట్టి నీవలనకుం బరువెత్తెడు నాదు దీన దృ
+ క్కుల నెదిరించి వచ్చినవి కొండలపిండులు కొమ్ములొడ్డి లో
+ యల నిదురించు నీ ముదురు టంధతమంబుల నీ పదాంకము
+ ద్రలు గమనింపఁజాలను పరాత్పర ! నాకు శరణ్య మేదిరా ?</div>
+        <div class="sanskrit-block">
+          <div class="block-label sans">అనువాదం</div><div class="verse">త్వాఞ్చోద్దిశ్య సరీసృపన్త్య అముకా దీనా మదీయా దృశో
+ యాః
+ తాశ్చైవ విహత్య
+ ఘోరతనవో వన్యా హి పిణ్డా బభుః । మార్గే మే,
+ గహనే చ వన్యసరణౌ గాఢాన్ధకారావృతే
+ నో పశ్యామి తవాఙ్ఘ్రిచిహ్నమమలం,
+ కిం స్యాచ్ఛరణ్యం మమ</div></div></div><div class="entry">
+        <div class="entry-header"><span class="poem-no">పద్యం 27</span></div>
+        <div class="block-label tel">మూలం</div>
+        <div class="verse">సుకము లశాశ్వతంబులనుచుం బొంగరెక్కిన కొమ్ముటేన్లు వా
+ రక చెవులూచి, తుమ్మెదదొరన్ బెదరించు ననుక్షణంబు నీ
+ సకల చరాచరంబునకు, సామ్యములై నెలఱసున్న పోలికన్
+ నికటజలాశయంబుల జనించిన బుద్భుదముల్ నశించెడిన్.</div>
+        <div class="sanskrit-block">
+          <div class="block-label sans">అనువాదం</div><div class="verse">సౌఖ్యం నశ్వరమేవ చేతి నిగదన్
+ శూర్పాకృతిభ్యాం చలత్కర్ణాభ్యాం
+ ప్రపతన్మిలిన్దకతతిం సమ్బోధయన్ దృశ్యతే । హస్తీ
+ బుద్బుదమాలికా చ జగతో నశ్యత్స్వభావం భృశం వ్యాఖ్యాన్తీ
+ సరసీషు చేహ నితరాం దృష్టా చ నష్టాభవత్</div></div></div><div class="entry">
+        <div class="entry-header"><span class="poem-no">పద్యం 28</span></div>
+        <div class="block-label tel">మూలం</div>
+        <div class="verse">చీమ చిటుక్కుమన్నఁ బ్రతి సెప్పుచుఁ గోపము సేయుచున్న యీ
+ భూముల సుప్రశాంతి పరిపుష్టి వహించిన దిట్టి తావు నీ
+ కోమలపాదసేవకులకుం దగియున్నది పూజసేయఁదం
+ డ్రీ ! మొగమింతసూపు మిట నెవ్వరులేరు పరాయులీశ్వరా!</div>
+        <div class="sanskrit-block">
+          <div class="block-label sans">అనువాదం</div><div class="verse">శబ్దే సూక్ష్మతమే
+ ప్రతిధ్వనిమిషాత్ కోపం పరం కుర్వతీ భూరేషా ।
+ బహుసుప్రశాన్తిమహితా త్వత్పాదపూజాకృతే । యోగ్యా చాత్ర
+ చకాస్తి
+ దర్శయ ముఖం పూర్ణేన్దుసంస్పర్ధి తత్ కిఞ్చిత్
+ నేహ పరోఽస్తి కశ్చన జనః
+ స్వామిన్ ! ప్రసీద ! ప్రభో !</div></div></div><div class="entry">
+        <div class="entry-header"><span class="poem-no">పద్యం 29</span></div>
+        <div class="block-label tel">మూలం</div>
+        <div class="verse">భూతపంచకమున మున్గి తేలుచునున్న
+ నీ అనంతశక్తి నిశ్చయముగ
+ నాకుఁ బట్టుఁగొమ్మ నావజ్రకవచము
+ సిలుఁగు లేమి చేయంగలవు నను ?</div>
+        <div class="sanskrit-block">
+          <div class="block-label sans">అనువాదం</div><div class="verse">భూతాని పఞ్చ సతతం పరిబృంహయన్తీ
+ యానన్తశక్తిరిహ భాతి భృశం త్వదీయా ।
+ సా మేఽవలమ్బనమథో కవచం హ్యభేద్యం
+ కష్టాని మామిహ కథం పరిపీడయేయుః ?</div></div></div><div class="entry">
+        <div class="entry-header"><span class="poem-no">పద్యం 30</span></div>
+        <div class="block-label tel">మూలం</div>
+        <div class="verse">కొండలనుండి క్రిందివఱకుం దల క్రిందుగఁజెంగలించి యీ
+ యెండినయేటిలోనఁ బ్రవహించిన యీ సెలయేటి నీటిలో
+ గుండము లప్పుడే కుదురుకొన్నవి పాంథుల నాహరింప, బ్ర
+ హ్మాండవిలాస! నీకవన మద్భుత మర్థగభీర, మీశ్వరా !</div>
+        <div class="sanskrit-block">
+          <div class="block-label sans">అనువాదం</div><div class="verse">శైలాగ్రాద్విపరీతపాతవిధినా
+ శుష్కాపగాయాస్తలే క్షోణీయాతముపేత్య
+ దుర్భరరయం ధావత్సు నృత్యత్సు చ ।
+ నిర్ఝర్యా జలరాశిషు
+ ప్రకటతాం యాన్తీహ చావర్తకాః
+ పాన్థానాం హరణాయ
+ హే సృజనకృత్ ! కావ్యం గభీరం తవ</div></div></div><div class="entry">
+        <div class="entry-header"><span class="poem-no">పద్యం 31</span></div>
+        <div class="block-label tel">మూలం</div>
+        <div class="verse">ఏమిటి కెక్కు పెట్టితివొ! యింద్రధనుస్సును మింటిచాయ నా
+ సామి! పయోదమాలికచాటునసూర్యుఁడునక్కినాఁడు, తా
+ నే మపచారము న్సలిపి యిట్టి విపత్తును దెచ్చి పెట్టె నీ
+ భూములు నిల్చునా భువనమోహన ! నీవుపరాక్రమించినన్?</div>
+        <div class="sanskrit-block">
+          <div class="block-label sans">అనువాదం</div><div class="verse">స్వామిన్ ! కిం గగనే తనోషి రుచిరం
+ చాపం మహేన్ద్రస్య వై
+ సూర్యోస్తీహ
+ తిరోదధన్నిజతనుం మేఘావలౌ దుర్భగః ।
+ దుశ్చర్యా కతమా చ తేన విహితా ?
+ యుఙ్క్తే విపత్త్యా యతః
+ కిం స్థాస్యన్తి జగన్తి దేవ ! యది సఞ్జాతా
+ జహీర్షా తవ</div></div></div><div class="entry">
+        <div class="entry-header"><span class="poem-no">పద్యం 32</span></div>
+        <div class="block-label tel">మూలం</div>
+        <div class="verse">సరదాగా భుజశక్తిమీఱ నెపుడో క్ష్మానామకంబైన బొం
+ గరమున్ ద్రిప్పితి, వీపరిభ్రమణవేగం బింత చల్లారినన్
+ జరుగన్నేర్చునె లోకవృత్తము మహేశా! యప్పుపడేదిక్కుగా
+ నొఱగుం? బర్యవసాన మెట్లగునొ యంచూహింతునున్మాదినై.</div>
+        <div class="sanskrit-block">
+          <div class="block-label sans">అనువాదం</div><div class="verse">క్రీడార్థం భవతా
+ కదాచిదముకా భూమిర్భ్రమిభ్రమితా
+ కిం స్యాల్లోకగతేః
+ యది భ్రమణసంవేగస్య హానిర్భవేత్ ?
+ విశ్వే కిందిశి సమ్పతేదియమ్
+ అథో కిం పర్యవస్యేదితి
+ స్యున్మత్తః కలయే
+ ప్రభావవితతిం స్వామిన్ ! అనూహ్యాం తవ”</div></div><div class="discussion"><div class="discussion-label">చర్చ (5)</div><div class="reply "><div class="reply-sender">Krishnamohan</div>
+      <div class="reply-text">పిరదౌసి కావ్యంలోని పద్యాలకు చక్కని సంస్కృతానువాదములను సమర్పించిన మాన్యులు శ్రీ కుటుంబశాస్త్రి గారికి ధన్యవాదసహిత ప్రణతులు.🙏🏻🙏🏻🙏🏻 తూర్ణం, కీర్ణత్పరాగం వంటి యెన్నో సంస్కృత పదాలు తెలిసినవి.  శైలాగ్రద్విపరీతపాతవిధినా, వర్షత్స్వాతిపయోదసంముఖతయా వంటి పదబంధములతో మీ అనువాదం మనోజ్ఞముగా ఉన్నదండి.  మాకు తెలియని సంస్కృత పదముల గురించి తెలిసికొనే సదవకాశమిది.🙏🏻</div></div><div class="reply "><div class="reply-sender">Kameswara Rao Bh</div>
+      <div class="reply-text">పిరదౌసి కావ్యభాగాన్ని చక్కని వివరణలతో అందించిన కృష్ణమోహన్ గారికీ, దానికి అమోఘమైన తన అనువాదాన్ని అందించిన కుటుంబశాస్త్రిగారికీ అనేక నమస్సులు. ఈనాటి భాగంలో జాషువాగారి భావకవితావైభవం ప్రకాశించింది!
+ ప్రకృతిలో ప్రత్యణువూ కవికి ఒక కావ్యంగానే కనిపిస్తుంది. ఆ కవి భక్తుడైతే అది పరమాత్మ కవిత్వంగా భాసిస్తుంది!
+ ఆ కవిత్వాన్ని తన కవిత్వంలో అనువదించే వ్యర్థప్రయత్నం చేస్తూ..
+ అందులోని వేదనని అనుభవిస్తూ…
+ అదే పరమాత్మ గురించి తన అన్వేషణగా ఆనందిస్తూ…
+ అది మనకి అందిస్తాడు కవి.
+ ప్రాభాతసమీరపోతములు పై కొనియెం దొలిసంజకానుపుల్ -
+ సమీరపోతములు - బలే పదం. పిల్లగాలులకి అచ్చమైన సంస్కృతం!
+ వేగురుఁజుక్కతో నిలిపివేసిన నీ రచియించు లేఖకున్ - ఆహా! చుక్కతో వాక్యాంతం చేయడమనే ఆధునిక లేఖన సంప్రదాయాన్ని (ఫుల్-స్టాప్ పెట్టడం!) జాషువా ఇక్కడ గొప్పగా వాడుకున్నారు. అయితే సాధారణంగా వేగుచుక్కతో రోజు మొదలవుతుంది. ఇక్కడ లేఖ ఆగింది అంటున్నారు కవి. రాత్రి అనే లేఖ అనుకోవాలా?
+ ఇలాంటి చోట్లు అనువాదానికి సులువుగా లొంగవు! శుక్రేణైవచ బిన్దునా అని శ్లేషని ఉపమానంగా చక్కగా మార్చారు.
+ తెలుగులోని పిట్టల పీచుపీచు సంస్కృతంలో  శాకున్తాన్ మధురస్వనాన్ అని మారడం వీనులవిందుగా ఉంది!
+ ఈతొలికోడి కంఠమున నే యినబింబము నిద్రవోయెనో|రాతిరి
+ ఇది ఈ తొలికోడి కంఠముననే యినబింబము నిద్రవోయెనో రాతిరి - ఈ తొలికోడి కంఠమందేనా సూర్యుబింబం నిద్రపోయింది అని నేను అనుకున్నాను. ఏ సూర్యుడు నిద్రపోయేడో అన్న ప్రశ్న ఇక్కడ అవసరం లేదు కదా. తొలొకోడి కూతతోనే సూర్యుడు ఉదయిస్తున్నాడు కాబట్టి ఆ సూర్యబింబం ఆ కోడిగొంతులోనే నిద్రపోయిందా అన్నట్టుగా ఉందని.
+ కాని కుటుంబశాస్త్రిగారి అనువాదంలో కూడా కతమత్ అన్నారు కాబట్టి ఏ సూర్యుడు? అనే అర్థమే వారు తీసుకున్నారని అనిపిస్తోంది. బహుశా నా అన్వయమే తప్పేమో?
+ తాశ్చైవ విహత్య ఘోరతనవో వన్యా హి పిణ్డా బభుః  - ఇది నాకు అర్థం కాలేదండి.
+ 🙏</div></div><div class="reply "><div class="reply-sender">Kutumba Sastry Vempaty</div>
+      <div class="reply-text">పిరదౌసి కావ్యాన్ని విపులము విశదము అయిన వ్యాఖ్యతో సమర్పించిన శ్రీ కృష్ణమోహను గారికి అభినందనములు వందనములు. నా సంస్కృతానువాదాన్ని చదివి అభినందించిన ప్రతి ఒక్క విద్వత్సహృదయులకూ పేరు పేరునా ధన్యవాదములు. శ్రీ కామేశ్వరరావు గారి సమీక్ష ఎప్పటిలాగే నిశితమై సార్థకమై యున్నది. వారు చెప్పినతరువాతనే నాకునూ వారి సమన్వయమే నచ్చినది. కతమత్ అను అనువాదము చింత్యమే. కృతజ్ఞుడను.🙏 తాః అనేది తృతీయా బహువచనము. ఆ దృక్కులను అని అర్థం. వాటిని విహత్య అడ్డగించి ఘోరమైన ఆకారములు గల(ఘోరతనవః) ఆరణ్యక జంతువుల(వన్యాః) శరీరములు లేదా ఆకారములు (పిండాః) భాసించుచున్నవి (బభుః) అని నేను తెలుగుపద్యము నాకర్థమయిన విధానముననుసరించి అనువదించినాను. బాగోగులను కామేశ్వరరావు గారే తెలియపరచాలి.🙏🙏🙏</div></div><div class="reply depth-1"><div class="reply-ref">↩ Kutumba Sastry Vempaty వ్యాఖ్యకు స్పందన</div><div class="reply-sender">Kameswara Rao Bh</div>
+      <div class="reply-text">మీ సహృదయవాక్కులకు అనేక నమస్సులండీ. తెలుగు సంస్కృతశ్లోకాలు ప్రక్కప్రక్కన చదువుకోవడం నాకు సంస్కృతం నేర్చుకొనేందుకు ఎంతగానో ఉపయోగపడుతోంది. అందుకే అక్కడక్కడ‌ సందేహాలు వస్తున్నాయి. కతమత్‌ పదం నిన్ననే తెలిసింది.
+ తెలుగులో కొండలపిండులు కొమ్ములొడ్డి అని ఉన్నది కాబట్టి దానికోసం సంస్కృత అనువాదంలో వెతికి కనిపించలేదని సందేహం వచ్చింది.
+ మీరు గిరిశిఖరాలపై నున్న కవి దృక్కులను భూమార్గం పట్టించారని ఇప్పుడర్థమయింది!😊
+ కొమ్ములొడ్డి ఎదిరించడం అనే‌ తెలుగు నుడికారం జాషువా ఇక్కడ చక్కగా వాడారు. అది మామూలుగా పోట్లగిత్తలు కొమ్ములు విసరడాన్ని చెపుతుంది. ఇక్కడ కొండల కొమ్ములకు (శిఖరాలకు) అన్వయించారు!
+ ఇలాంటివి అనువాదానికి చిక్కడం కష్టమే!
+ 🙏</div></div><div class="reply "><div class="reply-sender">Kameswara Rao Bh</div>
+      <div class="reply-text">ఇలా అనడం కేవలం మీ సౌజన్యమండి. మీ అనువాదంలోని ఔన్నత్యం ముందు ఇలాంటి విషయాలు చాలా అల్పం. మౌలికభావానికి విరుద్ధం కానంత వరకూ ఇలాంటి సూక్ష్మాంశాలలో భేదమున్నా తప్పులేదు. కొన్ని సందర్భాలలో ఒప్పు కూడా అవుతుంది కదా. నిజానికి మూలం చదివిన వాళ్లు అనువాదం చదవకూడదంటారు!😊 అనువాదం అనువదింపబడిన భాష క్షుణ్ణంగా తెలిసినవారికి మాత్రమే, మూలం చదివినవాళ్లకు కాదు.
+ 🙏</div></div></div></div></div><div class="asvasam-section"><div class="asvasam-title">తృతీయాశ్వాసము</div><div class="entry">
+        <div class="entry-header"><span class="poem-no">పద్యం 1</span></div>
+        <div class="block-label tel">మూలం</div>
+        <div class="verse">ఒక కొన్ని గడియ లక్కవి 
+ప్రకృతి మహత్త్వంబు నీశ్వర ప్రణయంబున్
+ జకచకిత వికచ కవితా 
+ప్రకాశవాగ్గుంభనములఁ బ్రస్తుతి చేసెన్.</div>
+        <div class="sanskrit-block">
+          <div class="block-label sans">అనువాదం</div><div class="verse">కఞ్చిత్కాలమయం కవీశ్వరవరస్తుష్టావ సర్వాత్మకం
+ మాహాత్మ్యం ప్రకృతేః
+ తయోర్జనహితాం కారుణ్యదృష్టిఞ్చ తామ్ ।
+ శబ్దౌఘైః రమణీయభావభరితైః స్ఫూర్జద్రసాలఙ్కృతైః
+ భక్త్యా సమ్భరితైః
+ ప్రయత్నవిచితైః చిత్రైర్విచిత్రైశ్శుభైః</div></div></div><div class="entry">
+        <div class="entry-header"><span class="poem-no">పద్యం 2</span></div>
+        <div class="block-label tel">మూలం</div>
+        <div class="verse">పడమటికిఁ బ్రొద్దు వ్రాలిన
+ నడుగడుగున కులికిపడెడు నబలలతోఁదా.
+ నడు గొక యామడగా న
+ య్యడవిని బయనింపసాఁగె నంత నొకదెసన్.</div>
+        <div class="sanskrit-block">
+          <div class="block-label sans">అనువాదం</div><div class="verse">దినస్య పశ్చార్ధగతే చ భానౌ
+ పత్నీసుతాభ్యాం భయకమ్పితాభ్యామ్ ।
+ పదే పదే క్రోశయుగాయమానే
+ వనే దిశం కామపి స ప్రతస్థే</div></div></div><div class="entry">
+        <div class="entry-header"><span class="poem-no">పద్యం 3</span></div>
+        <div class="block-label tel">మూలం</div>
+        <div class="verse">కెలఁకులవైరి గుఱ్ఱముల గిట్టలచప్పుడు గోచరించినన్
+ దలఁకి సమీప పర్వత కదంబిత భూర్జవనంబు సొచ్చి బె
+ బ్బులులు కరుల్గిరుల్ హరులు మొత్తములై విహరించు పెద్దలో
+ యలఁబెడదారులంబడి ప్రయాణము చేయుచునుండ నత్తఱిన్.</div>
+        <div class="sanskrit-block">
+          <div class="block-label sans">అనువాదం</div><div class="verse">శ్రుత్వాసౌ రిపువాజినాం ఖురరవం దూరాద్
+ భయాన్దోలితో మార్గం స్వం పరిహాయ
+ భూర్జవనకం దుర్లఙ్ఘ్యపారం శ్రితః ।
+ సింహవ్యాఘ్రగజాదివన్యనిలయేఽరణ్యే ప్రవిష్టో భృశం
+ భీతస్వాన్తక ఏవ సన్
+ ప్రతిపదం బభ్రామ మార్గేఽహితే</div></div></div><div class="entry">
+        <div class="entry-header"><span class="poem-no">పద్యం 4</span></div>
+        <div class="block-label tel">మూలం</div>
+        <div class="verse">ప్రొద్దు గ్రుంకెఁ, బెద్దపులి యేటి కేతెంచె,
+ పంది కోఱకత్తి పదును పెట్టె
+ ఆకసంబు భూమి యఖిలపదార్థమ్ము
+ లంధ కారజలధి యం దణంగె.</div>
+        <div class="sanskrit-block">
+          <div class="block-label sans">అనువాదం</div><div class="verse">సూర్యోఽస్తం గతవాన్
+ గతశ్చ తటినీం వ్యాఘ్రః పిపాసార్దితః
+ వన్యస్సూకర ఆగతస్స్వనిలయం దన్తావలిం తీక్ష్ణయన్ ।
+ ఆకాశోఽథ చ భూః
+ పదార్థతతయః సర్వాశ్చ
+ సర్వం జగత్
+ సూచీభేద్యతమోఽన్ధకారజలధౌ
+ లీనా బభూవుర్భృశమ్</div></div></div><div class="entry">
+        <div class="entry-header"><span class="poem-no">పద్యం 5</span></div>
+        <div class="block-label tel">మూలం</div>
+        <div class="verse">దెసలు బీటలువాఱ వసపట్టి పోరాడు
+ కొదమసింగములకు బెదరిపడుచు
+ త్రాటితోపులఁగల్లు ద్రావు భల్లుకముల
+ గుటగుట ధ్వనులకుఁ గుదులుగొనుచు,
+ నూహింపరాని యేవో మ్రుక్కిడిమృగాల
+ వెఱికూఁతలకు తబ్బిబ్బుపడుచు,
+ కొఱవిదయ్యముల టక్కరి, దివ్వియలఁజూచి
+ యూరు డగ్గళె నంచు నూఱలిడుచు,
+ గొసరి నివ్వరి ధాన్యంబుఁగొఱికి నమలు
+ నెలుక మునిపంటిసవ్వడి కులికిపడుచు,
+ త్రోవ గమియించు నాఁటి పాంథుల నదేమొ
+ అదరి బెదరించె నొక యెండుటాకుకూడ.</div>
+        <div class="sanskrit-block">
+          <div class="block-label sans">అనువాదం</div><div class="verse">త్రస్యద్దిశం గర్జదసాధ్యసింహపోతస్య సఙ్ఘాత్
+ సభయం విబిభ్యత్ ।
+ తాలేషు మద్యం పిబతశ్చ
+ వన్యభల్లూకజాతస్య రవేణ ఖిన్దత్ ।।5।।
+
+ నిశీథసత్త్వైః కృతభీకరధ్వనేః
+ భయాద్విముహ్యత్తనుసమ్భ్రమం భ్రమత్ ।
+ జ్వలచ్చరత్సత్త్వతతిం విభావ్య చ
+ పురం భ్రమాత్ ప్రాప్తమివ ప్రమాణయత్ ॥6॥
+
+ నీవారధాన్యం దశనాగ్రభిన్నం
+ చర్వద్బిలాఖోః ధ్వనినా విబిభ్యత్ ।
+ పాన్థత్రయం త్రాసహతం చకార
+ మార్గే తదా మర్మరశుష్కపత్రమ్</div></div></div><div class="entry">
+        <div class="entry-header"><span class="poem-no">పద్యం 6</span></div>
+        <div class="block-label tel">మూలం</div>
+        <div class="verse">మునుకొన్న సాధ్వసంబునఁ
+ గనుల కరణ్యమున వృక్షగణ మరిగణమై
+ కనుపట్ట నతని గళమును
+ బెనఁగొనుచున్ సాగి రనుఁగు బిడ్డయు సతియున్.</div>
+        <div class="sanskrit-block">
+          <div class="block-label sans">అనువాదం</div><div class="verse">పూర్వానుభూతభీతీ తే మత్త్వా వృక్షతతిం రిపుమ్ ।
+ పిర్దౌసే ర్గల మాశ్రిత్య పత్నీ పుత్రీ చ సస్రతుః</div></div></div><div class="entry">
+        <div class="entry-header"><span class="poem-no">పద్యం 7</span></div>
+        <div class="block-label tel">మూలం</div>
+        <div class="verse">ఆ దీనులఁ గని యొక్క ని
+ షాదవిభుఁడు కనికరించి చనుదెంచి దయా
+ మేదురములైన పలుకుల చేఁ
+ దద్దయు భీతి మాన్పి చేతి ధనుస్సున్.</div>
+        <div class="sanskrit-block">
+          <div class="block-label sans">అనువాదం</div><div class="verse">దృష్ట్వా దీనాన్ తదా కశ్చిత్ దయమానో నిషాదకః ।
+ ఆశ్వాస్య నిర్భయం చోక్త్వా చానుగన్తుం సమాహ్వయత్</div></div></div><div class="entry">
+        <div class="entry-header"><span class="poem-no">పద్యం 8</span></div>
+        <div class="block-label tel">మూలం</div>
+        <div class="verse">ఎక్కిడి, రండు మీకు భయ మేమియు లేదని రొండికోరగాఁ
+ జెక్కిన బొట్టెకట్టియలు చే నమరించి, నిసర్గ తేజమున్
+ గ్రక్కు మొగంబుడంబున గుణధ్వనిఁజేయుచు దారిఁ జూపుచున్
+ జిక్కుటరణ్యము న్గడవఁజేసెఁ గవీంద్రుని కగ్రగామియై.</div>
+        <div class="sanskrit-block">
+          <div class="block-label sans">అనువాదం</div><div class="verse">కృత్వా ధనుస్సజ్యమథో కరాగ్రే
+ శాణం చ తీక్ష్ణం లఘుదణ్డకాష్ఠమ్ । ధృత్వా
+ దిశన్ మార్గగతిం స ఏతాన్
+ నిన్యే పరం పారమరణ్యభూమేః</div></div></div><div class="entry">
+        <div class="entry-header"><span class="poem-no">పద్యం 9</span></div>
+        <div class="block-label tel">మూలం</div>
+        <div class="verse">పొడుపు గుబ్బలి తొలుదొల్త బూదివంటి
+ ధవళవర్ణంబుఁ దాల్చి యంతటఁ బసిండి
+ నిగ్గు మెదిపిన చెంగల్వ మొగ్గఁ దొడిగె
+ వేగుజామున నూసరవెల్లివోలె.</div>
+        <div class="sanskrit-block">
+          <div class="block-label sans">అనువాదం</div><div class="verse">భస్మచ్ఛవిం
+ తదను హాటకవర్ణమేత్య
+ వేగేన కోకనదకోశమథో ప్రసూయ ।
+ వర్ణాన్ప్రతిక్షణమథో వివిధాన్ సృజన్తీ
+ ప్రాచీ తులామధిజగౌ కృకలాసకేన</div></div></div><div class="entry">
+        <div class="entry-header"><span class="poem-no">పద్యం 13</span></div>
+        <div class="block-label tel">మూలం</div>
+        <div class="verse">అంతటఁ బారసీక సరిహద్దులు కన్నుల గోచరించె భా
+ స్వంతుండు తూర్పునం బొడిచి వచ్చె, నిషాదుఁడు భక్తి గుంభిత
+ స్వాంతుఁడు కేలుమోడ్చి కవిసత్తమునిం గని స్వామివారు న
+ న్నింత యనుగ్రహించి సెలవిచ్చిన నేనును బోయి వచ్చెదన్. 10
+
+
+11 12 13 missing?
+
+
+అని పలికి స్వామి! యాదెస|
+ నినరశ్ముల నెండమావు లేర్పడి యపుడే|
+ వనధింబలెఁ గన్పడు నటు|
+ సనకుఁడది యెడారి కడు నసాధ్యము దాఁటన్|| 11
+
+ఆ కనుపించు పర్వతపు టంచున నున్నది పెద్ద చెర్వు, మీ|
+ రాఁకలి గొన్నచో నిలిచి యచ్చట చల్ది భుజింపవచ్చు; సా|
+ మీ! కనుచూపు మేర పిడియేనుఁగు పిండులు టేకుమ్రాఁకులన్|
+ గూఁకటివేళ్ళతోఁ బెఱికి కూల్చుచు నుండును పెళ్ళుపెళ్ళునన్|| 12
+
+కొంచెము సాగినన్ జెఱువుకొమ్మున మీ కుడిచేతి వాలుగా|
+ మంచి విశాలమైన యొక మార్లము దాపునఁ గానుపించు మా|
+ చెంచుల గూడెముల్‌ పుడమిచేడియ చన్నుల క్రేవఁ దాల్చు రో|
+ మాంచమొకో యనం దనరు నందలి కొండల కీవలావలన్</div>
+        <div class="sanskrit-block">
+          <div class="block-label sans">అనువాదం</div><div class="verse">సీమానః పారసీకాః నయనవిషయతామాగతాః
+ ఖే చ భాస్వాన్
+ ప్రాచీదేశేఽరుణాభాం నిజకిరణతతిం వ్యాపయన్నావిరాసీత్ ।
+ భక్త్యా నమ్రో నిషాదః కవివరమవదత్సాఞ్జలి-
+ ర్దేవ ! చేత్స్యాదాజ్ఞా
+ గన్తుం సమీహే నిజవిషయమితో
+ భద్రమేవాస్తు తుభ్యమ్ ॥12।।
+
+ భూయోఽప్యూచే వినమ్రః
+ “రవికిరణతతేర్యోగతో వారిపూర్ణాః
+ దృశ్యన్తే భూమయస్తా మరవ ఇహ,
+ తతో మా స్మ గచ్ఛేర్దిశం తామ్ ।
+ దుస్సాధాస్తాస్తతోఽగ్రే
+ గిరిశిఖరతటే వర్తతే సారసం
+ తత్ స్యాచ్చేద్వస్సమ్బుభుక్షా
+ కురుత కతిపయైర్లిప్తకైః ప్రాతరాశమ్ ॥ 13॥
+
+ స్వామిన్ ! అగ్రే చ యూథా గురుతరకరిణాం
+ దేవదారూన్ సమూలాంశ్చోత్పాట్యాధః క్షిపన్తో నయనవిషయతాం
+ యాన్తి
+ గత్వా తతోఽగ్రే ।
+ సవ్యేనాస్యాస్తటిన్యాః విశదపథతటే
+ శాబరాణాం కుటీరా దృశ్యన్తే
+ సంవహన్తో గిరికుచయుగలే జాతరోమాఞ్చలీలామ్</div></div></div><div class="entry">
+        <div class="entry-header"><span class="poem-no">పద్యం 14</span></div>
+        <div class="block-label tel">మూలం</div>
+        <div class="verse">ఈ గ్రచ్చపొదలయందే నిర్భయము మీఱ
+ బెబ్బులుల్ పిల్లలఁ బెట్టుచుండు
+ ఈ జలాశయములందే జంటలై వచ్చి
+ యెదలైన యేనుఁగు లీఁతలాడు, 
+
+ఈ కొండలోయలందే నిశీథమునందు
+ దయ్యాలు గుంపులై తాండవించు,
+ ఈ తాండ్రతోఁపులందే జంతువుల మ్రింగి
+ కొండచిల్వలు మత్తుగొని పరుండు.</div>
+        <div class="sanskrit-block">
+          <div class="block-label sans">అనువాదం</div><div class="verse">అత్రత్యగుల్మేషు వినైవ శఙ్కాం
+ వ్యాఘ్రీ ప్రసూతే సుమనోజ్ఞపోతాన్ ।
+ సరస్సు చాత్రైవ రిరంసితాని
+ క్రీడన్తి యుగ్మాని మదేభకానామ్ ॥15॥
+
+ఉపత్యకాస్వత్ర నిశీథకాలే
+ సత్త్వాని నృత్యన్తి భయఙ్కరాణి ।
+ సాలేషు సత్త్వాని చ భక్షయిత్వా
+ సరీసృపా యాన్తి విసంజ్ఞనిద్రామ్</div></div></div><div class="entry">
+        <div class="entry-header"><span class="poem-no">పద్యం 14</span></div>
+        <div class="block-label tel">మూలం</div>
+        <div class="verse">తెరువరులఁ బట్టి కట్టి తస్కరుల గుంపు
+ నిత్య మిచ్చోటఁ బగలె ఖూనీలు సేయు,
+ అనఘ ! చూపుల కిది యరణ్యంబుగాని
+ బ్రహ్మసృష్టిని వింతయాపదల పుట్ట.</div>
+        <div class="sanskrit-block">
+          <div class="block-label sans">అనువాదం</div><div class="verse">పాన్థాన్ గృహీత్వా ప్రతిబధ్య నిత్యం
+ లుణ్ఠాకకా ఘ్నన్తి దివైవ ఘోరమ్ ।
+ ద్రష్టుం మనోజ్ఞం వనమేతదేవ
+ సృష్టౌ హి యోనిర్విపదాం విచిత్రా</div></div></div><div class="entry">
+        <div class="entry-header"><span class="poem-no">పద్యం 15</span></div>
+        <div class="block-label tel">మూలం</div>
+        <div class="verse">వాసింగన్న మహ్మదీయులకు సేవ్యంబైన మక్కాకర
+ బ్బీ సన్యానులు పోవు త్రోవలవి యాపెల్గొండ నెత్తమ్ము లం
+ దాసీనుం డగు వాని దృష్టికి నభోవ్యాలంబముల్ రత్నరు
+ గ్రాసుల్ గన్పడుఁ గాంధహార నగర ప్రాసాద కుంభా గ్రముల్.</div>
+        <div class="sanskrit-block">
+          <div class="block-label sans">అనువాదం</div><div class="verse">సేవ్యం యన్నగరం మహమ్మదమతే
+ మక్కాభిధం సంస్తుతం
+ మార్గస్తద్గమకః స ఏవ విశదః
+ పార్సీకసంన్యాసినః ।
+ యాన్త్యేతేన
+ పురో గిరేశ్శిఖరగః పశ్యేత్
+ వియల్లేఖకాన్ ప్రాసాదాన్
+ మణిరత్నవజ్రఖచితాన్ గాన్ధారకీర్త్యజ్జ్వలాన్</div></div></div><div class="entry">
+        <div class="entry-header"><span class="poem-no">పద్యం 16</span></div>
+        <div class="block-label tel">మూలం</div>
+        <div class="verse">అదిగో, చూడుఁడు రాపులుంగుగము లభ్రాంతబునందూలు నం
+ బుదపుం దున్కలు నాఁజలించెడి, దద్భూభాగమందున్న పె
+ న్నదితీరంబులై పారసీకుల శ్మశానక్షోణు, లచ్చోటఁజూ
+ డఁదగున్ మర్తులయస్థిపంజరపుగుట్టల్, మాంసదుర్గంధమున్.</div>
+        <div class="sanskrit-block">
+          <div class="block-label sans">అనువాదం</div><div class="verse">దూరే పశ్యత ఖే
+ చలజ్జలదసఙ్ఘాతస్య తూలా ఇవ
+ శ్యేనా యత్ర నదీతటేషు వితతాః
+ క్షోణ్యః శ్మశానస్య తాః ।
+ లక్ష్యన్తే పరితశ్చ పర్వతసమాః
+ పార్సీకమర్త్యాత్మనామ్
+ అస్థ్నాం సఞ్చయకాః
+ సుదుస్సహమహాదుర్గన్ధవాహానిలాః</div></div><div class="discussion"><div class="discussion-label">చర్చ (2)</div><div class="reply "><div class="reply-sender">Krishnamohan</div>
+      <div class="reply-text">ఒక్కొక్క పద్యానికి సంస్కృతానువాదమును పరిశీలిస్తే అనేక సంస్కృతపదాలకు అర్థాలు తెలుసుకొనగలిగే అవకాశమును  బ్రహ్మశ్రీ కుటుంబశాస్త్రి గారు మనకు కలిగిస్తున్నారు. వారికి ధన్యవాదపూర్వక నతులు. 🙏🏻🙏🏻🙏🏻💐💐💐</div></div><div class="reply "><div class="reply-sender">Kameswara Rao Bh</div>
+      <div class="reply-text">ఎప్పటిలానే పిరదౌసి పద్యాలను చక్కని వ్యాఖ్యతో అందించిన కృష్ణమోహన్ గారికి, పనులలో ఉండికూడా వీలుచేసుకొని సంస్కృత అనువాదాలు అందించిన శ్రీ కుటుంబశాస్త్రిగారికి అనేక నమస్సులు. సూచీభేద్యతమోఽన్ధకారజలధౌ లీనా బభూవుర్భృశమ్ అన్న అంధకారవర్ణన,
+ విబిభ్యత్, ఖిన్దత్, భ్రమత్ …  అనువాదంలో తీసుకువచ్చిన అంత్యప్రాస సౌందర్యం…
+ ఇలా సంస్కృతానువాదం ఎంత గొప్పగా సాగిందో!🙏
+ వన్యస్సూకర ఆగతస్స్వనిలయం దన్తావలిం - ఇక్కడ దంష్ట్రావలిం అంటే ఎలా ఉంటుంది?
+ నాకు తోచిన కొన్ని అర్థవివరణలు:
+ డంబు = కాంతి. మొగంబుడంబున = ముఖకాంతితో
+ మునుకొన్న సాధ్వసంబునఁ  - ఇక్కడ మునుకొను అంటే ముందుపడిన అని కాక అతిశయించిన అనే అర్థం తీసుకోవడం సరి.
+ బొట్టెకట్టియ/బొట్టెకోల = తామరమొగ్గ కొన లేదా కోడి కొనగోరు ఆకారంలో వంపుగల బాణము
+ రొండి కోరగాఁ జెక్కిన బొట్టెకట్టియలు చే నమరించి = మధ్యలో వంపుగా పదనుగా చెక్కిన అలాంటి బాణాలు తన చేతిలో పట్టుకొని
+ 🙏</div></div></div></div><div class="entry">
+        <div class="entry-header"><span class="poem-no">పద్యం 17</span></div>
+        <div class="block-label tel">మూలం</div>
+        <div class="verse">దోరగఁ బండి గుత్తులయి దొంతులు గట్టిన పండ్లు వ్రేల, వే|
+ మాఱునుఁ దేనెపట్టుల భ్రమన్ గలిగించుచు నున్న మేలి ఖ|
+ ర్టూరపుతోఁపులం దిరుగుచుం బసియొంటెలు మేపు పారసీ|
+ పౌరులు గానుపింతు రిరువంకల త్రోవల కింతదాపునన్</div>
+        <div class="sanskrit-block">
+          <div class="block-label sans">అనువాదం</div><div class="verse">ద్రక్ష్యన్తే చ పచేలిమాని పరితః ఖర్జూరగుచ్ఛాని
+ తద్వృక్షాగ్రేషు
+ సమూహశోఽతినిబిడం వ్యాలమ్బమానాని చ ।
+ భ్రాన్తిర్యత్ర నిసర్గజా
+ మధులిహాం నీడాస్స్యురిత్యాత్మికా
+ పౌరాః పారసికాః క్రమేలకశిశూన్
+ సఞ్చారయన్తోఽచిరాత్</div></div></div><div class="entry">
+        <div class="entry-header"><span class="poem-no">పద్యం 18</span></div>
+        <div class="block-label tel">మూలం</div>
+        <div class="verse">అవలన్ బచ్చిక పట్టులం జిలుఁగు నీహరంబు భక్షించి, చే
+ రువ ద్రాక్షాఫలపక్వసౌరభమిళ త్రోతస్సులందేలి వా
+ యువులింపార మెలంగు చుండునవి మీ కుత్సాహముంగూర్పకుం
+ డవు సుమ్మీ! యటనున్నవృక్షములనీడన్ గొంతశాంతింపుఁడీ.</div>
+        <div class="sanskrit-block">
+          <div class="block-label sans">అనువాదం</div><div class="verse">అగ్రే తత్ర వహన్తి వాయవ ఇమే
+ గ్రాసాగ్రనీహారకాన్
+ భుక్త్వా ద్రాక్షవనీసుసౌరభమిలత్స్నోతస్సు సఙ్గాహ్య చ ।
+ నూనం హ్యధ్వగతం శ్రమఞ్చ సకలం హిత్వా
+ నవోత్సాహినః
+ యూయం తత్ర భవేత మన్దపవనే ఛాయాద్రుమాసేవినః</div></div></div><div class="entry">
+        <div class="entry-header"><span class="poem-no">పద్యం 19</span></div>
+        <div class="block-label tel">మూలం</div>
+        <div class="verse">క్రొత్తగఁబుట్టు పట్టగొడుగుల్బలే బెడ్డ పొంత నీ
+ ట్టుత్తరదిక్కుంగా వెలయుచున్నవి కొన్ని గుడారముల్ రా
+ ముత్తెపు వర్తకంబునకుఁబోవు నరబ్బులు నిల్పుతాంబ
+ దత్తితరు ప్రకాదములనాని పరున్నవి వారి యుష్టముల్.</div>
+        <div class="sanskrit-block">
+          <div class="block-label sans">అనువాదం</div><div class="verse">అచిరోత్పన్న- శిలీన్ధ్రకా ఇవ దరీదృశ్యన్త ఏతా
+ మరౌ పట-సమ్పాదిత-శాలకా
+ ధనపతే-ర్దిగ్భాగగా దూరతః ।
+ పథి ముక్తావణిజాం క్రమేలకగణా
+ హ్యౌదుమ్బరీ-మూల-సఙ్ఘటితా-స్సన్తి నివేశనేషు ససుఖం
+ హ్యాలాన-బద్ధా భృశమ్</div></div></div><div class="entry">
+        <div class="entry-header"><span class="poem-no">పద్యం 20</span></div>
+        <div class="block-label tel">మూలం</div>
+        <div class="verse">ఈయెడార్ల గండుటిుక తిప్పలమీఁది.
+ వెట్టచేతఁ బిగిలి పిల్లలయిన
+ నిప్పుకోడిగ్రుడ్లు నీటికుండలు వారి
+ కొంటెపాఁడి వారి కుగ్గుపాలు.</div>
+        <div class="sanskrit-block">
+          <div class="block-label sans">అనువాదం</div><div class="verse">అణ్డేభ్యో మరుభూమికుక్కటతతేః
+ ఔష్ణ్యస్య హేతోః ర్ద్విధా భిన్నేభ్యో
+ విగతే చ పోతకగణే
+ శిష్టా హి కోశా ఇమే ।
+ జాయన్తే చషకా నిసర్గసులభాః తోయాదిసంసేవనే
+ తేషామౌష్ట్రపయో హి జీవనగతం చాబాల్యసిద్ధం
+ సుఖమ్</div></div></div><div class="entry">
+        <div class="entry-header"><span class="poem-no">పద్యం 21</span></div>
+        <div class="block-label tel">మూలం</div>
+        <div class="verse">పచ్చిపసుపు ముద్దవంటి దేహచ్చాయ.
+ అందమై విశాలమైన నుదురు,
+ కట్టుబొట్టు వాలకముఁజూడ మీరును
+ పారసీకు లనుట స్పష్టపడియె.</div>
+        <div class="sanskrit-block">
+          <div class="block-label sans">అనువాదం</div><div class="verse">హారిద్రపిణ్డసదృశీ వపుషశ్చ కాన్తిః
+ సౌన్దర్యసారవిపులశ్చ లలాటభాగః ।
+ భూషాపటాదిపరిధానవిధిస్త్వదీయః
+ పార్సీకదేశజనిమత్త్వముదాహరన్తి</div></div></div><div class="entry">
+        <div class="entry-header"><span class="poem-no">పద్యం 22</span></div>
+        <div class="block-label tel">మూలం</div>
+        <div class="verse">ఈపుష్పకోమలులతో
+ నీ పర్వతమయవనాళినిట్లొంటరిగా
+ నీ పగిది సిలుఁగులం బడు
+ నోపిక మీ కెట్టు లబ్బెనో ముసలిదొరా !</div>
+        <div class="sanskrit-block">
+          <div class="block-label sans">అనువాదం</div><div class="verse">స్వామిన్ ! లతాన్తసుకుమారవపుర్ధరాభ్యాం
+ ఆభ్యాం సహైవ గిరిగహ్వరమార్గకేఽస్మిన్ ।
+ వృద్ధేన భోః బహుభయఙ్కరదుఃఖమేతత్
+ ఆహ్వాతుమేష హి కుతో విహితః ప్రయాసః</div></div></div><div class="entry">
+        <div class="entry-header"><span class="poem-no">పద్యం 23</span></div>
+        <div class="block-label tel">మూలం</div>
+        <div class="verse">ఎఱుఁగనివారో యనుకొని
+ యెఱిఁగించితి నింతవట్టు నేమేమొ, దొరా !
+ కరుణ న్నను మన్నింపుం
+ డరుగుఁడు ప్రొద్దెక్కె నింక నని పలుకుటయున్.</div>
+        <div class="sanskrit-block">
+          <div class="block-label sans">అనువాదం</div><div class="verse">మత్వా భవన్తమనభిజ్ఞమిహైవ తావత్
+ ఏతావతాహమవదం కిమపి ప్రగల్భమ్ ।
+ క్షన్తవ్య ఏష దయయా నను సాధయేయుః
+ వేలా పరం పరిణతేతి జగాద వన్యః</div></div></div><div class="entry">
+        <div class="entry-header"><span class="poem-no">పద్యం 24</span></div>
+        <div class="block-label tel">మూలం</div>
+        <div class="verse">వాని మృదూక్తినైపుణియు, వాని వినమ్రవిధేయభావమున్,
+ వాని పరోకార నిరవద్యగుణ ప్రతిభావిశేషమున్,
+ వాని శరీరసౌష్ఠవము, వాని భుజార్గళమాంసలత్వ, మిం
+ పైన కృతజ్ఞతార్థకృతులై వెడలెన్ పిరదౌసి వాక్కునన్.</div>
+        <div class="sanskrit-block">
+          <div class="block-label sans">అనువాదం</div><div class="verse">వాణ్యా మార్దవనైపుణీమహితయా
+ నమ్రేణ భావేన చ
+ నిర్వ్యాజైశ్చ పరోపకారకరణప్రజ్ఞానవద్యైర్గుణైః ।
+ శారీరస్య చ సౌష్ఠవేన
+ మహతా చాంసద్వయేనైవ చ
+ సమ్ప్రీతః పిరదౌసిరాహ వచనం
+ కార్తజ్ఞ్యభావోజ్జ్వలమ్</div></div></div><div class="entry">
+        <div class="entry-header"><span class="poem-no">పద్యం 25</span></div>
+        <div class="block-label tel">మూలం</div>
+        <div class="verse">అతనిఁ గౌఁగిలించి ఆనందసంతుష్టి
+ చిన్నతంబు లమృతశీతలములు,
+ గాద్గదికములును, ప్రగాఢ దైన్యంబులు
+ నయిన పల్కులొలయ ననియె నిట్లు.</div>
+        <div class="sanskrit-block">
+          <div class="block-label sans">అనువాదం</div><div class="verse">ఆలిఙ్గ్య తం సపది గాఢమథాహ వాగ్మీ
+ సానన్దబాష్పమసృణాన్యమృతోపమాని ।
+ గాద్గద్యదైన్యభరితాని భయానకాని
+ వాక్యాని సర్వజనమానసదుఃఖదాని</div></div></div><div class="entry">
+        <div class="entry-header"><span class="poem-no">పద్యం 26</span></div>
+        <div class="block-label tel">మూలం</div>
+        <div class="verse">నరులు గడించి పెట్టిన వినాశనసూచకమైన పాప మీ
+ ధరణి కసహ్యమై బహువిధంబుల మూలుగుచున్నదన్న? ఈ
+ శ్వరుని క్రుధావిలోకన దవానలముల్ నినువంటివారికై
+ వెఱచి దహింపకున్న వనిపించే మనంబు నిషాదవల్లభా?</div>
+        <div class="sanskrit-block">
+          <div class="block-label sans">అనువాదం</div><div class="verse">పాపం యత్సముపార్జితం జనతయా
+ లోకస్య వైనాశకం
+ భూమౌ తద్బహుధా బహుత్ర సుమహామానేన భారాయతే ।
+ ఈశస్యాపి దవానలోపమదృశః
+ త్వాదృగ్జనేభ్యో భియా
+ లోకాన్నైవ దహన్తి చేతి
+ హృది మే భావో నిషాదాధిప !</div></div></div><div class="entry">
+        <div class="entry-header"><span class="poem-no">పద్యం 27</span></div>
+        <div class="block-label tel">మూలం</div>
+        <div class="verse">నాదుతనూపటుత్వమును, నా కవితాతపనీయరాశి భూ
+ మీదయితుండొకండు బలిమిగొని నన్ను వధింపఁజూచె, నీ
+ నాదు చరిత్ర విన్నఁగరుణన్ జెమరించు శిలాసహస్రముల్,
+ నీదు మనంబు లేఁత నవనీతము ముందె కరంగెఁ జూపులన్.</div>
+        <div class="sanskrit-block">
+          <div class="block-label sans">అనువాదం</div><div class="verse">గాత్రాణాం పటుతాఞ్చ మే
+ సుకవితాసౌవర్ణకన్యాఞ్చ మే
+ భూమీశః ప్రకటం బలాద్వికరుణం హృత్వా
+ అకరోత్స్వాం మతిమ్ । హన్తుం మాం
+ యది మే కథాఞ్చ శృణుయాత్ పాషాణకోఽపి ద్రవేత్
+ చిత్తం తే నవనీతతుల్యమృదులం
+ దృష్ట్వైవ జాతం ద్రుతమ్</div></div></div><div class="entry">
+        <div class="entry-header"><span class="poem-no">పద్యం 28</span></div>
+        <div class="block-label tel">మూలం</div>
+        <div class="verse">ఈ నరసియున్న తలయును
+ హీనత గనియున్న నేత్రదృష్టియు, వృద్ధం
+ బైన శరీరం బఱువది
+ పైనిఁ బడిన వయసు నాకుఁ బ్రాప్తం బయ్యెన్.</div>
+        <div class="sanskrit-block">
+          <div class="block-label sans">అనువాదం</div><div class="verse">పలితం హి శిరో, దృష్టిః క్షీణా, వృద్ధం శరీరకమ్ ।
+ అతిషష్టి వయశ్చైవ ప్రాప్తం మే దుర్భగో విధిః</div></div></div><div class="entry">
+        <div class="entry-header"><span class="poem-no">పద్యం 29</span></div>
+        <div class="block-label tel">మూలం</div>
+        <div class="verse">ఆ ముసలిపడఁతి నా భా
+ ర్యామణి, యాపడుచు కూఁతు, రయ్య! నేనీ
+ కోమలుల రక్షణార్ధం
+ బే మేను దొఱంగ సంశయింతు నిషాదా!</div>
+        <div class="sanskrit-block">
+          <div class="block-label sans">అనువాదం</div><div class="verse">ఏషా వృద్ధా చ మే పత్నీ, పుత్రీ సా యువతిశ్చ మే ।
+ అనయోః పరిరక్షార్థం దేహ ఏష తు ధార్యతే</div></div></div><div class="entry">
+        <div class="entry-header"><span class="poem-no">పద్యం 30</span></div>
+        <div class="block-label tel">మూలం</div>
+        <div class="verse">ప్రకృతి రహోనభంబున నిరమ్మదముల్ బలె గోచరించి యొ
+ క్కొకపరి యూఱడించి చనుచుండును దేవుని దివ్యలీల లా
+ సకమును జూఱలాడు పరిశుద్ధులు వోయిన త్రోవఁదొక్కి నే ని
+ య కవిడియించుకొందు ధృతిహీన మదీయశరీరభారమున్.</div>
+        <div class="sanskrit-block">
+          <div class="block-label sans">అనువాదం</div><div class="verse">ఏకాన్తే ప్రకృతే రహో వియతి
+ తాః వాయోస్తరఙ్గాః ఇవ
+ ప్రాకట్యం క్వచిదేత్య యాన్తి సుఖదా
+ దేవస్య లీలాః పరాః ।
+ సౌఖ్యం తజ్జనితం వగాహ్య
+ కృతినః శుద్ధాన్తరఙ్గాః
+ పథః యాన్ క్రామన్తి
+ తథైవ తేషు విచరన్ త్యక్ష్యే శరీరం ముదా</div></div></div><div class="entry">
+        <div class="entry-header"><span class="poem-no">పద్యం 31</span></div>
+        <div class="block-label tel">మూలం</div>
+        <div class="verse">నీకుఁగృతజ్ఞుఁడ నయ్యెద
+ నీ కాయం బుండుదనుక నిక సెలవని బా
+ ష్పాకులిత నేత్రయుగళం
+ డై కదలెఁ గవిప్రకాండుఁ డబలలతడన్.</div>
+        <div class="sanskrit-block">
+          <div class="block-label sans">అనువాదం</div><div class="verse">యావద్దేహం కృతజ్ఞోఽస్మి త్వామాపృచ్ఛే సమఙ్గలమ్ ।”
+ ఉక్త్వైవం నిర్యయౌ తాభ్యాం సబాష్పస్సుకవిస్తతః</div></div></div><div class="entry">
+        <div class="entry-header"><span class="poem-no">పద్యం 32</span></div>
+        <div class="block-label tel">మూలం</div>
+        <div class="verse">కనుచూపుమేర వఱక
+ వ్వనాటుఁ డీక్షించి పిదప స్వసదనమునకున్
+ జనియె విషాదముతో న
+ య్యనఘుని దౌర్భాగ్యచరిత మాత్మఁ గలంపన్.</div>
+        <div class="sanskrit-block">
+          <div class="block-label sans">అనువాదం</div><div class="verse">యావద్ దృష్టిప్రసారః స్యాత్ తావద్వీక్ష్య వనేచరః ।
+ నిర్యయౌ స్వగృహం దుఃఖీ కవే ర్దౌర్భాగ్య-పీడితః</div></div></div></div><div class="asvasam-section"><div class="asvasam-title">చతుర్థాశ్వాసము</div><div class="entry">
+        <div class="entry-header"><span class="poem-no">పద్యం 1</span></div>
+        <div class="block-label tel">మూలం</div>
+        <div class="verse">అట గజనీసులతానుని
+ భటాళి పిరదౌసి కవిని బట్టుకొనుటకై
+ చటుల కరవాలకరముం
+ గుటిలముఖం బగుచుఁ గదలె గుఱ్ఱాలపయిన్.</div>
+        <div class="sanskrit-block">
+          <div class="block-label sans">అనువాదం</div><div class="verse">సుల్తానసైన్యాని చ తత్ర జగ్ముః
+ క్రోధేన బద్ధభ్రుకుటీముఖాని ।
+ హస్తే ఝలత్ఖఙ్గచయాని వేగాద్
+ అశ్వైర్నిబద్ధుం పిరదౌసివర్యమ్</div></div></div><div class="entry">
+        <div class="entry-header"><span class="poem-no">పద్యం 2</span></div>
+        <div class="block-label tel">మూలం</div>
+        <div class="verse">ఒక పేదవానిఁ జంపుట
+ కకటా ! ఆశ్వికదళంబులా ! యని పౌరు
+ ల్చకితు లయి చూడఁజని క్ర
+ మ్ము కొనిరి తచ్చూన్యగేహమును రాజభటుల్.</div>
+        <div class="sanskrit-block">
+          <div class="block-label sans">అనువాదం</div><div class="verse">హన్తుం హి కఞ్చిద్విధివఞ్చితం హా !
+ కవిం దరిద్రం హయసైన్యకాని ।
+ ప్రేష్యాణి చాసన్నితి
+ విస్మయేన దృష్టాని
+ శూన్యం గృహమాక్రమంశ్చ</div></div></div><div class="entry">
+        <div class="entry-header"><span class="poem-no">పద్యం 3</span></div>
+        <div class="block-label tel">మూలం</div>
+        <div class="verse">సకుటుంబంబుగఁ బారసీకకవి యూ సౌధంబునందుండి యిం
+ తకు ముందే చనెనన్న వార్తవిని సేనానాయకుండింత చిం
+ తకు లోనై, పనిచెం పటాలమును నానాదిక్కులన్ బ్రోచ్చల
+ ద్భృకుటీఖడ్గనటీకఠోరుఁడయి యూర్పుల్ నిప్పులై క్రాలఁగన్.</div>
+        <div class="sanskrit-block">
+          <div class="block-label sans">అనువాదం</div><div class="verse">పిర్దౌసిః పరివారకేణ సహితో
+ గేహాదముష్మాత్క్వచిత్ కిఞ్చిత్పూర్వమయే ! జగామ
+ వికలః కస్మాద్ధి హేతోరితి ।
+ శ్రుత్వా శఙ్కితమానసో దలపతిః
+ సైన్యాని సమ్ప్రైషయన్నానాదిక్షు
+ ముఖే నటద్భ్రుకుటికః క్రోధానలైర్దీపితః</div></div></div><div class="entry">
+        <div class="entry-header"><span class="poem-no">పద్యం 4</span></div>
+        <div class="block-label tel">మూలం</div>
+        <div class="verse">అల్లన రేఁగి సైంధవ ఖురాహతి భూమిరజంబు లెట్టడా
+ లుల్లెడలై రహింపఁజని యూళులనేళులఁ బక్కణంబులన్
+ జల్లెడ వట్టి చూచి కవి జాడ లెఱుంగక రాజభీతిచే
+ నుల్లము లూఁగగా నిజపురోన్ముఖులైరఫఘన్ భటోత్తముల్</div>
+        <div class="sanskrit-block">
+          <div class="block-label sans">అనువాదం</div><div class="verse">ద్రాగశ్వాహత-ధూలిసఞ్చయ-లస-ద్రక్తాభ-దేహత్రకాః
+ గ్రామం గ్రామమ్ అరణ్యభూమిమఖిలాం
+ సర్వాః పురః పూర్ణతః ।
+ సామర్థ్యేన హి
+ చాలినీ-నయ-మను ప్రేక్ష్యా-కృతార్థాః
+ కవేః పిర్దౌసే ర్గ్రహణే
+ భయేన నృపతే-రుద్విగ్నచిత్తా యయుః</div></div></div><div class="entry">
+        <div class="entry-header"><span class="poem-no">పద్యం 5</span></div>
+        <div class="block-label tel">మూలం</div>
+        <div class="verse">పిరదౌసి యీశ్వరస్తుతి
+ నెఱపిన వనభూమి శత్రునేత్రంబులకున్
+ మఱుఁగు పడియెనొ మతేమో
+ యరిదళమును దొలఁగి నడచె నపమార్గమునన్.</div>
+        <div class="sanskrit-block">
+          <div class="block-label sans">అనువాదం</div><div class="verse">యత్రేశ్వరస్తుతిమగాత్ కవిశేఖరః
+ సా భూమిశ్చ్యుతా రిపుపథాద్
+ విధిహేతుకేన ।
+ రాజ్ఞశ్చమూరనుయయౌ విపరీతమార్గం
+ దేవస్య రక్షణవిధి ర్గహనో విచిత్రః</div></div></div><div class="entry">
+        <div class="entry-header"><span class="poem-no">పద్యం 7</span></div>
+        <div class="block-label tel">మూలం</div>
+        <div class="verse">డిక్కడిన వంటయింటి కుందేటి నొక్క
+ పారసీకునిఁ జేసేత జాఱవిడచి
+ స్వామి కవమతిసేయు లుచ్ఛాలటంచు
+ యవన భూపాలుఁ డెంతయు నాగ్రహించి. 6
+
+ తన దివాణంబుఁ గొలిచి, యబ్దములనుండి
+ కలహములలోన రక్తముఁ జిలుకుచున్న
+ భటులఁ గొందఱఁ గట్టించి బందిచేసె
+ నెఱిఁ గృతజ్ఞత లెఱుఁగదానృపుని యలుక.</div>
+        <div class="sanskrit-block">
+          <div class="block-label sans">అనువాదం</div><div class="verse">దిగ్భ్రాన్తం
+ గృహపాలితం శశశిశుం
+ పార్సీకపౌరం
+ స్వయం సమ్మోచ్యైవ సమాగతా
+ నృపకులా-వజ్ఞా-కరా నీచకాః.”
+ ఇత్యాక్రుశ్య నృపః
+ స్వవాక్యవశగాన్ కోపాత్ కృతఘ్నో భటాన్
+ రక్తం స్రావయతో రణే స్వయశసే
+ కారాగృహేఽపాతయత్</div></div></div><div class="entry">
+        <div class="entry-header"><span class="poem-no">పద్యం 8</span></div>
+        <div class="block-label tel">మూలం</div>
+        <div class="verse">పిరదౌసి కవికి నెవ్వఁడు
+ శరణం బిడు నతఁడు నాకు శాత్రవుఁడగు నం
+ చురు కార్పణ్య మెలర్పఁగఁ
+ బరమానాలిచ్చి చాటఁబనిచె నృపులకున్.</div>
+        <div class="sanskrit-block">
+          <div class="block-label sans">అనువాదం</div><div class="verse">యో దదాత్యాశ్రయం తస్మై కవయే స చ మే రిపుః ।”
+ ఇత్యేవం శాసనం చక్రే దిక్షు సర్వాస్వఘోషయత్</div></div></div><div class="entry">
+        <div class="entry-header"><span class="poem-no">పద్యం 9</span></div>
+        <div class="block-label tel">మూలం</div>
+        <div class="verse">షానామా యను గ్రంథరాజమున కీ క్ష్మాభర్త తా భర్తయై
+ పూనెన్ శాశ్వతమైన కీర్తిమకుటంబునె మౌళి, నేతత్కృతి
+ గ్లానిన్ గుందు మహకవి న్ముదుసలిన్ ఖండింప నుంకించి స
+ మ్మూనించెన్ భళీ ! దొడ్డవాఁడనుచు సంభాషించే దిగ్దేశముల్.</div>
+        <div class="sanskrit-block">
+          <div class="block-label sans">అనువాదం</div><div class="verse">షానామాఖ్యమహాకృతేరయమసౌ భూపోఽభవద్భర్తృకః
+ కీర్తిం శాశ్వతికీమవాప చ తతః
+ తత్కావ్యసంలేఖనాత్ । క్లాన్తం
+ మారయితుం మహాకవివరం సఙ్కల్ప్య సమ్మానయన్
+ జ్యాయానేష విశిష్టభూమిప”
+ ఇతి ప్రోచుస్సమస్తా జనాః</div></div></div><div class="entry">
+        <div class="entry-header"><span class="poem-no">పద్యం 10</span></div>
+        <div class="block-label tel">మూలం</div>
+        <div class="verse">సామంత భూమిపాలుర
+ లో మంచియుఁ జెడ్డ నింత లో దలచు లస
+ ధీమంతులు కొందఱు విని
+ సామోక్తుల వ్రాసి రిట్లు సందేశంబుల్.</div>
+        <div class="sanskrit-block">
+          <div class="block-label sans">అనువాదం</div><div class="verse">సామన్తభూపేషు వివేకవన్తః
+ కేచిన్నృపాః సాధు విమృశ్య వృత్తమ్ ।
+ సామోక్తిభి స్సానునయై ర్వచోభిః
+ సన్దేశ మేవంవిధ మాలిఖన్ వరమ్</div></div></div><div class="entry">
+        <div class="entry-header"><span class="poem-no">పద్యం 11</span></div>
+        <div class="block-label tel">మూలం</div>
+        <div class="verse">గడియించితిరి గదా, కనకరత్న చయంబు
+ ధననాయకునకు దంతములు పులియ,
+ వణకించితిరి గదా, పదియు నెన్మిదిమాఱు
+ లఖిల భారత హరిదష్టకంబు 
+
+అగలించితిరి గదా, హైందవ దేవతా
+ గర్భముల్ రత్నరక్తములు చింద,
+ సృష్టించితిరిగదా, ఇస్లాము మతమును
+ బాపనయ్యల గృహాభ్యంతరముల 
+
+ఇట్టి మీ పేరు మృతిలేని కృతులలోనఁ
+ బొదివి పూజించి యిచ్చిన పుణ్యమూర్తి
+ నమల తపనీయరాశి నోలార్చవలెనొ
+ తెగడి నైరాశ్యమున ముంచి తేల్చవలెనొ ?</div>
+        <div class="sanskrit-block">
+          <div class="block-label sans">అనువాదం</div><div class="verse">సమ్పాదయామాస సువర్ణవజ్రం
+ కుబేరకేఽమర్షభయం వితన్వన్ ।
+ ప్రకమ్పయామాస హి భారతస్య
+ దిగష్టకం వై బహుకృత్వ ఏవ ॥10॥
+
+వినాశయామాస చ మన్దిరాణి
+ సర్వస్వహారం ప్రవిహింస్య హిన్దూన్ ।
+ సంస్థాపయామాస గృహే ద్విజానామ్
+ ఇస్లామధర్మం సబలం సధర్షమ్ ॥ 11॥
+
+తత్తాదృశా యూయమముం కవీన్ద్రం
+ త్వదీయకీర్తే-రమరత్వ-హేతుమ్ ।
+ సువర్ణ-సమ్పూజన-భాజనం కిం
+ కుర్యాత నో ?
+ ప్రత్యుత హన్తుకామాః !</div></div></div><div class="entry">
+        <div class="entry-header"><span class="poem-no">పద్యం 12</span></div>
+        <div class="block-label tel">మూలం</div>
+        <div class="verse">మక్కాలోఁ బయిగంబరుం డగు మహమ్మద్గారి గోరీపయిన్
+ బక్కాకీర్తుల వెల్లవేసిన మహాభక్తా గ్రగణ్యుండవై
+ చిక్కబట్టితివేల ? యొక్కకవి మీచేఁ గోరు ద్రవ్యంబు మీ
+ హూక్కాఖర్చుకు సాటిరాదుగద, రాజోత్తంస ! యోజింపుమా</div>
+        <div class="sanskrit-block">
+          <div class="block-label sans">అనువాదం</div><div class="verse">మక్కాయాం వరమహ్మదస్య వసతిం
+ స్వీయైర్యశస్సఞ్చయైః శ్వేతీకృత్య
+ లసన్-మహాగరిమభా-గ్భక్తో భవంశ్చాపి,
+ కిమ్ । సఙ్కోచం హ్యకరో-రకిఞ్చనకవేః
+ కావ్యాయ మూల్యార్పణే
+ ధీమం-శ్చిన్తయ,
+ తావకీయ-విభవే ‘“హుక్కా’”వ్యయా-న్నాధికమ్</div></div></div><div class="entry">
+        <div class="entry-header"><span class="poem-no">పద్యం 13</span></div>
+        <div class="block-label tel">మూలం</div>
+        <div class="verse">కవి శాశ్వతుఁ డుర్వర నా
+ రవితారముగా వసించు రాజా ! మీరో
+ కవితాకన్యకు పతులా
+ రవితారముగా సహింతురా యపకీర్తుల్.</div>
+        <div class="sanskrit-block">
+          <div class="block-label sans">అనువాదం</div><div class="verse">కవి-ర్భవిష్యత్య-మృతో యశోధనః
+ ప్రజాసు జీవిష్యతి సార్వకాలికమ్ ।
+ కృతేః పతిస్త్వం హ్యపకీర్తిభాజనం
+ సదైవ జీవచ్ఛవవ-ద్భవిష్యసి</div></div></div><div class="entry">
+        <div class="entry-header"><span class="poem-no">పద్యం 14</span></div>
+        <div class="block-label tel">మూలం</div>
+        <div class="verse">దాదాపు నాల్గువందలమంది కవులు గానము సేయు మీ దివాణంబు ఠీవి|
+ ఆల్లాకుఁ బ్రీతి సేయం గాఫరుల మీఁదికుఱుకు మీ కత్తివాదర పసందు|
+సకిలించి శత్రుమత్సరము వెల్లడిచేసి కాల్డ్రవ్యు మీ ఘోటకముల పసరు|
+ పసిఁడి జల్తారు టంబారీల యొఱపునఁ దిరుగు మీ గజముల గరుపతనము||
+సకిలించి శత్రుమత్సరము వెల్లడిచేసి కాల్డ్రవ్యు మీ ఘోటకముల పసరు|
+ పసిఁడి జల్తారు టంబారీల యొఱపునఁ దిరుగు మీ గజముల గరుపతనము||
+
+మా యవనరాజ్యమునకుఁ బూర్ణాయువు లని
+ తలఁచు కొనుచుందు మెపుడు సుల్తాను వృషభ !
+ లలితకళలు విడంబించు నెలవు మీదు
+ నిండుకొలువునఁ గవుల కన్నీరు తగదు.</div>
+        <div class="sanskrit-block">
+          <div class="block-label sans">అనువాదం</div><div class="verse">చతుశ్శతాద-ప్యధికైః కవీన్దైః దీప్తస్య
+ తే రాజకులస్య శోభా।
+ కాఫిర్ విరోధే చల-దుగ్ర-ఖడ్గ-ధారా
+ త్వదీయా విజయైషిణీ చ ॥ 15 ॥
+
+శత్రౌ హ్యమర్షం ప్రకటయ్య
+ హేలాం కుర్వన్ ప్రధావ-ద్భవదశ్వ-లీలా ।
+ సౌవర్ణ-సింహాసన-భూషితానాం
+ మత్తేభకానాం మహితా గతిశ్చ ॥ 16 ॥
+
+అఫ్ఘానరాజ్యస్య యశోవితానే
+ కర్త్ర్ర్యో లసన్తీ-త్యభిభావయామః ।
+ కలాధివాసా భవదీయశాలా
+ తస్యాం కవేరశ్రు న శోభనీయమ్</div></div></div><div class="entry">
+        <div class="entry-header"><span class="poem-no">పద్యం 15</span></div>
+        <div class="block-label tel">మూలం</div>
+        <div class="verse">షానామా గ్రంథమునన్
+ భూనాయక ! మేలిరత్నములు గలవు గదా!
+ వానికినై యఱువది వే
+ ల్దీనారము లీయ వెనుకదీయుట తగవే ?</div>
+        <div class="sanskrit-block">
+          <div class="block-label sans">అనువాదం</div><div class="verse">షానామా గ్రన్థరాజేఽస్మిన్
+ సన్త్యనర్ఘాణి రత్నాని ।
+ తత్కృతే షష్టిసహస్రం
+ దీనారాణి హ్యశోచ్యాని</div></div></div><div class="entry">
+        <div class="entry-header"><span class="poem-no">పద్యం 16</span></div>
+        <div class="block-label tel">మూలం</div>
+        <div class="verse">మీరు కళాపోషకులను
+ కీరితిఁబోనాడఁ దగదు, కృతికన్యక బం
+ గారంబు మణులు గురిసెడు
+ క్ష్మా రాజ్యవధూటికన్నఁ జక్కనిదిగదా ?</div>
+        <div class="sanskrit-block">
+          <div class="block-label sans">అనువాదం</div><div class="verse">కలాపోషక ఇత్యేత-ద్యశః స్యాదవినశ్వరమ్ ।
+ కృతికన్యా స్వర్ణదాయాః క్ష్మాకన్యాయా వరీయసీ</div></div></div><div class="entry">
+        <div class="entry-header"><span class="poem-no">పద్యం 17</span></div>
+        <div class="block-label tel">మూలం</div>
+        <div class="verse">ఆ వాక్యములు ధరాపతి
+ భావమునకు నచ్చి క్రోధభారచ్యుతుఁడై
+ కేవల పండితగోష్ఠిం
+ దా వర్ష త్రయము గడపెఁదా నస్థిరతన్</div>
+        <div class="sanskrit-block">
+          <div class="block-label sans">అనువాదం</div><div class="verse">వాక్యాని తాని నృపతేర్జాతాన్యభిమతార్థాని ।
+ నిష్క్రోధస్సన్ వ్యతీయాయ
+ గోష్ట్యాం తిస్రః సమాః కవేః</div></div></div><div class="entry">
+        <div class="entry-header"><span class="poem-no">పద్యం 18</span></div>
+        <div class="block-label tel">మూలం</div>
+        <div class="verse">కవులు కలకంఠ బహు కుహూకార మధుర
+ భావగుంభిత కవిత చెప్పం దొడఁగిరి
+ పండితులు తదంచిత రసాస్వాదనంబుఁ
+ జేసి సోత్సాహులై విమర్శించుచుండ్రి.</div>
+        <div class="sanskrit-block">
+          <div class="block-label sans">అనువాదం</div><div class="verse">కవయశ్చక్రిరే కావ్యం రసభావతరఙ్గితమ్ ।
+ పణ్డితాస్తద్వివృణ్వన్తో రాజానం బహ్వ-మానయన్</div></div></div><div class="entry">
+        <div class="entry-header"><span class="poem-no">పద్యం 19</span></div>
+        <div class="block-label tel">మూలం</div>
+        <div class="verse">ఒక కవీశ్వరుని కైతకు మెచ్చుకొని నోటి
+ నిండ మాణిక్యము ల్నింపినాఁడు.
+ ఒక పండితుని విమర్శకుఁ జిత్తముప్పొంగఁ
+ గనకచేలంబులు గప్పినాఁడు.
+
+ఒక్క గాయకుని పాటకు మేను పులకింప
+ దోసిట ముత్యాలు పోసినాఁడు
+ ఒక యాట వెలఁది యాటకు సెబా సనిపల్కి
+ కొంగున వరహాలు గురిసినాఁడు
+
+ఏమి చెప్పుదు నిత్యసంతృప్తిఁ దేల్చి
+ విపుల వాఙ్మయ సేవ గావించినాఁడు
+ దానవలయంబు లిరుగేలఁ దాల్చినాఁడు.
+ పిరదవుసి నేమొ పూర్తిగా మఱచినాఁడు</div>
+        <div class="sanskrit-block">
+          <div class="block-label sans">అనువాదం</div><div class="verse">కస్యాపి కావ్యం రుచిరం విభావ్య
+ సమ్పూరయామాస ముఖం సురత్నైః ।
+ కస్యాపి టీకాం మహితాం విచిన్త్య
+ సౌవర్ణచేలేన సమార్చయత్తమ్ ॥ 22 ॥
+
+కస్యాపి గానేన హృతో విదూరం
+ ముక్తాభిషేకం విదధౌ రసజ్ఞః ।
+ నాట్యప్రకర్ష హ్యభినన్ద్య దాస్యాః
+ చేలాఞ్చలే స్వర్ణచయం వవర్ష ॥ 23 ॥
+
+వాచస్సపర్యాం వివిధాం విధాయ
+ సన్తోష్య లోకం కవిపణ్డితానామ్ ।
+ హస్తే దధౌ దాన-విభూషణాని
+ పిర్దౌసి-గాథా-స్మరణం న చక్రే</div></div><div class="discussion"><div class="discussion-label">చర్చ (1)</div><div class="reply "><div class="reply-sender">Kutumba Sastry Vempaty</div>
+      <div class="reply-text">ఇదిగోనండి తెలుగులిపిలో. టంకణదోషాలకు కుటుంబశాస్త్రిగారికి క్షమాపణలతో…🙏 
+కస్మింశ్చిద్వాసరే ప్రాత
+ రర్ధోన్మీలితసూర్యకే
+ కూజచ్ఛకున్త సంతానే
+ శయ్యాం త్యక్త్వా మహీపతిః  - 25
+ నిర్వర్త్య కాల్యం పరిధాయ చేలం
+ మస్జీదకేఽల్లాం ప్రణిపత్య భక్త్యా
+ దదర్శ భిత్తౌ పిరదౌసిపద్యం
+ నైరాశ్యపూర్ణం కవి దుఃఖవృత్తమ్  - 26
+ దేహో జర్జరతాం గతోఽస్తి చ మహాకావ్యస్య సమ్పాదనాద్
+ అస్థ్నాం చాపి చయోఽస్తి జీవలవ-సఞ్చారేణ డోలాయితః
+ కిం ప్రీత్యై ప్రభవేత్ మహమ్మద-మహాఖడ్గాఖ్య-దేవ్యై చ త-
+ ద్దేహో మేఽర్ధమృతస్య? కిం పరిభవో హ్యన్తం సమేయాదితః - 27
+ ముక్తానాం ప్రభవే మహోదధి-తలే భూయో న్యమజ్జం భృశం,
+ నిర్భాగ్యో, న మయా కదాచిదథ సా ముక్తా సమాసాదితా
+ అన్తే వ్యాత్త-కరాల-వీచి-వదనో-ఽమ్భోధిః ప్రవృత్తో ను మాం
+ నిశ్శేషం గరితుం, భవామి గహనే లీనో ఽన్ధకారే ఽధునా - 28
+ ప్రత్యక్షరేఽశ్రుదం హ్యోతద్
+ యుగ్మం పద్యస్య భూపతేః
+ మానసం వనజావాసం
+ వాత్యేవా క్షోభయద్భృశమ్ - 29
+ పార్సీకాయ కవీశ్వరాయ వచసా దత్తం సువర్ణం మహత్
+ కర్పాసస్య చ గోణికాసు సుదృఢం బద్ధ్వా ఉష్ట్రషట్కే ముదా
+ విన్యస్యాతిసమర్థోయోద్ధృవశగం కృత్వా నృపః ప్రైషయద్
+ దాతుం సత్కవిశేఖరాయ సుధియాం చేతస్సుఖం దీపయన్ - 30
+ పిరదౌసిస్తు జరాక్రాంతో
+ వ్యాధిభిః పీడితో భృశమ్
+ దారిద్ర్యదుఃఖసంతప్తః
+ కథమప్యన యత్సమాః  - 31
+ వివాహయోగ్యయా పుత్ర్యా
+ పత్న్యా నైరాశ్యదీనయా
+ సేవ్యమానో యథాశక్తి
+ దైవాద్దేహం జహౌ కవిః - 32
+ యావదేవ కవిర్దేహః
+ శ్మశానం ప్రాపితో జనైః
+ తావదేవ నిధిర్గేహం
+ గహనా నియతేర్గతిః - 33
+ యోఽసౌ మే పితురా మృతేర్వ్యథయితా దుస్స్వాపతేయః శరో
+ వహ్నేః మే న హి రోచతే ధనచయో దూరేఽస్య సంస్పర్శనమ్
+ వృద్ధం మే పితరం దయార్ద్రహృదయం పాతుం ప్రవృత్తాయ వో
+ రాజ్ఞే సంతు నమాంసి కోటిశ ఇతి బ్రూయాత్ (?) మత్పక్షతః - 34
+ యథా ద్రవేయుః కులపర్వతాశ్చ
+ వాచాంసి శోకస్య తథాఽబ్రవీత్సా
+ సుతా కవే ర్యౌవనమార్దవేన
+ స్ఫురద్రసస్నిగ్ధగలేన ధీరం - 35
+ సుల్తానస్య భటా ధనాని గజనీం ప్రాపయ్య దుఃఖప్రదమ్
+ పిరదౌసేర్మరణం నృపాయ విధివద్ వ్యాజ్ఞాపయంస్తద్వచః
+ రాజా స్వస్య వివేకశూన్యధిషణాం కార్తఘ్న్యపాపోచ్చయమ్
+ మత్వా స్వే హృది వజ్రపాతసదృశం దుఃఖం చ లజ్జాం దధౌ - 36
+ సభాం సమా ప్యాశ్రుపరీతనేత్రే
+ వేగేన గత్వా శయనం ప్రవిశ్య
+ ద్వారం పిధాయాథ కవిం విచిన్త్య
+ స్వాత్మానమేవం బహుధా నినింద - 37
+ హా! రే! కృతఘ్నవినిమజ్జ భవౌఘజాలే
+ గాన్ధారదేశవరకావ్యకలాప్రపంచే
+ సర్వోత్తమేన పరలోకసుఖం హి నష్టం
+ ప్రేతాత్మలో విచర భూమితలే చ శశ్వత్ - 38
+ న్యాయచ్యుతః ప్రలయనాట్కదృశ్యమేతత్
+ సాక్షాదపశ్యః ఇహ రాజకులేఽవసన్నః
+ శ్రీపౌరుషేయగరిమాఽఽధృతరాజవంశే
+ దుష్కీర్తిరేవ మృతిహీనకలంకరూపః - 39
+ కామం భవంతు శతశః కవయశ్చ పూజ్యాః
+ కావ్యక్రియాకుశలినో నను పండితాశ్చ
+ పిర్దౌసివాగ్గతరసానుభవస్తు మృగ్యః
+ ప్రచ్యావితం ను వరహీరకమత్ర నూనమ్ - 40
+ పశ్చాతప్తో నృపో హ్యేవం
+ ఋణనిర్యాతనం కవిః
+ సంకల్ప ధర్మశాలాం తన్నామ్నా
+ ‘దూసౌ’ వినిర్మమే - 41
+ అద్యాపి దృశ్యాః శిథిలావశేషాః
+ నేత్రాశ్రు ముంచంతి చ యత్ర పౌరాః
+ మాహమ్మదాయ ప్రభవేఽయశశ్చ
+ కీర్తిశ్చ నిత్యా సమభూత్ కవేశ్చ - 42
+ గజనీపట్టణవీథిపంక్తిషు సదా సప్రాణకంకాలకం
+ నృపతేః రాత్రిషు సంచరత్ వితనుతే చార్తధ్వనిం  భీకరమ్
+ నగరే తత్ర జనా వదంతి సతతం గాథామిమామ్ దన్తగాం
+ వృజినం కిం విఫలం భవేత్తనుభృతాం  దేహస్య పాతాత్ కృతమ్ - 43</div></div></div></div><div class="entry">
+        <div class="entry-header"><span class="poem-no">పద్యం 20</span></div>
+        <div class="block-label tel">మూలం</div>
+        <div class="verse">కం. ఒక వాసరముఖమున నిం|
+చుకయించుక కన్ను విచ్చి సూర్యుని కిరణ|
+ ప్రకరములు ప్రాఙ్ముఖంబున|
+ వికసించెడువేళఁ గాకి ప్రేలెడు వేళన్</div>
+        <div class="sanskrit-block">
+          <div class="block-label sans">అనువాదం</div><div class="verse">కస్మింశ్చిద్వాసరే ప్రాత
+ రర్ధోన్మీలితసూర్యకే
+ కూజచ్ఛకున్త సంతానే
+ శయ్యాం త్యక్త్వా మహీపతిః  -</div></div></div><div class="entry">
+        <div class="entry-header"><span class="poem-no">పద్యం 21</span></div>
+        <div class="block-label tel">మూలం</div>
+        <div class="verse">ఉ. పానుపు డిగ్గి, మేలివలిపంబును గట్టి పదాల జాళువా|
+ మానికపుంజడావుల నమర్చి మసీదున కేఁగి భక్తిన|
+ ల్లాను భజించి వచ్చుచు నిలాతలనాథుడుఁ గాంచె భిత్తికా|
+ ధానము బాష్పహేతుక కథానక మప్పిరదౌసి పద్యమున్</div>
+        <div class="sanskrit-block">
+          <div class="block-label sans">అనువాదం</div><div class="verse">నిర్వర్త్య కాల్యం పరిధాయ చేలం
+ మస్జీదకేఽల్లాం ప్రణిపత్య భక్త్యా
+ దదర్శ భిత్తౌ పిరదౌసిపద్యం
+ నైరాశ్యపూర్ణం కవి దుఃఖవృత్తమ్  -</div></div></div><div class="entry">
+        <div class="entry-header"><span class="poem-no">పద్యం 22</span></div>
+        <div class="block-label tel">మూలం</div>
+        <div class="verse">చ. కృతి యొక బెబ్బులింబలె శరీరపటుత్వము నాహరింప శే|
+షితముగు నస్థిపంజరము జీవలవంబున నూఁగులాడఁగా|
+ బ్రతికియుఁజచ్చియున్న ముదివగ్గు మహమ్మదుగారి ఖడ్లదే|
+ వతకు రుచించునా? పరిభవవ్యథ యింతట నంతరించునా?</div>
+        <div class="sanskrit-block">
+          <div class="block-label sans">అనువాదం</div><div class="verse">దేహో జర్జరతాం గతోఽస్తి చ మహాకావ్యస్య సమ్పాదనాద్
+ అస్థ్నాం చాపి చయోఽస్తి జీవలవ-సఞ్చారేణ డోలాయితః
+ కిం ప్రీత్యై ప్రభవేత్ మహమ్మద-మహాఖడ్గాఖ్య-దేవ్యై చ త-
+ ద్దేహో మేఽర్ధమృతస్య? కిం పరిభవో హ్యన్తం సమేయాదితః -</div></div></div><div class="entry">
+        <div class="entry-header"><span class="poem-no">పద్యం 23</span></div>
+        <div class="block-label tel">మూలం</div>
+        <div class="verse">తే.ముత్యముల కిక్కయైన సముద్రమునను|
+ బెక్కుమాఱులు మున్కలు వేసినాఁడ|
+ భాగ్యహీనుఁడ ముత్యంబు వడయనైతి;|
+ వనధి నను మ్రింగ నోరు విచ్చినది తుదకు</div>
+        <div class="sanskrit-block">
+          <div class="block-label sans">అనువాదం</div><div class="verse">ముక్తానాం ప్రభవే మహోదధి-తలే భూయో న్యమజ్జం భృశం,
+ నిర్భాగ్యో, న మయా కదాచిదథ సా ముక్తా సమాసాదితా
+ అన్తే వ్యాత్త-కరాల-వీచి-వదనో-ఽమ్భోధిః ప్రవృత్తో ను మాం
+ నిశ్శేషం గరితుం, భవామి గహనే లీనో ఽన్ధకారే ఽధునా -</div></div></div><div class="entry">
+        <div class="entry-header"><span class="poem-no">పద్యం 24</span></div>
+        <div class="block-label tel">మూలం</div>
+        <div class="verse">క.ప్రత్యక్షరమున నశ్రుల్|
+ ప్రత్యక్షము సేయుచున్న పద్యయుగము పె|
+ న్వాత్య యగుచుఁగలఁచెన్ భూ|
+ పత్యగ్రణిహృదయ మనెడు వనజాకరమున్</div>
+        <div class="sanskrit-block">
+          <div class="block-label sans">అనువాదం</div><div class="verse">ప్రత్యక్షరేఽశ్రుదం హ్యోతద్
+ యుగ్మం పద్యస్య భూపతేః
+ మానసం వనజావాసం
+ వాత్యేవా క్షోభయద్భృశమ్ -</div></div></div><div class="entry">
+        <div class="entry-header"><span class="poem-no">పద్యం 25</span></div>
+        <div class="block-label tel">మూలం</div>
+        <div class="verse">చ.ఏలిక పారసీకునకు నిచ్చెద నన్న పసిండి నూఱుబ|
+ స్తాలకుఁబట్టి యొంటియలషట్కముపై నిడి వీరులైన ము|
+ ల్లాలపరంబు చేసి,పదిలంబుగ సత్కవి కప్పగింపుఁడం|
+ చోలి ననుజ్ఞఁ జేసెఁ బురినున్న సుధీమణు లుల్లసిల్లఁగన్</div>
+        <div class="sanskrit-block">
+          <div class="block-label sans">అనువాదం</div><div class="verse">పార్సీకాయ కవీశ్వరాయ వచసా దత్తం సువర్ణం మహత్
+ కర్పాసస్య చ గోణికాసు సుదృఢం బద్ధ్వా ఉష్ట్రషట్కే ముదా
+ విన్యస్యాతిసమర్థోయోద్ధృవశగం కృత్వా నృపః ప్రైషయద్
+ దాతుం సత్కవిశేఖరాయ సుధియాం చేతస్సుఖం దీపయన్ -</div></div></div><div class="entry">
+        <div class="entry-header"><span class="poem-no">పద్యం 26</span></div>
+        <div class="block-label tel">మూలం</div>
+        <div class="verse">క.అట పిరదౌసికవియు న|
+ ప్పటికొక యేఁడాది నుండి పరిపూర్ణ జర౯|
+ జటులామయపీడితుఁడై|
+ కటకటఁబడుచుండెఁ బేదకాఁపురపు సిరిన్</div>
+        <div class="sanskrit-block">
+          <div class="block-label sans">అనువాదం</div><div class="verse">పిరదౌసిస్తు జరాక్రాంతో
+ వ్యాధిభిః పీడితో భృశమ్
+ దారిద్ర్యదుఃఖసంతప్తః
+ కథమప్యన యత్సమాః  -</div></div></div><div class="entry">
+        <div class="entry-header"><span class="poem-no">పద్యం 27</span></div>
+        <div class="block-label tel">మూలం</div>
+        <div class="verse">తే.పెండ్లి కెదిగిన కూఁతురు ప్రియవధూటి|
+ చింతచే డస్సి బిట్టు కృశించి కుమిలి|
+చేతనయిన సపర్యలు సేయుచుండఁ|
+ దనువు చాలించె నేమందు దైవఘటన!</div>
+        <div class="sanskrit-block">
+          <div class="block-label sans">అనువాదం</div><div class="verse">వివాహయోగ్యయా పుత్ర్యా
+ పత్న్యా నైరాశ్యదీనయా
+ సేవ్యమానో యథాశక్తి
+ దైవాద్దేహం జహౌ కవిః -</div></div></div><div class="entry">
+        <div class="entry-header"><span class="poem-no">పద్యం 28</span></div>
+        <div class="block-label tel">మూలం</div>
+        <div class="verse">తే.నుకవి దేహంబు ప్రేతభూమికి లభింప|
+ అర్థ మప్పుడె శూన్యగేహమును జేరె,|
+ నిమిషభేదంబు నడుమ సంధింపఁబడిన|
+ ఈ రహస్యంబుఁ గనుగొన నెవరితరము?</div>
+        <div class="sanskrit-block">
+          <div class="block-label sans">అనువాదం</div><div class="verse">యావదేవ కవిర్దేహః
+ శ్మశానం ప్రాపితో జనైః
+ తావదేవ నిధిర్గేహం
+ గహనా నియతేర్గతిః -</div></div></div><div class="entry">
+        <div class="entry-header"><span class="poem-no">పద్యం 29</span></div>
+        <div class="block-label tel">మూలం</div>
+        <div class="verse">మ.ఇది నాతండ్రిని కష్టపెట్టిన శరం బీ స్వాపతేయంబు ము|
+ ట్టుదునా, నాజనకుండు కంటఁదడిఁ బెట్టున్ స్వర్గమందుండి, నా|
+ ముదితండ్రిన్ దయతోడ నేలిన నవాబుండైన మీస్వామికి౯|
+ బదివేలంజలు లంచుఁబల్కుఁ డని బాష్పస్విన్న దుఃఖాస్యయై</div>
+        <div class="sanskrit-block">
+          <div class="block-label sans">అనువాదం</div><div class="verse">యోఽసౌ మే పితురా మృతేర్వ్యథయితా దుస్స్వాపతేయః శరో
+ వహ్నేః మే న హి రోచతే ధనచయో దూరేఽస్య సంస్పర్శనమ్
+ వృద్ధం మే పితరం దయార్ద్రహృదయం పాతుం ప్రవృత్తాయ వో
+ రాజ్ఞే సంతు నమాంసి కోటిశ ఇతి బ్రూయాత్ (?) మత్పక్షతః -</div></div></div><div class="entry">
+        <div class="entry-header"><span class="poem-no">పద్యం 30</span></div>
+        <div class="block-label tel">మూలం</div>
+        <div class="verse">క.కులగిరులు గరఁగి పోయెడు|
+ పలుకులు దైన్యంబు చిందిపడఁబలికె నొగి౯|
+ చెలువమున వెలయు కవిసుత|
+యెలఁబ్రాయపుటింపు విడని మృదుకంఠార్తిన్</div>
+        <div class="sanskrit-block">
+          <div class="block-label sans">అనువాదం</div><div class="verse">యథా ద్రవేయుః కులపర్వతాశ్చ
+ వాచాంసి శోకస్య తథాఽబ్రవీత్సా
+ సుతా కవే ర్యౌవనమార్దవేన
+ స్ఫురద్రసస్నిగ్ధగలేన ధీరం -</div></div></div><div class="entry">
+        <div class="entry-header"><span class="poem-no">పద్యం 31</span></div>
+        <div class="block-label tel">మూలం</div>
+        <div class="verse">చ. ధనము మరల్చుకొంచు సులతానుభటుల్‌ గజనీకిఁ బోయి య|
+ య్యనఘుని దుఃఖవార్తను మహమ్మదుగారికి విన్నవించినన్ |
+ దన యవివేకమున్ దనకృతఘ్నతయున్, గవికీర్తిశేషుఁడై|
+ చనుటయు, వజ్రఘాతముల చందమునన్ గలచెన్ హృదబ్జమున్‌</div>
+        <div class="sanskrit-block">
+          <div class="block-label sans">అనువాదం</div><div class="verse">సుల్తానస్య భటా ధనాని గజనీం ప్రాపయ్య దుఃఖప్రదమ్
+ పిరదౌసేర్మరణం నృపాయ విధివద్ వ్యాజ్ఞాపయంస్తద్వచః
+ రాజా స్వస్య వివేకశూన్యధిషణాం కార్తఘ్న్యపాపోచ్చయమ్
+ మత్వా స్వే హృది వజ్రపాతసదృశం దుఃఖం చ లజ్జాం దధౌ -</div></div></div><div class="entry">
+        <div class="entry-header"><span class="poem-no">పద్యం 32</span></div>
+        <div class="block-label tel">మూలం</div>
+        <div class="verse">తే.కొలువు చాలించి, కన్నీరు గ్రుక్కుకొనుచు|
+ బిరబిరంబోయి శయన మందిరముఁజొ‌చ్చి|
+ ద్యారములు మూసికొని, కవీశ్వరునిఁదలఁచు|
+ కొనుచుఁదనుఁదాను నిందించుకొనఁ దొడంగె</div>
+        <div class="sanskrit-block">
+          <div class="block-label sans">అనువాదం</div><div class="verse">సభాం సమా ప్యాశ్రుపరీతనేత్రే
+ వేగేన గత్వా శయనం ప్రవిశ్య
+ ద్వారం పిధాయాథ కవిం విచిన్త్య
+ స్వాత్మానమేవం బహుధా నినింద -</div></div></div><div class="entry">
+        <div class="entry-header"><span class="poem-no">పద్యం 33</span></div>
+        <div class="block-label tel">మూలం</div>
+        <div class="verse">ఉ. ఓయి కృతఘ్నుఁడా, భవమహోదధిలోనిఁకఁ దేలియాడు మా|
+ హా! యఫఘన్ ధరాతలము నంతయుఁగావ్యసుధా స్రవంతిలో|
+ హాయిగ నోలలార్చిన మహామహుఁడౌ పిరదౌసి తోడ స్వ|
+ ర్గీయసుఖంబు నీకుఁదొలగెన్ మనుపీనుఁగవై చరింపుమా!</div>
+        <div class="sanskrit-block">
+          <div class="block-label sans">అనువాదం</div><div class="verse">హా! రే! కృతఘ్నవినిమజ్జ భవౌఘజాలే
+ గాన్ధారదేశవరకావ్యకలాప్రపంచే
+ సర్వోత్తమేన పరలోకసుఖం హి నష్టం
+ ప్రేతాత్మలో విచర భూమితలే చ శశ్వత్ -</div></div></div><div class="entry">
+        <div class="entry-header"><span class="poem-no">పద్యం 34</span></div>
+        <div class="block-label tel">మూలం</div>
+        <div class="verse">ఉ.న్యాయము దప్పి యీ ప్రళయ నాటక దృశ్యముఁజూచినాఁడ వీ|
+ కాయ మిఁకేల భూపతి నికాయమునం దలయెత్తఁజాలుదే?
+ శ్రీయును బౌరుషంబును బ్రసిద్ధియునుం గల రాజవంశమం|
+ దీయపకీర్తి చుట్టుకొనియెన్ జరలేని కృతిస్వరూపమై</div>
+        <div class="sanskrit-block">
+          <div class="block-label sans">అనువాదం</div><div class="verse">న్యాయచ్యుతః ప్రలయనాట్కదృశ్యమేతత్
+ సాక్షాదపశ్యః ఇహ రాజకులేఽవసన్నః
+ శ్రీపౌరుషేయగరిమాఽఽధృతరాజవంశే
+ దుష్కీర్తిరేవ మృతిహీనకలంకరూపః -</div></div></div><div class="entry">
+        <div class="entry-header"><span class="poem-no">పద్యం 35</span></div>
+        <div class="block-label tel">మూలం</div>
+        <div class="verse">మ. మురువున్ గూర్చు ప్రబంధ కావ్యరచనా పూజ్యుల్‌ విపశ్చిద్దినే|
+ శ్యరులున్నారు చతుశ్శతాధికముగా పాండిత్యముల్‌ సూపుచున్|
+ పిరదౌనీకవి వాక్కునం గల రసావిర్భూతి గన్పట్టునే?
+ వరహీరంబును గాల దన్నుకొను నిర్భాగ్యుం డెవండుర్వరన్</div>
+        <div class="sanskrit-block">
+          <div class="block-label sans">అనువాదం</div><div class="verse">కామం భవంతు శతశః కవయశ్చ పూజ్యాః
+ కావ్యక్రియాకుశలినో నను పండితాశ్చ
+ పిర్దౌసివాగ్గతరసానుభవస్తు మృగ్యః
+ ప్రచ్యావితం ను వరహీరకమత్ర నూనమ్ -</div></div></div><div class="entry">
+        <div class="entry-header"><span class="poem-no">పద్యం 36</span></div>
+        <div class="block-label tel">మూలం</div>
+        <div class="verse">క.అని పశ్చాత్తప్తుండై|
+ వనరి యతని పేరఁదూసుపట్టణమున జ|
+ క్కని సత్రశాల గట్టిం|
+ చె నవాబుఁడు కవిఋణంబు చెల్లింపంగన్</div>
+        <div class="sanskrit-block">
+          <div class="block-label sans">అనువాదం</div><div class="verse">పశ్చాతప్తో నృపో హ్యేవం
+ ఋణనిర్యాతనం కవిః
+ సంకల్ప ధర్మశాలాం తన్నామ్నా
+ ‘దూసౌ’ వినిర్మమే -</div></div></div><div class="entry">
+        <div class="entry-header"><span class="poem-no">పద్యం 37</span></div>
+        <div class="block-label tel">మూలం</div>
+        <div class="verse">తే. దాని శైథిల్యములు నేఁడుఁ గానబడును;|
+ పారసీకులు చూచి కన్నీరు విడుతు|
+ రట! మహమ్మదుగారికి నపయశంబు,
+ నిండు సత్కీర్తి కవికిని నిలిచిపోయె</div>
+        <div class="sanskrit-block">
+          <div class="block-label sans">అనువాదం</div><div class="verse">అద్యాపి దృశ్యాః శిథిలావశేషాః
+ నేత్రాశ్రు ముంచంతి చ యత్ర పౌరాః
+ మాహమ్మదాయ ప్రభవేఽయశశ్చ
+ కీర్తిశ్చ నిత్యా సమభూత్ కవేశ్చ -</div></div></div><div class="entry">
+        <div class="entry-header"><span class="poem-no">పద్యం 38</span></div>
+        <div class="block-label tel">మూలం</div>
+        <div class="verse">మ. గజనీపట్టణ వీధులన్ నృపుని కంకాళంబు సప్రాణమై,|
+ రజనీమధ్యములందు గ్రుమ్మరుచు నార్తధ్వానముల్‌ సేయునం|
+ చు జనశ్రేణి వచించుచుండు, నవునౌ క్షోణీస్థలిన్ వీడినన్|
+ వృజినం బూరకపోవునే?నరుని శాంతిజ్యోతి జల్లార్చదే?</div>
+        <div class="sanskrit-block">
+          <div class="block-label sans">అనువాదం</div><div class="verse">గజనీపట్టణవీథిపంక్తిషు సదా సప్రాణకంకాలకం
+ నృపతేః రాత్రిషు సంచరత్ వితనుతే చార్తధ్వనిం  భీకరమ్
+ నగరే తత్ర జనా వదంతి సతతం గాథామిమామ్ దన్తగాం
+ వృజినం కిం విఫలం భవేత్తనుభృతాం  దేహస్య పాతాత్ కృతమ్ -</div></div></div></div></body></html>
