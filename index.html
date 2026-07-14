@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="te">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>పిరదౌసి — కావ్యపఠనం</title>
+<meta name="theme-color" content="#171d2b">
+<meta name="description" content="గుర్రం జాషువా పిరదౌసి కావ్యం — తెలుగు మరియు సంస్కృత పఠనం">
+<link rel="manifest" href="manifest.json">
+<link rel="icon" href="icon-192.png">
+<link rel="apple-touch-icon" href="icon-192.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Ramabhadra&family=Noto+Sans+Telugu:wght@400;500;600;700&family=Noto+Serif+Telugu:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<div class="topbar">
+  <div class="title-block">
+    <span class="kav">పిరదౌసి</span>
+    <span class="sub">జాషువా కావ్యపఠనం</span>
+  </div>
+  <div class="version-toggle" id="versionToggle">
+    <button data-version="telugu" class="active">తెలుగు</button>
+    <button data-version="sanskrit">సంస్కృతం</button>
+  </div>
+</div>
+
+<div class="progress-row">
+  <div class="progress-meta">
+    <span id="progressLabel">పుట 1 / 1</span>
+    <span id="asvasamLabel">—</span>
+  </div>
+  <div class="progress-track"><div class="progress-fill" id="progressFill"></div></div>
+</div>
+
+<div class="stage" id="stage">
+  <div class="card-wrap" id="cardWrap">
+    <div class="card" id="card">
+      <!-- rendered by JS -->
+    </div>
+  </div>
+</div>
+
+<div class="footer-nav">
+  <button class="nav-btn-footer" id="prevBtn" aria-label="previous">‹ వెనుక</button>
+  <button class="clear-bookmark-btn" id="clearBookmarkBtn">బుక్‌మార్క్<br>తొలగించు</button>
+  <button class="nav-btn-footer" id="nextBtn" aria-label="next">తరువాత ›</button>
+</div>
+
+<div id="resumeBanner" class="resume-banner" style="display:none;">
+  <span id="resumeText" class="resume-text"></span>
+  <div class="resume-actions">
+    <button class="dismiss" id="resumeDismissBtn">వద్దు</button>
+    <button id="resumeGoBtn">కొనసాగించు</button>
+  </div>
+</div>
+
+<div class="toast" id="toast"></div>
+
+<script src="firdowsi.js"></script>
+<script src="telugu2sanskrit.js"></script>
+<script src="app.js"></script>
+<script>
+  if("serviceWorker" in navigator){
+    window.addEventListener("load", () => {
+      navigator.serviceWorker.register("service-worker.js").catch(() => {});
+    });
+  }
+</script>
+</body>
+</html>
